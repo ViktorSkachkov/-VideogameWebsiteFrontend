@@ -1,31 +1,22 @@
 import {useNavigate} from "react-router-dom";
 import '../css/VideogameCardAdmin.css';
-import axios from "axios";
+import {GamesAPI} from "../API_access/GamesAPI";
 import {useState} from "react";
-import Cookies from "universal-cookie";
 
 const VideogameCardAdmin = (videogame) => {
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     let navigate = useNavigate();
 
-    const cookies = new Cookies();
-    const token = cookies.get("accessToken");
-
     function deleteGame(id) {
-        var config = {
-            method: "delete",
-            url: `http://localhost:8080/videogames/${id}`,
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
-        };
-        axios(config)
-            .then(function (response) {
+        GamesAPI.delete(id, token).then(
+            function (response) {
                 alert('Videogame successfully deleted!');
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     }
 
     return (

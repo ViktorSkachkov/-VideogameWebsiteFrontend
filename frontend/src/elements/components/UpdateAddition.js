@@ -3,6 +3,7 @@ import axios from "axios";
 import {useParams} from "react-router-dom";
 import Cookies from "universal-cookie";
 import UpdateAdditionDisplay from "../display/UpdateAdditionDisplay";
+import {AdditionsAPI} from "../API_access/AdditionsAPI";
 
 const UpdateAddition = (loggedUser) => {
     const [gameId, setGameId] = useState();
@@ -10,36 +11,29 @@ const UpdateAddition = (loggedUser) => {
     const [name, setName] = useState();
     const [price, setPrice] = useState();
     const [description, setDescription] = useState();
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+
     let params = useParams();
     const id = params.id;
-
-    const cookies = new Cookies();
-    const token = cookies.get("accessToken");
 
     useEffect(() => {
         getAddition();
     }, []);
 
     const getAddition = () => {
-        var config = {
-            method: "get",
-            url: `http://localhost:8080/additions/${id}`,
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
-        };
-        axios(config)
-            .then(function (response) {
+        AdditionsAPI.getById(id, token).then(
+            function (response) {
                 let {description, price, name, image, gameId} = response.data;
                 setName(name);
                 setImage(image);
                 setPrice(price);
                 setDescription(description);
                 setGameId(gameId);
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     };
     const onChangeDescription = event => {
         setDescription(event.target.value);
@@ -59,30 +53,23 @@ const UpdateAddition = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        };
-        const bodyParams = {
+
+        let data = {
             "id": id,
             "gameId": gameId,
             "image": image,
             "description": description,
             "price": price,
             "name": name,
-        };
-        axios.put(
-            `http://localhost:8080/additions`,
-            bodyParams,
-            config
-        )
-            .then(function (response) {
-                /*let mealName = response.data.mealName;
-                navigate(`/successfullyUpdatedMeal/${mealName}`);*/
+        }
+        AdditionsAPI.update(data, token).then(
+            function (response) {
                 alert('Addition successfully updated!');
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     }
 
     /*return (

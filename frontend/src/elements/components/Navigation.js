@@ -2,17 +2,16 @@ import {Link} from "react-router-dom";
 import '../css/Navigation.css';
 import {useState, useEffect} from "react";
 
-const Navigation = (removeUser) => {
+const Navigation = (props) => {
     const [roles, setRoles] = useState([]);
-   // const [dropdownTitles, setDropdownTitles] = ["Profile", "Settings", "Log Out"]
     const [id, setId] = useState(0);
 
     useEffect(() => {
         getRoles();
-    }, []);
+    }, [props.loggedUser]);
 
     const getRoles = () => {
-        let token_deserialized = JSON.parse(localStorage.getItem("token"));
+        const token_deserialized = JSON.parse(localStorage.getItem("token"));
         if(token_deserialized != null) {
             setRoles(token_deserialized.userRoles.map(element => element.role));
             setId(token_deserialized.id);
@@ -45,7 +44,7 @@ const Navigation = (removeUser) => {
             <div>
                 <Link to="/support">Support</Link>
                 <Link to={`/profile/${id}`}>Profile</Link>
-                <Link to="/" onClick={removeUser.removeUser}>LogOut</Link>
+                <Link to="/" onClick={props.removeUser}>LogOut</Link>
             </div></>}
         </nav>
     )

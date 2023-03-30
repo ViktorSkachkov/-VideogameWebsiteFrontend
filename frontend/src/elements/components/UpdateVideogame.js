@@ -3,6 +3,7 @@ import axios from "axios";
 import {useParams} from "react-router-dom";
 import Cookies from "universal-cookie";
 import UpdateVideogameDisplay from "../display/UpdateVideogameDisplay";
+import {GamesAPI} from "../API_access/GamesAPI";
 
 const UpdateVideogame = (loggedUser) => {
     const [image, setImage] = useState();
@@ -10,36 +11,29 @@ const UpdateVideogame = (loggedUser) => {
     const [price, setPrice] = useState();
     const [description, setDescription] = useState();
     const [featured, setFeatured] = useState(true);
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+
     let params = useParams();
     const id = params.id;
-
-    const cookies = new Cookies();
-    const token = cookies.get("accessToken");
 
     useEffect(() => {
         getVideogame();
     }, []);
 
     const getVideogame = () => {
-        var config = {
-            method: "get",
-            url: `http://localhost:8080/videogames/${id}`,
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
-        };
-        axios(config)
-            .then(function (response) {
+        GamesAPI.getById(id, token).then(
+            function (response) {
                 let {description, price, name, image, featured} = response.data;
                 setName(name);
                 setImage(image);
                 setPrice(price);
                 setDescription(description);
                 setFeatured(featured);
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     };
 
     const onChangeDescription = event => {
@@ -60,30 +54,23 @@ const UpdateVideogame = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        };
-        const bodyParams = {
+
+        let data = {
             "id": id,
             "image": image,
             "description": description,
             "price": price,
             "name": name,
             "featured": featured,
-        };
-        axios.put(
-            `http://localhost:8080/videogames`,
-            bodyParams,
-            config
-        )
-            .then(function (response) {
-                /*let mealName = response.data.mealName;
-                navigate(`/successfullyUpdatedMeal/${mealName}`);*/
+        }
+        GamesAPI.update(data, token).then(
+            function (response) {
                 alert('Videogame successfully updated!');
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     }
 
     /*return (

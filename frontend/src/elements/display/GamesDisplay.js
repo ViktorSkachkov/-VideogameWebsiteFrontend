@@ -1,5 +1,5 @@
-import VideogameCard from "../API_access/VideogameCard";
-import VideogameCardAdmin from "../API_access/VideogameCardAdmin";
+import VideogameCard from "../components/VideogameCard";
+import VideogameCardAdmin from "../components/VideogameCardAdmin";
 import {useNavigate} from "react-router-dom";
 
 const GamesDisplay = (props) => {

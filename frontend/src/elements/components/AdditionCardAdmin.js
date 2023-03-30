@@ -1,29 +1,21 @@
 import {useNavigate} from "react-router-dom";
-import axios from "axios";
 import '../css/AdditionCardAdmin.css';
-import Cookies from "universal-cookie";
+import {AdditionsAPI} from "../API_access/AdditionsAPI";
+import {useState} from "react";
 
 const AdditionCardAdmin = (addition) => {
     let navigate = useNavigate();
-
-    const cookies = new Cookies();
-    const token = cookies.get("accessToken");
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     function deleteAddition(id) {
-        var config = {
-            method: "delete",
-            url: `http://localhost:8080/additions/${id}`,
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
-        };
-        axios(config)
-            .then(function (response) {
+        AdditionsAPI.delete(id, token).then(
+            function (response) {
                 alert('Addition successfully deleted!');
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     }
     return (
         <div className="additionArticleCard">

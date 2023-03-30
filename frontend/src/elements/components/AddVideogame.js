@@ -1,17 +1,14 @@
-import axios from "axios";
 import {useState} from "react";
-import Cookies from "universal-cookie";
 import AddVideogameDisplay from "../display/AddVideogameDisplay";
+import {GamesAPI} from "../API_access/GamesAPI";
 
 const AddVideogame = (loggedUser) => {
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
     const [image, setImage] = useState("image");
     const [name, setName] = useState("");
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
     const [featured, setFeatured] = useState(false);
-
-    const cookies = new Cookies();
-    const token = cookies.get("accessToken");
 
     const onChangeDescription = event => {
         setDescription(event.target.value);
@@ -31,28 +28,22 @@ const AddVideogame = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        };
-        const bodyParams = {
+
+        let data = {
             "name": name,
             "price": price,
             "description": description,
             "featured": featured,
             "image": image,
-        };
-        axios.post(
-            `http://localhost:8080/videogames`,
-            bodyParams,
-            config
-        )
-            .then(function (response) {
+        }
+        GamesAPI.create(data, token).then(
+            function (response) {
                 alert('Videogame successfully added!');
-                console.log(response.data);
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     }
 
     return (

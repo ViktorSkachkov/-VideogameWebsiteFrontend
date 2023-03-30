@@ -1,8 +1,11 @@
 import {useState} from "react";
-import Cookies from "universal-cookie";
+//import Cookies from "universal-cookie";
 import {useNavigate} from "react-router-dom";
-import axios from "axios";
+//import axios from "axios";
+//import LoginDisplay from "../display/LoginDisplay";
+import {LoginAPI} from "../API_access/LoginAPI";
 import LoginDisplay from "../display/LoginDisplay";
+import axios from "axios";
 
 const LogIn = (updateUser) => {
     const [username, setUsername] = useState("");
@@ -18,32 +21,26 @@ const LogIn = (updateUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        const cookies = new Cookies();
-        var data = JSON.stringify({
+        //const cookies = new Cookies();
+
+        let sendData = {
             "username": username,
             "password": pwd
-        });
-
-        var config = {
-            method: 'post',
-            url: 'http://localhost:8080/login',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data: data
         };
 
+        LoginAPI.logIn(sendData).then(
+            function (response) {
+                localStorage.removeItem("token");
+                localStorage.removeItem("accessToken");
 
-        axios(config)
-            .then(function (response) {
-                cookies.set("accessToken", response.data.accessToken, { path: '/' });
-                updateUser.updateUser();
+                localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
+                updateUser.updateUser(/*response.data.accessToken*/);
                 navigate("/");
-                //window.location.reload();
-            })
+            }
+        )
             .catch(function (error) {
                 alert("Incorrect login details");
-            });
+            })
     }
 
     return (

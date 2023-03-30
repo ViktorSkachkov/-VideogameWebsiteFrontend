@@ -3,42 +3,37 @@ import {useParams} from "react-router-dom";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import UpdateNewsArticleDisplay from "../display/UpdateNewsArticleDisplay";
+import {NewsAPI} from "../API_access/NewsAPI";
 
 const UpdateNewsArticle = (loggedUser) => {
     const [gameId, setGameId] = useState();
     const [image, setImage] = useState();
     const [title, setTitle] = useState();
     const [text, setText] = useState();
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+
     let params = useParams();
     const id = params.id;
-
-    const cookies = new Cookies();
-    const token = cookies.get("accessToken");
 
     useEffect(() => {
         getNewsArticle();
     }, []);
 
     const getNewsArticle = () => {
-        var config = {
-            method: "get",
-            url: `http://localhost:8080/news/${id}`,
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
-        };
-        axios(config)
-            .then(function (response) {
+        NewsAPI.getById(id, token).then(
+            function (response) {
                 let {text, title, image, gameId} = response.data;
                 setTitle(title);
                 setImage(image);
                 setText(text);
                 setGameId(gameId);
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     };
+
     const onChangeText = event => {
         setText(event.target.value);
     }
@@ -54,29 +49,22 @@ const UpdateNewsArticle = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        };
-        const bodyParams = {
+
+        let data = {
             "id": id,
             "gameId": gameId,
             "image": image,
             "text": text,
             "title": title,
         };
-        axios.put(
-            `http://localhost:8080/news`,
-            bodyParams,
-            config
-        )
-            .then(function (response) {
-                /*let mealName = response.data.mealName;
-                navigate(`/successfullyUpdatedMeal/${mealName}`);*/
+        NewsAPI.update(data, token).then(
+            function (response) {
                 alert('News article successfully updated!');
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     }
 
     return (

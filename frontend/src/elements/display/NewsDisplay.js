@@ -1,5 +1,5 @@
-import NewsArticleCardAdmin from "../API_access/NewsArticleCardAdmin";
-import NewsArticleCard from "../API_access/NewsArticleCard";
+import NewsArticleCardAdmin from "../components/NewsArticleCardAdmin";
+import NewsArticleCard from "../components/NewsArticleCard";
 import {useNavigate} from "react-router-dom";
 
 const NewsDisplay = (props) => {

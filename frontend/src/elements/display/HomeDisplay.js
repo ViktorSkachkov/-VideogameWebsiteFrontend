@@ -1,4 +1,4 @@
-import VideogameCard from "../API_access/VideogameCard";
+import VideogameCard from "../components/VideogameCard";
 
 const HomeDisplay = (props) => {
 

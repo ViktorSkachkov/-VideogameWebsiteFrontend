@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
-import AdditionCardAdmin from "../API_access/AdditionCardAdmin";
-import AdditionCard from "../API_access/AdditionCard";
+import AdditionCardAdmin from "../components/AdditionCardAdmin";
+import AdditionCard from "../components/AdditionCard";
 
 const ShopDisplay = (props) => {
     let navigate = useNavigate();

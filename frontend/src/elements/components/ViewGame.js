@@ -1,18 +1,16 @@
 import {useParams} from "react-router-dom";
 import {useState, useEffect} from "react";
-import axios from "axios";
 import '../css/ViewGame.css';
-import Cookies from "universal-cookie";
 import ViewGameDisplay from "../display/ViewGameDisplay";
+import {GamesAPI} from "../API_access/GamesAPI";
 
 const ViewGame = (loggedUser) => {
     const [game, setGame] = useState(null);
     const [review, setReview] = useState(null);
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+
     let params = useParams();
     const id = params.id;
-
-    const cookies = new Cookies();
-    const token = cookies.get("accessToken");
 
     useEffect(() => {
         getVideogame();
@@ -21,20 +19,14 @@ const ViewGame = (loggedUser) => {
 
     };
     const getVideogame = () => {
-        var config = {
-            method: "get",
-            url: `http://localhost:8080/videogames/${id}`,
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
-        };
-        axios(config)
-            .then(function (response) {
+        GamesAPI.getById(id, token).then(
+            function (response) {
                 setGame(response.data);
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     };
     const onChangeReview = event => {
         setReview(event.target.value);

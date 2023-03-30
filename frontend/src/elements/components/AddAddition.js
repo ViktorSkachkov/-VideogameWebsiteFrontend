@@ -1,7 +1,6 @@
-import axios from "axios";
 import {useState} from "react";
-import Cookies from "universal-cookie";
 import AddAdditionDisplay from "../display/AddAdditionDisplay";
+import {AdditionsAPI} from "../API_access/AdditionsAPI";
 
 const AddAddition = (loggedUser) => {
     const [gameId, setGameId] = useState(1);
@@ -9,9 +8,7 @@ const AddAddition = (loggedUser) => {
     const [name, setName] = useState();
     const [price, setPrice] = useState();
     const [description, setDescription] = useState();
-
-    const cookies = new Cookies();
-    const token = cookies.get("accessToken");
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     const onChangeDescription = event => {
         setDescription(event.target.value);
@@ -31,27 +28,22 @@ const AddAddition = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        };
-        const bodyParams = {
+
+        let data = {
             "gameId": gameId,
             "image": image,
             "description": description,
             "price": price,
             "name": name,
-        };
-        axios.post(
-            `http://localhost:8080/additions`,
-            bodyParams,
-            config
-        )
-            .then(function (response) {
+        }
+        AdditionsAPI.create(data, token).then(
+            function (response) {
                 alert('Addition successfully added!');
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     }
 
     return (

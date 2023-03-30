@@ -1,19 +1,17 @@
 import {useState, useEffect} from "react";
 import '../css/News.css';
-import axios from "axios";
-import Cookies from "universal-cookie";
+import {NewsAPI} from "../API_access/NewsAPI";
+import {useNavigate} from "react-router-dom";
 import NewsDisplay from "../display/NewsDisplay";
 
-const News = (loggedUser) => {
+const News = (props) => {
     const [newsArticles, setNewsArticles] = useState([]);
     const [roles, setRoles] = useState([]);
-
-    const cookies = new Cookies();
-    const token = cookies.get("accessToken");
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     useEffect(() => {
         getRoles();
-        getVideogames();
+        getNews();
     }, []);
 
     const getRoles = () => {
@@ -23,21 +21,15 @@ const News = (loggedUser) => {
         }
     }
 
-    const getVideogames = () => {
-        var config = {
-            method: "get",
-            url: `http://localhost:8080/news`,
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
-        };
-        axios(config)
-            .then(function (response) {
+    const getNews = () => {
+        NewsAPI.getAll(token).then(
+            function (response) {
                 setNewsArticles(response.data);
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     }
     
     return (

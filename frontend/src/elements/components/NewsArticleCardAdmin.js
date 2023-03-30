@@ -1,28 +1,20 @@
 import {useNavigate} from "react-router-dom";
-import axios from "axios";
-import Cookies from "universal-cookie";
+import {NewsAPI} from "../API_access/NewsAPI";
+import {useState} from "react";
 
 const NewsArticleCardAdmin = (newsArticle) => {
+
     let navigate = useNavigate();
 
-    const cookies = new Cookies();
-    const token = cookies.get("accessToken");
-
     function deleteNewsArticle(id) {
-        var config = {
-            method: "delete",
-            url: `http://localhost:8080/news/${id}`,
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
-        };
-        axios(config)
-            .then(function (response) {
+        NewsAPI.delete(id).then(
+            function (response) {
                 alert('News article successfully deleted!');
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     }
 
     return (

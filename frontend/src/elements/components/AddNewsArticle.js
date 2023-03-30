@@ -1,16 +1,13 @@
-import axios from "axios";
 import {useState} from "react";
-import Cookies from "universal-cookie";
 import AddNewsArticleDisplay from "../display/AddNewsArticleDisplay";
+import {NewsAPI} from "../API_access/NewsAPI";
 
 const AddNewsArticle = (loggedUser) => {
     const [gameId, setGameId] = useState(1);
     const [image, setImage] = useState("image");
     const [title, setTitle] = useState();
     const [text, setText] = useState();
-
-    const cookies = new Cookies();
-    const token = cookies.get("accessToken");
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     const onChangeText = event => {
         setText(event.target.value);
@@ -27,29 +24,22 @@ const AddNewsArticle = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        };
-        const bodyParams = {
+
+        let data = {
             "id": 1,
             "gameId": gameId,
             "image": image,
             "text": text,
             "title": title,
-        };
-        axios.post(
-            `http://localhost:8080/news`,
-            bodyParams,
-            config
-        )
-            .then(function (response) {
-                /*let mealName = response.data.mealName;
-                navigate(`/successfullyUpdatedMeal/${mealName}`);*/
+        }
+        NewsAPI.create(data, token).then(
+            function (response) {
                 alert('News article successfully added!');
-            })
+            }
+        )
             .catch(function (error) {
                 console.log(error);
-            });
+            })
     }
 
     return (

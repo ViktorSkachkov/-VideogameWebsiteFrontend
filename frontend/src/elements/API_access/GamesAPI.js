@@ -1,0 +1,75 @@
+import axios from "axios";
+
+const axiosInstance = axios.create({
+    baseURL: 'http://localhost:8080/videogames'
+});
+
+const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+
+export const GamesAPI = {
+    getAll: function(token) {
+        return axiosInstance.request({
+            method: "GET",
+            url: ``,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    getFeatured: function(token) {
+        return axiosInstance.request({
+            method: "GET",
+            url: `/featured`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    getUpcoming: function(token) {
+        return axiosInstance.request({
+            method: "GET",
+            url: `/upcoming`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    getById: function(gameId, token) {
+        return axiosInstance.request({
+            method: "GET",
+            url: `/${gameId}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    create: function(videogame, token) {
+        return axiosInstance.request({
+            method: "POST",
+            url: ``,
+            data: videogame,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    update: function(videogame, token) {
+        return axiosInstance.request({
+            method: "PUT",
+            url: ``,
+            data: videogame,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    delete: function(gameId, token) {
+        return axiosInstance.request({
+            method: "DELETE",
+            url: `/${gameId}`,
+            headers: {
+                "Authorization": `Bearer ${accessToken}`,
+            },
+        });
+    },
+}
