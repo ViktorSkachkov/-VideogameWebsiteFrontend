@@ -12,8 +12,8 @@ export const LoginAPI = {
             url: ``,
             data: loginRequest,
             headers: {
-            'Content-Type': 'application/json'
-        },
+                "Content-Type" : "application/json"
+            },
         });
     },
 }

@@ -6,10 +6,15 @@ import HomeDisplay from "../display/HomeDisplay";
 const Home = (props) => {
     const [featuredVideogames, setFeaturedVideogames] = useState([]);
     const [upcomingVideogames, setUpcomingVideogames] = useState([]);
-    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+    //const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+    const [token, setToken] = useState();
     const [roles, setRoles] = useState([]);
 
     useEffect(() => {
+        let accessToken = localStorage.getItem("accessToken");
+        if(accessToken != "undefined") {
+            setToken(JSON.parse(localStorage.getItem("accessToken")));
+        }
         getRoles();
         getVideogames();
     }, []);

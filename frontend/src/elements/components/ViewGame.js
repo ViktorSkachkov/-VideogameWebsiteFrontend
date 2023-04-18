@@ -3,10 +3,12 @@ import {useState, useEffect} from "react";
 import '../css/ViewGame.css';
 import ViewGameDisplay from "../display/ViewGameDisplay";
 import {GamesAPI} from "../API_access/GamesAPI";
+import {GameOrdersAPI} from "../API_access/GameOrdersAPI";
 
 const ViewGame = (loggedUser) => {
     const [game, setGame] = useState(null);
     const [review, setReview] = useState(null);
+    const [units, setUnits] = useState(1);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     let params = useParams();
@@ -31,28 +33,43 @@ const ViewGame = (loggedUser) => {
     const onChangeReview = event => {
         setReview(event.target.value);
     }
+    const onChangeUnits = event => {
+        if(event.target.value >= 1 || event.target.value == "") {
+            setUnits(event.target.value);
+        }
+        else {
+            alert('The number of products should be at least 1!');
+        }
+    }
 
-    /*return (
-        <>
-            {game != null ?
-                <div className="viewGameBody">
-                    <center>
-                        <img src="/69piR5.jpg" width="80%" height="400px"  alt="Currently the image can't load"/>
-                        <h1>{game.name}</h1>
-                        <p>{game.description}</p>
-                        <button>Buy</button>
-                        <form onSubmit={handleSubmit}>
-                            <label htmlFor="review" className="review">Review</label><br/>
-                            <input onChange={onChangeReview} name="review" type="number" className="Label"/><br/>
-                            <button>Submit Review</button><br/><br/>
-                        </form>
-                    </center>
-                </div> :
-                <p>Loading...</p>}
-        </>
-    )*/
+    function buyGame(id) {
+        if(units >= 1) {
+            const token_deserialized = JSON.parse(localStorage.getItem("token"));
+            //if(token_deserialized != null) {
+            let userId = token_deserialized.id;
+            //}
+
+            let data = {
+                "game": id,
+                "user": userId,
+                "units": units
+            }
+            GameOrdersAPI.create(data, token).then(
+                function (response) {
+                    alert('Order successfully made!');
+                }
+            )
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
+        else {
+            alert('The number of products should be at least 1!');
+        }
+    }
     return (
-        <ViewGameDisplay handleSubmit={handleSubmit} onChangeReview={onChangeReview} review={review} game={game}/>
+        <ViewGameDisplay handleSubmit={handleSubmit} onChangeReview={onChangeReview} review={review}
+                         game={game} units={units} onChangeUnits={onChangeUnits} buyGame={buyGame}/>
     )
 }
 export default ViewGame;

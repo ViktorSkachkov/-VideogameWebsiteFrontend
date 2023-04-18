@@ -1,10 +1,14 @@
 import axios from "axios";
+import {useState} from "react";
 
 const axiosInstance = axios.create({
     baseURL: 'http://localhost:8080/videogames'
 });
 
-const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+let accessToken = localStorage.getItem("accessToken");
+if(accessToken != "undefined") {
+    accessToken = JSON.parse(localStorage.getItem("accessToken"));
+}
 
 export const GamesAPI = {
     getAll: function(token) {

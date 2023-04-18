@@ -1,5 +1,7 @@
+import {useNavigate} from "react-router-dom";
 
 const ProfileDisplay = (props) => {
+    let navigate = useNavigate();
 
     return (
         <>
@@ -29,7 +31,8 @@ const ProfileDisplay = (props) => {
 
                         <button type="submit" className="normalButton">Update Account<br/> Information</button><br/><br/>
                     </form>
-                    <button onClick={() => props.deleteProfile(props.id)}>Delete Account</button><br/><br/><br/>
+                    <button onClick={() => props.deleteProfile(props.id)}>Delete Account</button><br/><br/>
+                    <button onClick={() => navigate(`/orders/${props.id}`)}>View All Your Games</button><br/><br/><br/>
                 </center>
             </> : <></>}
         </>

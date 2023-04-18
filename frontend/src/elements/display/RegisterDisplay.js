@@ -1,5 +1,4 @@
 const RegisterDisplay = (props) => {
-
     return (
         <>
             <center><br/><br/>
@@ -19,6 +18,9 @@ const RegisterDisplay = (props) => {
 
                     <label htmlFor="email" className="formLabelEmail">Email</label><br/>
                     <input type="email" onChange={props.onChangeEmail} className="Label"/><br/><br/>
+
+                    <label htmlFor="bankAccount" className="formLabelBankAccount">Bank Account</label><br/>
+                    <input type="bankAccount" onChange={props.onChangeBankAccount} className="Label"/><br/><br/>
 
                     <button type="submit" className="normalButton">Submit</button><br/><br/><br/><br/><br/><br/><br/>
                 </form>

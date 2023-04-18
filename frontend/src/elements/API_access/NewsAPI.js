@@ -4,7 +4,11 @@ const axiosInstance = axios.create({
     baseURL: 'http://localhost:8080/news'
 });
 
-const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+//const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+let accessToken = localStorage.getItem("accessToken");
+if(accessToken != "undefined") {
+    accessToken = JSON.parse(localStorage.getItem("accessToken"));
+}
 
 export const NewsAPI = {
     getAll: function(token) {

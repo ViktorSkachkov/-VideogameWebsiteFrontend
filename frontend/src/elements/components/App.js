@@ -23,6 +23,7 @@ import axios from "axios";
 import jwtDecode from "jwt-decode";
 import Profile from "./Profile";
 import {UsersAPI} from "../API_access/UsersAPI";
+import ViewOrders from "./ViewOrders";
 
 function App() {
     const [token, setToken] = useState("");
@@ -79,7 +80,15 @@ function App() {
 
 
 return (
-    <>
+    <html>
+    <head>
+        <meta
+            httpEquiv="Content-Security-Policy"
+            content="default-src 'self';
+            connect-src http://localhost:8080/;"
+        />
+    </head>
+    <body>
     <Router>
         <Navigation
             removeUser={removeUser}
@@ -91,11 +100,12 @@ return (
             <Route path="/shop" element={<Shop loggedUser={loggedUser} token={token}  />}/>
             <Route path="/news" element={<News loggedUser={loggedUser} token={token} />}/>
             <Route path="/support" element={<Support loggedUser={loggedUser} token={token} />}/>
-            <Route path="/register" element={<Register token={token} />}/>
+            <Route path="/register" element={<Register updateUser={updateUser} token={token} />}/>
             <Route path="/logIn" element={<LogIn updateUser={updateUser} token={token} />}/>
             <Route path="/game/:id" element={<ViewGame loggedUser={loggedUser} token={token} />}/>
             <Route path="/addition/:id" element={<ViewAddition loggedUser={loggedUser} token={token} />}/>
             <Route path="/newsArticle/:id" element={<ViewNewsArticle loggedUser={loggedUser} token={token} />}/>
+            <Route path="/orders/:id" element={<ViewOrders loggedUser={loggedUser} token={token} />}/>
             <Route path="/profile/:id" element={<Profile removeUser={removeUser} updateUser={updateUser} token={token} />}/>
             <Route path="/updateVideogame/:id" element={<UpdateVideogame loggedUser={loggedUser} token={token} />}/>
             <Route path="/updateAddition/:id" element={<UpdateAddition loggedUser={loggedUser} token={token} />}/>
@@ -106,7 +116,8 @@ return (
         </Routes>
     </Router>
     <Footer/>
-    </>
+    </body>
+    </html>
 )
 }
 export default App;

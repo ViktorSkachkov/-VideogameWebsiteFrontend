@@ -21,7 +21,6 @@ const LogIn = (updateUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        //const cookies = new Cookies();
 
         let sendData = {
             "username": username,
