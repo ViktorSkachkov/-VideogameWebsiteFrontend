@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8080/gameOrders'
+    baseURL: 'http://localhost:8080/additionOrders'
 });
 
 let accessToken = localStorage.getItem("accessToken");
@@ -9,21 +9,21 @@ if(accessToken != "undefined") {
     accessToken = JSON.parse(localStorage.getItem("accessToken"));
 }
 
-export const GameOrdersAPI = {
-    create: function(gameOrder, token) {
+export const AdditionOrdersAPI = {
+    create: function(additionOrder, token) {
         return axiosInstance.request({
             method: "POST",
             url: ``,
-            data: gameOrder,
+            data: additionOrder,
             headers: {
                 "Authorization": `Bearer ${token}`,
             },
         });
     },
-    getById: function(gameOrderId, token) {
+    getById: function(additionOrderId, token) {
         return axiosInstance.request({
             method: "GET",
-            url: `/${gameOrderId}`,
+            url: `/${additionOrderId}`,
             headers: {
                 "Authorization": `Bearer ${token}`,
             },

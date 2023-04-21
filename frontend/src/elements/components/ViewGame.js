@@ -1,25 +1,30 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useState, useEffect} from "react";
 import '../css/ViewGame.css';
 import ViewGameDisplay from "../display/ViewGameDisplay";
 import {GamesAPI} from "../API_access/GamesAPI";
 import {GameOrdersAPI} from "../API_access/GameOrdersAPI";
+import {ReviewsAPI} from "../API_access/ReviewsAPI";
 
 const ViewGame = (loggedUser) => {
     const [game, setGame] = useState(null);
     const [review, setReview] = useState(null);
     const [units, setUnits] = useState(1);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+    const [userId, setUserId] = useState(1);
+    const [reviews, setReviews] = useState([]);
 
     let params = useParams();
     const id = params.id;
 
+    let navigate = useNavigate();
+
     useEffect(() => {
         getVideogame();
+        getUserId();
+        getReviews();
     }, []);
-    const handleSubmit = (e) => {
 
-    };
     const getVideogame = () => {
         GamesAPI.getById(id, token).then(
             function (response) {
@@ -30,6 +35,10 @@ const ViewGame = (loggedUser) => {
                 console.log(error);
             })
     };
+    const getUserId = () => {
+        const token_deserialized = JSON.parse(localStorage.getItem("token"));
+        setUserId(token_deserialized.id);
+    }
     const onChangeReview = event => {
         setReview(event.target.value);
     }
@@ -41,12 +50,41 @@ const ViewGame = (loggedUser) => {
             alert('The number of products should be at least 1!');
         }
     }
+    function addReview() {
+        let data = {
+            "reviewed_item_id": id,
+            "user_id": userId,
+            "text": review,
+            "type_of_reviewed_item": "game"
+        }
+        ReviewsAPI.create(data, token).then(
+            function (response) {
+                window.location.reload();
+                //navigate(`/game/${id}`);
+                //alert('Review successfully added!');
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
+    function getReviews() {
+        ReviewsAPI.getById(id, "game", token).then(
+            function (response) {
+                setReviews(response.data);
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
 
     function buyGame(id) {
         if(units >= 1) {
-            const token_deserialized = JSON.parse(localStorage.getItem("token"));
+            //const token_deserialized = JSON.parse(localStorage.getItem("token"));
             //if(token_deserialized != null) {
-            let userId = token_deserialized.id;
+            //let userId = token_deserialized.id;
             //}
 
             let data = {
@@ -68,8 +106,9 @@ const ViewGame = (loggedUser) => {
         }
     }
     return (
-        <ViewGameDisplay handleSubmit={handleSubmit} onChangeReview={onChangeReview} review={review}
-                         game={game} units={units} onChangeUnits={onChangeUnits} buyGame={buyGame}/>
+        <ViewGameDisplay onChangeReview={onChangeReview} review={review} game={game} units={units}
+                         onChangeUnits={onChangeUnits} buyGame={buyGame} addReview={addReview} reviews={reviews}
+        token={token}/>
     )
 }
 export default ViewGame;

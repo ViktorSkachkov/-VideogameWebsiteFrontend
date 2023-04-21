@@ -1,8 +1,7 @@
-import {GamesAPI} from "../API_access/GamesAPI";
-import {GameOrdersAPI} from "../API_access/GameOrdersAPI";
+import '../css/ViewGameDisplay.css';
+import ReviewCard from "../components/ReviewCard";
 
 const ViewGameDisplay = (props) => {
-
 
     return (
         <>
@@ -14,12 +13,15 @@ const ViewGameDisplay = (props) => {
                         <p>{props.game.description}</p>
                         <label htmlFor="units" className="formLabelUnits">Number</label><br/>
                         <input type="number" name="units" value={props.units} onChange={props.onChangeUnits} className="Label"/>
-                        <button onClick={() => props.buyGame(props.game.id) }>Buy</button>
-                        <form onSubmit={props.handleSubmit}>
-                            <label htmlFor="review" className="review">Review</label><br/>
-                            <input onChange={props.onChangeReview} name="review" type="number" className="Label"/><br/>
-                            <button>Submit Review</button><br/><br/>
-                        </form>
+                        <button onClick={() => props.buyGame(props.game.id) }>Buy</button><br/><br/>
+
+                        {props.reviews.map((review) => (
+                            <ReviewCard review={review} token={props.token}/>
+                        ))}
+
+                        <label htmlFor="review" className="review">Review</label><br/>
+                        <textarea className="reviewTextArea" onChange={props.onChangeReview} name="review" type="text"/><br/>
+                        <button onClick={() => props.addReview() } className="submitButton">Submit Review</button><br/><br/>
                     </center>
                 </div> :
                 <p>Loading...</p>}

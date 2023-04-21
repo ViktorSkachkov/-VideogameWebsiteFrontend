@@ -4,6 +4,7 @@ import {GameOrdersAPI} from "../API_access/GameOrdersAPI";
 import GameOrderCard from "./GameOrderCard";
 import AdditionOrderCard from "./AdditionOrderCard";
 import '../css/ViewOrders.css';
+import {AdditionOrdersAPI} from "../API_access/AdditionOrdersAPI";
 
 
 const ViewOrders = (loggedUser) => {
@@ -27,24 +28,17 @@ const ViewOrders = (loggedUser) => {
             .catch(function (error) {
                 console.log(error);
             })
+
+        AdditionOrdersAPI.getByUser(id, token).then(
+            function (response) {
+                setAdditionOrders(response.data);
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
     };
-    /*return (
-        <div>
-            <center>
-                <h1>Your Game Orders</h1>
-                <div className="listOfOrders">
-                    {gameOrders.map(gameOrder => (
-                        <>
-                            <p>{gameOrder.game}</p>
-                            <p>{gameOrder.user}</p>
-                            <p>{gameOrder.units}</p>
-                        </>
-                        )
-                    )}
-                </div>
-            </center>
-        </div>
-    )*/
+
     return (
         <div>
             <center>

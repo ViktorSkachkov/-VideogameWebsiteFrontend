@@ -1,38 +1,49 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8080/gameOrders'
+    baseURL: 'http://localhost:8080/reviews'
 });
 
+//const accessToken = JSON.parse(localStorage.getItem("accessToken"));
 let accessToken = localStorage.getItem("accessToken");
 if(accessToken != "undefined") {
     accessToken = JSON.parse(localStorage.getItem("accessToken"));
 }
 
-export const GameOrdersAPI = {
-    create: function(gameOrder, token) {
+export const ReviewsAPI = {
+    create: function(review, token) {
         return axiosInstance.request({
             method: "POST",
             url: ``,
-            data: gameOrder,
+            data: review,
             headers: {
                 "Authorization": `Bearer ${token}`,
             },
         });
     },
-    getById: function(gameOrderId, token) {
+    update: function(review, token) {
         return axiosInstance.request({
-            method: "GET",
-            url: `/${gameOrderId}`,
+            method: "PUT",
+            url: ``,
+            data: review,
             headers: {
                 "Authorization": `Bearer ${token}`,
             },
         });
     },
-    getByUser: function(userId, token) {
+    delete: function(reviewId, token) {
+        return axiosInstance.request({
+            method: "DELETE",
+            url: `/${reviewId}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    getById: function(itemId, type, token) {
         return axiosInstance.request({
             method: "GET",
-            url: `/getByUser/${userId}`,
+            url: `/${itemId}/${type}`,
             headers: {
                 "Authorization": `Bearer ${token}`,
             },

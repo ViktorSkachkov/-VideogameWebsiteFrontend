@@ -32,7 +32,7 @@ const ProfileDisplay = (props) => {
                         <button type="submit" className="normalButton">Update Account<br/> Information</button><br/><br/>
                     </form>
                     <button onClick={() => props.deleteProfile(props.id)}>Delete Account</button><br/><br/>
-                    <button onClick={() => navigate(`/orders/${props.id}`)}>View All Your Games</button><br/><br/><br/>
+                    <button onClick={() => navigate(`/orders/${props.id}`)}>View Your Orders</button><br/><br/><br/>
                 </center>
             </> : <></>}
         </>

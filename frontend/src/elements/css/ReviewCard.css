@@ -1,0 +1,22 @@
+.reviewCard {
+    display: flex;
+    border-style: solid;
+    border-color: black;
+    margin-bottom: 20px;
+}
+.reviewText {
+    border: transparent;
+    margin-left: 2.5%;
+    margin-top: 60px;
+    width: 80%;
+}
+.reviewUsername {
+    border-style: solid;
+    border-left: black;
+    width: 15%;
+}
+.reviewDelete {
+    margin-top: 57px;
+    padding-right: 10px;
+    width: 5%;
+}

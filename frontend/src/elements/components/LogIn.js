@@ -1,11 +1,7 @@
 import {useState} from "react";
-//import Cookies from "universal-cookie";
 import {useNavigate} from "react-router-dom";
-//import axios from "axios";
-//import LoginDisplay from "../display/LoginDisplay";
 import {LoginAPI} from "../API_access/LoginAPI";
 import LoginDisplay from "../display/LoginDisplay";
-import axios from "axios";
 
 const LogIn = (updateUser) => {
     const [username, setUsername] = useState("");
