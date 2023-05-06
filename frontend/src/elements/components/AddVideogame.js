@@ -1,6 +1,7 @@
 import {useState} from "react";
 import AddVideogameDisplay from "../display/AddVideogameDisplay";
 import {GamesAPI} from "../API_access/GamesAPI";
+import "../css/AddVideogame.css"
 
 const AddVideogame = (loggedUser) => {
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
@@ -28,7 +29,7 @@ const AddVideogame = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-
+    if(description.length > 125) {
         let data = {
             "name": name,
             "price": price,
@@ -44,6 +45,10 @@ const AddVideogame = (loggedUser) => {
             .catch(function (error) {
                 console.log(error);
             })
+    }
+    else {
+        alert('The description is too short!');
+    }
     }
 
     return (

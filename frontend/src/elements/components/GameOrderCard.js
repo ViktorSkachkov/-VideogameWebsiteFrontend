@@ -26,7 +26,7 @@ const GameOrderCard = (props) => {
             {game != null ?
     <div className="gameOrderCard">
         <div>
-            <img src="/69piR5.jpg" height="300px" width="450px" alt=""/>
+            <img src={game.image} height="300px" width="450px" alt=""/>
         </div>
         <div>
             <center>

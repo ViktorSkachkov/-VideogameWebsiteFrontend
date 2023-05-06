@@ -42,7 +42,7 @@ const AdditionOrderCard = (props) => {
             {addition != null && game != null ?
                 <div className="additionOrderCard">
                     <div>
-                        <img src="/69piR5.jpg" height="300px" width="450px" alt=""/>
+                        <img src={addition.image} height="300px" width="450px" alt=""/>
                     </div>
                     <div>
                         <center>

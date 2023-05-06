@@ -1,12 +1,13 @@
 import {useState} from "react";
 import AddNewsArticleDisplay from "../display/AddNewsArticleDisplay";
 import {NewsAPI} from "../API_access/NewsAPI";
+import "../css/AddNewsArticle.css"
 
 const AddNewsArticle = (loggedUser) => {
     const [gameId, setGameId] = useState(1);
     const [image, setImage] = useState("image");
     const [title, setTitle] = useState();
-    const [text, setText] = useState();
+    const [text, setText] = useState("");
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     const onChangeText = event => {
@@ -24,7 +25,7 @@ const AddNewsArticle = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        if(text.length > 125) {
         let data = {
             "id": 1,
             "gameId": gameId,
@@ -40,6 +41,10 @@ const AddNewsArticle = (loggedUser) => {
             .catch(function (error) {
                 console.log(error);
             })
+        }
+        else {
+            alert('The text is too short!');
+        }
     }
 
     return (

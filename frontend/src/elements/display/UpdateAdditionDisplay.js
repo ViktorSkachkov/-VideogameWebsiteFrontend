@@ -10,7 +10,7 @@ const UpdateAdditionDisplay = (props) => {
                     <label htmlFor="name" className="formLabelName">Name</label><br/>
                     <input type="text" name="name" onChange={props.onChangeName} value={props.name} className="Label" /><br/><br/>
                     <label htmlFor="username" className="formLabelDescription">Description</label><br/>
-                    <textarea type="text" name="description" onChange={props.onChangeDescription} value={props.description} className="Label" /><br/><br/>
+                    <textarea type="text" name="description" onChange={props.onChangeDescription} value={props.description} className="UpdateTextArea"  /><br/><br/>
                     <label htmlFor="number" className="formLabelPrice">Price</label><br/>
                     <input type="number" name="price" onChange={props.onChangePrice} value={props.price} className="Label" /><br/><br/>
                     <button type="submit" className="normalButton">Submit</button>

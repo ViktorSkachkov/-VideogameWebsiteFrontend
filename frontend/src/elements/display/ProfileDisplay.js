@@ -31,7 +31,9 @@ const ProfileDisplay = (props) => {
 
                         <button type="submit" className="normalButton">Update Account<br/> Information</button><br/><br/>
                     </form>
-                    <button onClick={() => props.deleteProfile(props.id)}>Delete Account</button><br/><br/>
+                    {props.user.userRoles.some(r => r == "EMPLOYEE") ?
+                        <> <button onClick={() => props.deleteProfile(props.id)}>Delete Account</button><br/><br/></> :
+                        <></>}
                     <button onClick={() => navigate(`/orders/${props.id}`)}>View Your Orders</button><br/><br/><br/>
                 </center>
             </> : <></>}

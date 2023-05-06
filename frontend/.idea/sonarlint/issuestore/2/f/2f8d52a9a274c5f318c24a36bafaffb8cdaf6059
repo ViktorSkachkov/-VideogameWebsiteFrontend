@@ -1,0 +1,10 @@
+
+Kjavascript:S3863"('react-router-dom' import is duplicated.(ì‡‡8·‹ğéû0
+Ajavascript:S125"Remove this commented out code.(Ç‘¨¦8ø¹»éû0
+Mjavascript:S1128"%Remove this unused import of 'axios'.(íöóÛşÿÿÿÿ8ù¹»éû0
+bjavascript:S1481!"?Remove the declaration of the unused 'expirationDate' variable.(Ší8ù¹»éû0
+_javascript:S1854!"<Remove this useless assignment to variable "expirationDate".(Ší8ú¹»éû0
+Ljavascript:S3504(")Unexpected var, use let or const instead.(€óøà8ú¹»éû0
+Fjavascript:S1250"Remove this commented out code.(éÏ³”úÿÿÿÿ8ú¹»éû0
+Ljavascript:S35042")Unexpected var, use let or const instead.(€óøà8ú¹»éû0
+Fjavascript:S125L"Remove this commented out code.(Éƒ¦Úıÿÿÿÿ8ú¹»éû0

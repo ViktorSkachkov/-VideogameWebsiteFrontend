@@ -8,7 +8,7 @@ const ViewAdditionDisplay = (props) => {
             {props.addition != null ?
                 <div className="viewAdditionBody">
                     <center>
-                        <img src="/69piR5.jpg" width="80%" height="400px"  alt="Currently the image can't load"/>
+                        <img src={props.addition.image} alt="Currently the image can't load"/>
                         <h1>{props.addition.name}</h1>
                         <p>{props.addition.description}</p>
                         <label htmlFor="units" className="formLabelUnits">Number</label><br/>

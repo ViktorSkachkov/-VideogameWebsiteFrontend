@@ -1,13 +1,14 @@
 import {useState} from "react";
 import AddAdditionDisplay from "../display/AddAdditionDisplay";
 import {AdditionsAPI} from "../API_access/AdditionsAPI";
+import "../css/AddAddition.css"
 
 const AddAddition = (loggedUser) => {
     const [gameId, setGameId] = useState(1);
     const [image, setImage] = useState("image");
     const [name, setName] = useState();
     const [price, setPrice] = useState();
-    const [description, setDescription] = useState();
+    const [description, setDescription] = useState("");
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     const onChangeDescription = event => {
@@ -28,7 +29,7 @@ const AddAddition = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        if(description.length > 125) {
         let data = {
             "gameId": gameId,
             "image": image,
@@ -44,6 +45,10 @@ const AddAddition = (loggedUser) => {
             .catch(function (error) {
                 console.log(error);
             })
+        }
+        else {
+            alert('The description is too short!');
+        }
     }
 
     return (

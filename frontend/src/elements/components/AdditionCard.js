@@ -10,7 +10,7 @@ const AdditionCard = (addition) => {
             });
         }}>
             <div>
-                <img src="69piR5.jpg" height="400px" width="450px" alt=""/>
+                <img src={addition.addition.image} height="400px" width="450px" alt=""/>
             </div>
             <div className="">
                 <center>
@@ -19,7 +19,9 @@ const AdditionCard = (addition) => {
             </div>
             <div className="lowerPart">
                 <b><p className="price">Price: {addition.addition.price}</p></b>
-                <p className="description">{addition.addition.description}</p>
+                {addition.addition.description.length > 125 ?
+                    <p className="description">{addition.addition.description.substr(0, 125)}...</p> :
+                <p className="description">{addition.addition.description}</p>}
             </div>
         </div>
     )

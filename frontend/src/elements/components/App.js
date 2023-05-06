@@ -4,7 +4,7 @@ import Home from "./Home";
 import Games from "./Games";
 import Shop from "./Shop";
 import News from "./News";
-import Support from "./Support";
+import ChatRoom from "./ChatRoom";
 import Footer from "./Footer";
 import {useState} from "react";
 import ViewGame from "./ViewGame";
@@ -18,17 +18,20 @@ import UpdateNewsArticle from "./UpdateNewsArticle";
 import AddVideogame from "./AddVideogame";
 import AddAddition from "./AddAddition";
 import AddNewsArticle from "./AddNewsArticle";
+import {Navigate} from "react-router-dom";
 //import Cookies from "universal-cookie";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import Profile from "./Profile";
 import {UsersAPI} from "../API_access/UsersAPI";
 import ViewOrders from "./ViewOrders";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
     const [token, setToken] = useState("");
     const [loggedUser, setLoggedUser] = useState(null);
     const [expirationDate, setExpirationDate] = useState(null);
+    const [id, setID] = useState(0);
 
     const updateUser = (/*accessToken*/) => {
         const accessToken = JSON.parse(localStorage.getItem("accessToken"));
@@ -37,6 +40,7 @@ function App() {
         var decode = jwtDecode(accessToken);
         console.log("decode " + decode);
         const userID = decode.userId;
+        setID(decode.userId);
         console.log("userID " + userID);
 
         UsersAPI.getById(userID, accessToken).then(
@@ -85,6 +89,7 @@ return (
         <meta
             httpEquiv="Content-Security-Policy"
             content="default-src 'self';
+            img-src 'self' blob: data:;
             connect-src http://localhost:8080/;"
         />
     </head>
@@ -96,24 +101,71 @@ return (
         />
         <Routes>
             <Route path="/" element={<Home loggedUser={loggedUser} updateUser={updateUser} />}/>
-            <Route path="/games" element={<Games loggedUser={loggedUser} token={token} restoreToken={restoreToken}  />}/>
-            <Route path="/shop" element={<Shop loggedUser={loggedUser} token={token}  />}/>
-            <Route path="/news" element={<News loggedUser={loggedUser} token={token} />}/>
-            <Route path="/support" element={<Support loggedUser={loggedUser} token={token} />}/>
-            <Route path="/register" element={<Register updateUser={updateUser} token={token} />}/>
+            <Route path="/games" element={
+                <PrivateRoute>
+                    <Games loggedUser={loggedUser} token={token} restoreToken={restoreToken}  />
+                </PrivateRoute>}/>
+            <Route path="/shop" element={
+                <PrivateRoute>
+                    <Shop loggedUser={loggedUser} token={token}  />
+                </PrivateRoute>}/>
+            <Route path="/news" element={
+                <PrivateRoute>
+                    <News loggedUser={loggedUser} token={token} />
+            </PrivateRoute>}/>
+            <Route path="/chat" element={
+                <PrivateRoute>
+                    <ChatRoom loggedUser={loggedUser} token={token} id={id} />
+                </PrivateRoute>}/>
+                    <Route path="/register" element={<Register updateUser={updateUser} token={token} />}/>
             <Route path="/logIn" element={<LogIn updateUser={updateUser} token={token} />}/>
-            <Route path="/game/:id" element={<ViewGame loggedUser={loggedUser} token={token} />}/>
-            <Route path="/addition/:id" element={<ViewAddition loggedUser={loggedUser} token={token} />}/>
-            <Route path="/newsArticle/:id" element={<ViewNewsArticle loggedUser={loggedUser} token={token} />}/>
-            <Route path="/orders/:id" element={<ViewOrders loggedUser={loggedUser} token={token} />}/>
-            <Route path="/profile/:id" element={<Profile removeUser={removeUser} updateUser={updateUser} token={token} />}/>
-            <Route path="/updateVideogame/:id" element={<UpdateVideogame loggedUser={loggedUser} token={token} />}/>
-            <Route path="/updateAddition/:id" element={<UpdateAddition loggedUser={loggedUser} token={token} />}/>
-            <Route path="/updateNewsArticle/:id" element={<UpdateNewsArticle loggedUser={loggedUser} token={token} />}/>
-            <Route path="/addVideogame" element={<AddVideogame loggedUser={loggedUser} token={token} />}/>
-            <Route path="/addAddition" element={<AddAddition loggedUser={loggedUser} token={token} />}/>
-            <Route path="/addNewsArticle" element={<AddNewsArticle loggedUser={loggedUser} token={token} />}/>
-        </Routes>
+            <Route path="/game/:id" element={
+                    <PrivateRoute>
+                        <ViewGame loggedUser={loggedUser} token={token} />
+                    </PrivateRoute>}/>
+            <Route path="/addition/:id" element={
+                    <PrivateRoute>
+                        <ViewAddition loggedUser={loggedUser} token={token} />
+                    </PrivateRoute>}/>
+            <Route path="/newsArticle/:id" element={
+                    <PrivateRoute>
+                            <ViewNewsArticle loggedUser={loggedUser} token={token} />
+                    </PrivateRoute>}/>
+            <Route path="/orders/:id" element={
+                    <PrivateRoute>
+                            <ViewOrders loggedUser={loggedUser} token={token} />
+                    </PrivateRoute>}/>
+            <Route path="/profile/:id" element={
+                    <PrivateRoute>
+                            <Profile removeUser={removeUser} updateUser={updateUser} token={token} />
+                    </PrivateRoute>}/>
+            <Route path="/updateVideogame/:id" element={
+                    <PrivateRoute>
+                            <UpdateVideogame loggedUser={loggedUser} token={token} />
+                    </PrivateRoute>}/>
+            <Route path="/updateAddition/:id" element={
+                    <PrivateRoute>
+                            <UpdateAddition loggedUser={loggedUser} token={token} />
+                    </PrivateRoute>}/>
+            <Route path="/updateNewsArticle/:id" element={
+                    <PrivateRoute>
+                            <UpdateNewsArticle loggedUser={loggedUser} token={token} />
+                    </PrivateRoute>}/>
+            <Route path="/addVideogame" element={
+                    <PrivateRoute>
+                            <AddVideogame loggedUser={loggedUser} token={token} />
+                    </PrivateRoute>}/>
+            <Route path="/addAddition" element={
+                    <PrivateRoute>
+                            <AddAddition loggedUser={loggedUser} token={token} />
+                    </PrivateRoute>}/>
+            <Route path="/addNewsArticle" element={
+                    <PrivateRoute>
+                            <AddNewsArticle loggedUser={loggedUser} token={token} />
+                    </PrivateRoute>}/>
+            <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
+            }
     </Router>
     <Footer/>
     </body>

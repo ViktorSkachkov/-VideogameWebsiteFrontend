@@ -4,7 +4,14 @@
     border-color: black;
     margin-bottom: 20px;
 }
+.videogameArticleCardContents {
+
+}
 .text {
     margin-left: 5px;
     margin-right: 5px;
+}
+.videogameArticleCardEncompassingContainer {
+    justify-content: center;
+    align-items: center;
 }

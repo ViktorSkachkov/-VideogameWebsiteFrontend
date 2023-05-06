@@ -8,7 +8,7 @@ const ViewGameDisplay = (props) => {
             {props.game != null ?
                 <div className="viewGameBody">
                     <center>
-                        <img src="/69piR5.jpg" width="80%" height="400px"  alt="Currently the image can't load"/>
+                        <img src={props.game.image}  alt="Currently the image can't load"/>
                         <h1>{props.game.name}</h1>
                         <p>{props.game.description}</p>
                         <label htmlFor="units" className="formLabelUnits">Number</label><br/>

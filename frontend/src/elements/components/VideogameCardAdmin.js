@@ -21,17 +21,23 @@ const VideogameCardAdmin = (videogame) => {
 
     return (
         <div className="videogameArticleCard">
-            <div>
-                <img src="69piR5.jpg" height="300px" width="450px" alt=""/>
+            <div className="videogameArticleCardImage">
+                <img src={videogame.videogame.image} height="300px" width="450px" alt=""/>
             </div>
-            <div>
+            <div className="videogameArticleCardEncompassingContainer">
+
+            <div className="videogameArticleCardContents">
                 <h1>{videogame.videogame.name}</h1>
-                <p className="text">{videogame.videogame.description}</p>
+                {videogame.videogame.description.length > 125 ?
+                    <p className="text">{videogame.videogame.description.substr(0, 125)}...</p> :
+                <p className="text">{videogame.videogame.description}</p>}
                 <button onClick={() => deleteGame(videogame.videogame.id) }>Remove</button> <button onClick={() => {
                 navigate(`/updateVideogame/${videogame.videogame.id}`, {
 
                 });
             }}>Update</button>
+            </div>
+
             </div>
         </div>
     )

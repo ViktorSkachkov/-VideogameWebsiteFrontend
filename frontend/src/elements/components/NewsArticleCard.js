@@ -10,11 +10,13 @@ const NewsArticleCard = (newsArticle) => {
             });
         }}>
             <div>
-                <img src="69piR5.jpg" height="300px" width="450px" alt=""/>
+                <img src={newsArticle.newsArticle.image} height="300px" width="450px" alt=""/>
             </div>
             <div>
                 <h1>{newsArticle.newsArticle.title}</h1>
-                <p className="text">{newsArticle.newsArticle.text}</p>
+                {newsArticle.newsArticle.text.length > 125 ?
+                    <p className="text">{newsArticle.newsArticle.text.substr(0, 125)}...</p> :
+                <p className="text">{newsArticle.newsArticle.text}</p>}
             </div>
         </div>
     )

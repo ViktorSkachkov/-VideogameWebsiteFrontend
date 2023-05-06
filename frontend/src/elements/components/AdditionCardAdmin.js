@@ -20,11 +20,13 @@ const AdditionCardAdmin = (addition) => {
     return (
         <div className="additionArticleCard">
             <div>
-                <img src="69piR5.jpg" height="300px" width="450px" alt=""/>
+                <img src={addition.addition.image} height="300px" width="450px" alt=""/>
             </div>
             <div>
                 <h1>{addition.addition.name}</h1>
-                <p className="text">{addition.addition.description}</p>
+                {addition.addition.description.length > 125 ?
+                    <p className="text">{addition.addition.description.substr(0, 125)}...</p> :
+                <p className="text">{addition.addition.description}</p>}
                 <button onClick={() => deleteAddition(addition.addition.id) }>Remove</button> <button onClick={() => {
                 navigate(`/updateAddition/${addition.addition.id}`, {
 
