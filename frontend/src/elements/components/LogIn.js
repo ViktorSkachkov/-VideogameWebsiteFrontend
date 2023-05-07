@@ -31,6 +31,7 @@ const LogIn = (updateUser) => {
                 localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
                 updateUser.updateUser(/*response.data.accessToken*/);
                 navigate("/");
+                //window.location.reload();
             }
         )
             .catch(function (error) {

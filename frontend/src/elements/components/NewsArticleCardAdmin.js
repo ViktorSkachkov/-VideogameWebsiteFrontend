@@ -11,8 +11,9 @@ const NewsArticleCardAdmin = (newsArticle) => {
     let navigate = useNavigate();
 
     useEffect(() => {
+        setGeneral(false);
         getGame();
-    }, []);
+    }, [newsArticle.handleChangeVideogame]);
 
     const getGame = () => {
         if(newsArticle.newsArticle.gameId != 0) {

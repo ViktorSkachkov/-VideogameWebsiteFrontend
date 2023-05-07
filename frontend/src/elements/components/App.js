@@ -54,6 +54,7 @@ function App() {
                 let token_serialized = JSON.stringify(response.data);
                 console.log("token_serialized " + token_serialized);
                 localStorage.setItem("token", token_serialized);
+                window.location.reload();
             }
         )
             .catch(function (error) {

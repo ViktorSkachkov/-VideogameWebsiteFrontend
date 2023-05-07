@@ -8,9 +8,8 @@ const NewsDisplay = (props) => {
     return (
         <>
             <center>
-                <h1 className="title">NEWS</h1>
-                <h3 className="title">Filters</h3>
-                <select value={props.gameId} onChange={props.handleChangeVideogame}>
+                <h1 className="titleNews">NEWS</h1>
+                <select className="filter" value={props.gameId} onChange={props.handleChangeVideogame}>
                     <option value={-1}>All</option>
                     <option value={0}>General</option>
                     {props.videogames.map((videogame) => (
@@ -21,7 +20,8 @@ const NewsDisplay = (props) => {
                 {props.roles.some(r => r == "EMPLOYEE") ?
                     <> <div className="listOfNewsArticles">
                         {props.newsArticles.map((newsArticle) => (
-                            <NewsArticleCardAdmin newsArticle={newsArticle} />
+                            <NewsArticleCardAdmin newsArticle={newsArticle} handleChangeVideogame={props.handleChangeVideogame}
+                            gameId={props.gameId}/>
                         ))}
                     </div>
                         <button onClick={() => {
@@ -31,7 +31,8 @@ const NewsDisplay = (props) => {
                     </> : props.roles.some(r => r == "CUSTOMER") ?
                         <div className="listOfNewsArticles">
                             {props.newsArticles.map((newsArticle) => (
-                                <NewsArticleCard newsArticle={newsArticle} />
+                                <NewsArticleCard newsArticle={newsArticle} handleChangeVideogame={props.handleChangeVideogame}
+                                                 gameId={props.gameId}/>
                             ))}
                         </div> : <></>
                 }

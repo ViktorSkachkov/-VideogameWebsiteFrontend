@@ -30,8 +30,6 @@ V
 &src/elements/css/AdditionOrderCard.css,7\9\797acc6de1a7292ef4b09bb2870f44caf70c29dd
 S
 #src/elements/components/Register.js,9\e\9ebd58979540dd2272cdcb052e9628ce03123834
-I
-src/elements/css/News.css,0\0\00eea28a908157a54e5c6ec427151c9bb795bc74
 T
 $src/elements/css/NewsArticleCard.css,7\3\7351d144463be2fadb3e3cadcde32cf0efcaf4a2
 S
@@ -48,8 +46,6 @@ Q
 !src/elements/css/ViewAddition.css,7\a\7a736fca76a6ee34c137ea9cb3474d3e56751917
 X
 (src/elements/css/ViewAdditionDisplay.css,3\c\3cc0115396536320d9e76edfb5335b227da09ca3
-P
- src/elements/components/LogIn.js,a\1\a10072ecaadad89ad5f36e1d4e0cdc2dc9315ad7
 U
 %src/elements/API_access/ReviewsAPI.js,2\c\2c0412ede6220eeba7d81263acd6c5ce77722a35
 Q
@@ -64,8 +60,6 @@ W
 'src/elements/components/PrivateRoute.js,1\a\1aa4c3e690a03f846e0b1ff72ca52a4966084dd5
 S
 #src/elements/API_access/GamesAPI.js,5\2\526652f86a5362e2829ae8e6cb4db0012488750d
-R
-"src/elements/API_access/NewsAPI.js,7\2\72add5a500467e4f55187de6a630d9f422e660b5
 \
 ,src/elements/components/AdditionOrderCard.js,8\2\8294535847f3e47e1429174f2f0452386bb30118
 L

@@ -11,6 +11,7 @@ const News = (props) => {
     const [roles, setRoles] = useState([]);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
     const [videogames, setVideogames] = useState([]);
+    const [counter, setCounter] = useState(0);
 
     useEffect(() => {
         getRoles();
@@ -38,8 +39,22 @@ const News = (props) => {
 
     const handleChangeVideogame = (e) => {
         e.preventDefault();
+        /*let result = counter + 1;
+        setCounter(result)
+        if(result == 1) {
+
+        }*/
 
         setGameId(e.target.value);
+
+        NewsAPI.getByGame(e.target.value, token).then(
+            function (response) {
+                setNewsArticles(response.data);
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
     }
 
     const getVideogames = () => {
@@ -52,7 +67,7 @@ const News = (props) => {
                 console.log(error);
             })
     }
-    
+
     return (
         <NewsDisplay newsArticles={newsArticles} roles={roles} handleChangeVideogame={handleChangeVideogame}
                      gameId={gameId} videogames={videogames}/>
