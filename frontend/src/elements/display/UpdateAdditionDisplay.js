@@ -3,6 +3,7 @@ const UpdateAdditionDisplay = (props) => {
     return (
         <>
             <center>
+                <img src={props.image} width="400px" height="400px" alt=""/>
                 <form onSubmit={props.handleSubmit}>
                     <br/><br/>
                     <label htmlFor="image" className="formLabelImage">Image</label><br/><br/>

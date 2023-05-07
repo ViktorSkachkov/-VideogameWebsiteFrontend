@@ -11,7 +11,6 @@ const Games = (props) => {
     useEffect(() => {
         getRoles();
         getVideogames();
-        //setToken(JSON.parse(localStorage.getItem("accessToken")));
     }, []);
 
     const getRoles = () => {

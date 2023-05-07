@@ -165,7 +165,6 @@ return (
                     </PrivateRoute>}/>
             <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
-            }
     </Router>
     <Footer/>
     </body>

@@ -3,7 +3,7 @@ const UpdateNewsArticleDisplay = (props) => {
     return (
         <>
             <center>
-                <img src={props.image} height="300px" width="300px" alt=""/>
+                <img src={props.image} width="400px" height="400px" alt=""/>
                 <form onSubmit={props.handleSubmit}>
                     <br/><br/>
                     <label htmlFor="image" className="formLabelImage">New Image</label><br/><br/>

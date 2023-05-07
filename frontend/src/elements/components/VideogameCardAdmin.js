@@ -28,6 +28,7 @@ const VideogameCardAdmin = (videogame) => {
 
             <div className="videogameArticleCardContents">
                 <h1>{videogame.videogame.name}</h1>
+                <b><p>Price: {videogame.videogame.price}</p></b>
                 {videogame.videogame.description.length > 125 ?
                     <p className="text">{videogame.videogame.description.substr(0, 125)}...</p> :
                 <p className="text">{videogame.videogame.description}</p>}

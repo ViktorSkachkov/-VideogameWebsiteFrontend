@@ -8,8 +8,9 @@ const ViewGameDisplay = (props) => {
             {props.game != null ?
                 <div className="viewGameBody">
                     <center>
-                        <img src={props.game.image}  alt="Currently the image can't load"/>
+                        <img src={props.game.image} width="400px" height="400px" alt="Currently the image can't load"/>
                         <h1>{props.game.name}</h1>
+                        <b><p>Price: {props.game.price}</p></b>
                         <p>{props.game.description}</p>
                         <label htmlFor="units" className="formLabelUnits">Number</label><br/>
                         <input type="number" name="units" value={props.units} onChange={props.onChangeUnits} className="Label"/>

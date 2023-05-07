@@ -3,15 +3,19 @@ import '../css/News.css';
 import {NewsAPI} from "../API_access/NewsAPI";
 import {useNavigate} from "react-router-dom";
 import NewsDisplay from "../display/NewsDisplay";
+import {GamesAPI} from "../API_access/GamesAPI";
 
 const News = (props) => {
     const [newsArticles, setNewsArticles] = useState([]);
+    const [gameId, setGameId] = useState(-1);
     const [roles, setRoles] = useState([]);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+    const [videogames, setVideogames] = useState([]);
 
     useEffect(() => {
         getRoles();
         getNews();
+        getVideogames()
     }, []);
 
     const getRoles = () => {
@@ -31,9 +35,27 @@ const News = (props) => {
                 console.log(error);
             })
     }
+
+    const handleChangeVideogame = (e) => {
+        e.preventDefault();
+
+        setGameId(e.target.value);
+    }
+
+    const getVideogames = () => {
+        GamesAPI.getAll(token).then(
+            function (response) {
+                setVideogames(response.data);
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
     
     return (
-        <NewsDisplay newsArticles={newsArticles} roles={roles}/>
+        <NewsDisplay newsArticles={newsArticles} roles={roles} handleChangeVideogame={handleChangeVideogame}
+                     gameId={gameId} videogames={videogames}/>
     )
 }
 export default News;

@@ -4,7 +4,7 @@ import {NewsAPI} from "../API_access/NewsAPI";
 import "../css/AddNewsArticle.css"
 
 const AddNewsArticle = (loggedUser) => {
-    const [gameId, setGameId] = useState(1);
+    const [gameId, setGameId] = useState(0);
     const [image, setImage] = useState("image");
     const [title, setTitle] = useState();
     const [text, setText] = useState("");
@@ -49,7 +49,7 @@ const AddNewsArticle = (loggedUser) => {
 
     return (
         <AddNewsArticleDisplay handleSubmit={handleSubmit} onChangeTitle={onChangeTitle} onChangeImage={onChangeImage} onChangeText={onChangeText}
-        image={image} title={title} text={text}/>
+        image={image} title={title} text={text} gameId={gameId} setGameId={setGameId}/>
     )
 }
 export default AddNewsArticle;
