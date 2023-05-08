@@ -10,7 +10,6 @@ const GamesDisplay = (props) => {
             <center>
                 <img src="/69piR5.jpg" width="80%" height="400px"  alt="Currently the image can't load"/>
                 <h1 className="title">GAMES</h1>
-                <h3 className="title">Filters</h3>
             </center>
             {props.roles.some(r => r == "EMPLOYEE") ?
                 <center>

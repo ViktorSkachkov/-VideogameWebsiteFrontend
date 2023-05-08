@@ -9,7 +9,14 @@ const ShopDisplay = (props) => {
         <>
             <center>
                 <h1 className="title">ADDITIONS</h1>
-                <h3 className="title">Filters</h3>
+                <select className="filter" value={props.gameId} onChange={props.handleChangeVideogame}>
+                    <option value={-1}>All</option>
+                    <option value={0}>General</option>
+                    {props.videogames.map((videogame) => (
+                        <option value={videogame.id}>{videogame.name}</option>
+                    ))}
+                </select><br/><br/>
+
                 {props.roles.some(r => r == "EMPLOYEE") ?
                     <> <div className="listOfAdditionsAdmin">
                         {

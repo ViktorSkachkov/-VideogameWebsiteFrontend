@@ -39,11 +39,6 @@ const News = (props) => {
 
     const handleChangeVideogame = (e) => {
         e.preventDefault();
-        /*let result = counter + 1;
-        setCounter(result)
-        if(result == 1) {
-
-        }*/
 
         setGameId(e.target.value);
 
