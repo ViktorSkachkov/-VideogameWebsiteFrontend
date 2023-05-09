@@ -5,6 +5,7 @@ import '../css/ViewAddition.css';
 import {AdditionsAPI} from "../API_access/AdditionsAPI";
 import {AdditionOrdersAPI} from "../API_access/AdditionOrdersAPI";
 import {ReviewsAPI} from "../API_access/ReviewsAPI";
+import {GamesAPI} from "../API_access/GamesAPI";
 
 const ViewAddition = (loggedUser) => {
     const [addition, setAddition] = useState(null);
@@ -13,6 +14,7 @@ const ViewAddition = (loggedUser) => {
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
     const [userId, setUserId] = useState(1);
     const [reviews, setReviews] = useState([]);
+    const [game, setGame] = useState(null);
 
     let params = useParams();
     const id = params.id;
@@ -32,6 +34,7 @@ const ViewAddition = (loggedUser) => {
         AdditionsAPI.getById(id, token).then(
             function (response) {
                 setAddition(response.data);
+                getGame(response.data.gameId);
             }
         )
             .catch(function (error) {
@@ -104,10 +107,25 @@ const ViewAddition = (loggedUser) => {
         }
     }
 
+    function getGame(gameId) {
+            GamesAPI.getById(gameId, token).then(
+                function (response) {
+                    setGame(response.data);
+                }
+            )
+                .catch(function (error) {
+                    console.log(error);
+                })
+    }
+
     return (
-        <ViewAdditionDisplay review={review} addition={addition} onChangeReview={onChangeReview}
-         addition={addition} units={units} onChangeUnits={onChangeUnits} buyAddition={buyAddition}
-                             addReview={addReview} reviews={reviews} token={token}/>
+        <>
+        {game != null ?
+            <ViewAdditionDisplay review={review} addition={addition} onChangeReview={onChangeReview}
+                                 addition={addition} units={units} onChangeUnits={onChangeUnits} buyAddition={buyAddition}
+                                 addReview={addReview} reviews={reviews} token={token} game={game}/>
+            : <p>Loading...</p>}
+        </>
     )
 }
 export default ViewAddition;

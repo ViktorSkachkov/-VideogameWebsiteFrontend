@@ -29,6 +29,15 @@ export const AdditionsAPI = {
             },
         });
     },
+    getByGame: function(additionId) {
+        return axiosInstance.request({
+            method: "GET",
+            url: `/getByGame/${additionId}`,
+            headers: {
+                "Authorization": `Bearer ${accessToken}`,
+            },
+        });
+    },
     create: function(addition, token) {
         return axiosInstance.request({
             method: "POST",

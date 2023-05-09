@@ -6,8 +6,6 @@
 src/App.js,1\e\1e43fa63aecd2127be034b3fb9d4caa172275714
 K
 src/elements/css/Footer.css,1\b\1b6e038b4700f2073d2bacfa8764f77617e63956
-W
-'src/elements/API_access/AdditionsAPI.js,4\1\41c241d25171dc149c0d42955022bdde1f293b60
 <
 src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
 O
@@ -58,8 +56,6 @@ S
 #src/elements/API_access/LoginAPI.js,9\2\928902487339eb735f695db931db973f53b1328d
 W
 'src/elements/components/PrivateRoute.js,1\a\1aa4c3e690a03f846e0b1ff72ca52a4966084dd5
-S
-#src/elements/API_access/GamesAPI.js,5\2\526652f86a5362e2829ae8e6cb4db0012488750d
 \
 ,src/elements/components/AdditionOrderCard.js,8\2\8294535847f3e47e1429174f2f0452386bb30118
 L
@@ -96,32 +92,14 @@ Z
 *src/elements/display/AddAdditionDisplay.js,e\a\ea3793848f09e9791ed31053ae2d7162812d8d1c
 R
 "src/elements/components/Profile.js,6\6\6671b80147b05c36c414a6884fabfba00885c187
-U
-%src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
 V
 &src/elements/display/ProfileDisplay.js,f\d\fd4c805ace301337f24eca9f1a737567e9723de0
-W
-'src/elements/components/ViewAddition.js,0\f\0fc16d79c748ace43c48eba00460c612b2875cf9
-W
-'src/elements/components/AdditionCard.js,b\e\be70d9d7dba563750c2ca08919703f7759c929a5
 X
 (src/elements/components/VideogameCard.js,e\3\e308b4fdc8ffa1911faa0d83c88eddd41dc14127
-S
-#src/elements/components/ViewGame.js,1\a\1a6786fead9d2c8c9a3182bc4a4abcf810c3eac3
 ]
 -src/elements/components/VideogameCardAdmin.js,0\b\0ba417082febdefe389508714f9c4c18d649f0ed
-\
-,src/elements/components/AdditionCardAdmin.js,e\1\e1aa457480589dd6234f8bb48ae1c4c583502365
-Z
-*src/elements/components/ViewNewsArticle.js,9\d\9d161185f8850a912c8e04bca59c1dbb894cfc78
-^
-.src/elements/display/ViewNewsArticleDisplay.js,f\2\f2bfd8691af86ea505c716f3058a2ed574993467
 `
 0src/elements/display/UpdateNewsArticleDisplay.js,3\b\3bbd6b405dd85d0bf2963a3ee288fddf9aa27ac1
-W
-'src/elements/display/ViewGameDisplay.js,7\f\7fe73da9c638cbf868723dd34e18596a5161ba1b
-[
-+src/elements/display/ViewAdditionDisplay.js,c\8\c8f885d84ffb7f0fd13a1ff5ffdd221b0a668238
 ^
 .src/elements/display/UpdateVideogameDisplay.js,b\3\b3488b4e14801863df692b1344fa6a14dce410f2
 ]
@@ -130,3 +108,7 @@ Y
 )src/elements/components/UpdateAddition.js,d\6\d645b9b0bd3e7b639b5088c23c3dc1c1867c1835
 ]
 -src/elements/display/AddNewsArticleDisplay.js,5\9\5918504b4b31d43e57b70214fa4791f6e9a346a9
+Y
+)src/elements/components/AddNewsArticle.js,9\3\93b77dfcf915aba7abab6064f1e0ef9cc24c8dba
+O
+src/elements/components/Home.js,2\e\2e5eceb605d07e375c248dea43516ef19400bc5a

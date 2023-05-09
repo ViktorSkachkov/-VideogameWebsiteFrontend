@@ -36,7 +36,7 @@ const NewsDisplay = (props) => {
                             ))}
                         </div> : <></>
                 }
-            </center><br/>
+            </center><br/><br/><br/>
         </>
     )
 }

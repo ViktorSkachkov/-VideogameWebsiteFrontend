@@ -15,3 +15,4 @@ const ViewNewsArticleDisplay = (props) => {
     )
 }
 export default ViewNewsArticleDisplay;
+

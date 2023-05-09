@@ -45,26 +45,26 @@ const NewsArticleCardAdmin = (newsArticle) => {
 
     return (
         <>
-        {game != null || general == true ?
-        <div className="newsArticleCard">
-            <div>
-                <img src={newsArticle.newsArticle.image} height="300px" width="450px" alt=""/>
-            </div>
-            <div>
-                <h1>{newsArticle.newsArticle.title}</h1>
-                {general == false ?
-                <b><p>About {game.name}</p></b> :
-                    <b><p>General</p></b>}
-                {newsArticle.newsArticle.text.length > 125 ?
-                    <p className="text">{newsArticle.newsArticle.text.substr(0, 125)}...</p> :
-                <p className="text">{newsArticle.newsArticle.text}</p>}
-                <button onClick={() => deleteNewsArticle(newsArticle.newsArticle.id) }>Remove</button> <button onClick={() => {
-                navigate(`/updateNewsArticle/${newsArticle.newsArticle.id}`, {
+            {game != null || general == true ?
+                <div className="newsArticleCard">
+                    <div>
+                        <img src={newsArticle.newsArticle.image} height="300px" width="450px" alt=""/>
+                    </div>
+                    <div>
+                        <h1>{newsArticle.newsArticle.title}</h1>
+                        {general == false ?
+                            <b><p>About {game.name}</p></b> :
+                            <b><p>General</p></b>}
+                        {newsArticle.newsArticle.text.length > 125 ?
+                            <p className="text">{newsArticle.newsArticle.text.substr(0, 125)}...</p> :
+                            <p className="text">{newsArticle.newsArticle.text}</p>}
+                        <button onClick={() => deleteNewsArticle(newsArticle.newsArticle.id) }>Remove</button> <button onClick={() => {
+                        navigate(`/updateNewsArticle/${newsArticle.newsArticle.id}`, {
 
-                });
-            }}>Update</button>
-            </div>
-        </div> :
+                        });
+                    }}>Update</button>
+                    </div>
+                </div> :
                 <p>Loading...</p>}
         </>
     )

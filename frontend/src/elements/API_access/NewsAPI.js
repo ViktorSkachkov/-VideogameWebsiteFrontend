@@ -20,12 +20,12 @@ export const NewsAPI = {
             },
         });
     },
-    getByGame: function(newsArticleId) {
+    getByGame: function(newsArticleId, token) {
         return axiosInstance.request({
             method: "GET",
             url: `/getByGame/${newsArticleId}`,
             headers: {
-                "Authorization": `Bearer ${accessToken}`,
+                "Authorization": `Bearer ${token}`,
             },
         });
     },

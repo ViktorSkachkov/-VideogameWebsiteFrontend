@@ -1,10 +1,32 @@
 import '../css/AdditionCard.css';
 import {useNavigate} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {GamesAPI} from "../API_access/GamesAPI";
 
 const AdditionCard = (addition) => {
+    const [game, setGame] = useState(null);
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+
     let navigate = useNavigate();
 
+    useEffect(() => {
+        getGame();
+    }, [addition.handleChangeVideogame]);
+
+    const getGame = () => {
+        GamesAPI.getById(addition.addition.gameId, token).then(
+            function (response) {
+                setGame(response.data);
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
     return (
+        <>
+            {game != null ?
         <div className="additionCard"  onClick={() => {
             navigate(`/addition/${addition.addition.id}`, {
             });
@@ -19,11 +41,14 @@ const AdditionCard = (addition) => {
             </div>
             <div className="lowerPart">
                 <b><p className="price">Price: {addition.addition.price}</p></b>
+                <b><p>For {game.name}</p></b>
                 {addition.addition.description.length > 125 ?
                     <p className="description">{addition.addition.description.substr(0, 125)}...</p> :
                 <p className="description">{addition.addition.description}</p>}
             </div>
-        </div>
+        </div> :
+                <p>Loading...</p>}
+        </>
     )
 }
 export default AdditionCard;

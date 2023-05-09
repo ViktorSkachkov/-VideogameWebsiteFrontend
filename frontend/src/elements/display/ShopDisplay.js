@@ -11,7 +11,6 @@ const ShopDisplay = (props) => {
                 <h1 className="title">ADDITIONS</h1>
                 <select className="filter" value={props.gameId} onChange={props.handleChangeVideogame}>
                     <option value={-1}>All</option>
-                    <option value={0}>General</option>
                     {props.videogames.map((videogame) => (
                         <option value={videogame.id}>{videogame.name}</option>
                     ))}
@@ -21,7 +20,8 @@ const ShopDisplay = (props) => {
                     <> <div className="listOfAdditionsAdmin">
                         {
                             props.additions.map((addition) => (
-                                <AdditionCardAdmin addition={addition}/>
+                                <AdditionCardAdmin addition={addition} handleChangeVideogame={props.handleChangeVideogame}
+                                                   gameId={props.gameId}/>
                             ))
                         }
                     </div>
@@ -33,12 +33,13 @@ const ShopDisplay = (props) => {
                         <div className="listOfAdditions">
                             {
                                 props.additions.map((addition) => (
-                                    <AdditionCard addition={addition}/>
+                                    <AdditionCard addition={addition} handleChangeVideogame={props.handleChangeVideogame}
+                                                  gameId={props.gameId}/>
                                 ))
                             }
                         </div> : <></>
                 }
-            </center><br/>
+            </center><br/><br/><br/>
         </>
     )
 }

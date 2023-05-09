@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 import '../css/Shop.css';
 import ShopDisplay from "../display/ShopDisplay";
 import {AdditionsAPI} from "../API_access/AdditionsAPI";
-import {NewsAPI} from "../API_access/NewsAPI";
 import {GamesAPI} from "../API_access/GamesAPI";
 
 const Shop = () => {
@@ -41,14 +40,14 @@ const Shop = () => {
 
         setGameId(e.target.value);
 
-        /*NewsAPI.getByGame(e.target.value, token).then(
+        AdditionsAPI.getByGame(e.target.value, token).then(
             function (response) {
-                setNewsArticles(response.data);
+                setAdditions(response.data);
             }
         )
             .catch(function (error) {
                 console.log(error);
-            })*/
+            })
     }
 
     const getVideogames = () => {
