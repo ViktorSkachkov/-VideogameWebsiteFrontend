@@ -14,5 +14,5 @@ build:
 test:
   stage: test
   script:
-    - cd backend
+    - cd frontend
     - ./gradlew test
