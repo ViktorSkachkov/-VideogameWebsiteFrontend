@@ -1,10 +1,12 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import '../css/Navigation.css';
 import {useState, useEffect} from "react";
 
 const Navigation = (props) => {
     const [roles, setRoles] = useState([]);
     const [id, setId] = useState(0);
+
+    let navigate = useNavigate();
 
     useEffect(() => {
         getRoles();
@@ -21,8 +23,11 @@ const Navigation = (props) => {
 
     return (
         <nav className="navBar">
-            <div>
-                <img src="/69piR5.jpg" height="50px" width="100px" alt=""/>
+            <div className="imageContainer">
+                <img  onClick={() => {
+                    navigate(`/`, {
+                    });
+                }} src="/logo.png" height="50px" width="100px" alt=""/>
             </div>
             {roles.length == 0 ?
                 <>

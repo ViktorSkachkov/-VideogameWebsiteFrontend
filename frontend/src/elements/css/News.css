@@ -3,8 +3,20 @@
     padding-left: 4%;
     padding-right: 4%;
 }
-.title {
+.newsButton {
+    background-color: #fe0000;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 20px;
+    color: white;
+}
 
+.titleNews {
+color: white;
 }
 .filter {
     /*padding-right: 140px;*/

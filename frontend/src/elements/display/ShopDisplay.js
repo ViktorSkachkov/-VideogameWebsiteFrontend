@@ -8,7 +8,7 @@ const ShopDisplay = (props) => {
     return (
         <>
             <center>
-                <h1 className="title">ADDITIONS</h1>
+                <h1 className="titleShop">ADDITIONS</h1>
                 <select className="filter" value={props.gameId} onChange={props.handleChangeVideogame}>
                     <option value={-1}>All</option>
                     {props.videogames.map((videogame) => (
@@ -25,7 +25,7 @@ const ShopDisplay = (props) => {
                             ))
                         }
                     </div>
-                        <button onClick={() => {
+                        <button className="shopButton" onClick={() => {
                             navigate(`/addAddition`, {
                             });
                         }}>Add Addition</button></>

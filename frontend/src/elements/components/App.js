@@ -19,13 +19,12 @@ import AddVideogame from "./AddVideogame";
 import AddAddition from "./AddAddition";
 import AddNewsArticle from "./AddNewsArticle";
 import {Navigate} from "react-router-dom";
-//import Cookies from "universal-cookie";
-import axios from "axios";
 import jwtDecode from "jwt-decode";
 import Profile from "./Profile";
 import {UsersAPI} from "../API_access/UsersAPI";
 import ViewOrders from "./ViewOrders";
 import PrivateRoute from "./PrivateRoute";
+import '../css/App.css';
 
 function App() {
     const [token, setToken] = useState("");
@@ -94,7 +93,7 @@ return (
             connect-src http://localhost:8080/;"
         />
     </head>
-    <body>
+    <body className="applicationBackground">
     <Router>
         <Navigation
             removeUser={removeUser}

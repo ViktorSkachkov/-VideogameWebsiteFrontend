@@ -6,7 +6,7 @@ const NewsDisplay = (props) => {
     let navigate = useNavigate();
 
     return (
-        <>
+        <div>
             <center>
                 <h1 className="titleNews">NEWS</h1>
                 <select className="filter" value={props.gameId} onChange={props.handleChangeVideogame}>
@@ -24,7 +24,7 @@ const NewsDisplay = (props) => {
                             gameId={props.gameId}/>
                         ))}
                     </div>
-                        <button onClick={() => {
+                        <button className="newsButton" onClick={() => {
                             navigate(`/addNewsArticle`, {
                             });
                         }}>Add News Article</button>
@@ -37,7 +37,7 @@ const NewsDisplay = (props) => {
                         </div> : <></>
                 }
             </center><br/><br/><br/>
-        </>
+        </div>
     )
 }
 export default NewsDisplay;

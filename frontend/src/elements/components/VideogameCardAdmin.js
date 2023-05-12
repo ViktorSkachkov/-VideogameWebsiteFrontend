@@ -32,7 +32,7 @@ const VideogameCardAdmin = (videogame) => {
                 {videogame.videogame.description.length > 125 ?
                     <p className="text">{videogame.videogame.description.substr(0, 125)}...</p> :
                 <p className="text">{videogame.videogame.description}</p>}
-                <button onClick={() => deleteGame(videogame.videogame.id) }>Remove</button> <button onClick={() => {
+                <button className="gameButton" onClick={() => deleteGame(videogame.videogame.id) }>Remove</button> <button className="gameButton" onClick={() => {
                 navigate(`/updateVideogame/${videogame.videogame.id}`, {
 
                 });

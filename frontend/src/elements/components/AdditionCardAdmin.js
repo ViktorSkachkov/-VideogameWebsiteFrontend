@@ -49,7 +49,7 @@ const AdditionCardAdmin = (addition) => {
                 {addition.addition.description.length > 125 ?
                     <p className="text">{addition.addition.description.substr(0, 125)}...</p> :
                 <p className="text">{addition.addition.description}</p>}
-                <button onClick={() => deleteAddition(addition.addition.id) }>Remove</button> <button onClick={() => {
+                <button className="shopButton" onClick={() => deleteAddition(addition.addition.id) }>Remove</button> <button className="shopButton" onClick={() => {
                 navigate(`/updateAddition/${addition.addition.id}`, {
 
                 });

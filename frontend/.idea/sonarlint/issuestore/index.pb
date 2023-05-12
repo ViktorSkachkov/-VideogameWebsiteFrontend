@@ -1,15 +1,6 @@
 
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-:
-
-src/App.js,1\e\1e43fa63aecd2127be034b3fb9d4caa172275714
-K
-src/elements/css/Footer.css,1\b\1b6e038b4700f2073d2bacfa8764f77617e63956
 <
 src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
-O
-src/elements/css/Navigation.css,4\0\4096c0418c60e4050f06c22f89be888db85df520
 W
 'src/elements/display/RegisterDisplay.js,2\3\23bae8c2ec060868189e652ca3fc63cf1c809087
 Z
@@ -24,12 +15,8 @@ X
 (src/elements/API_access/GameOrdersAPI.js,0\7\07eeb17e104195f99ac325024c9d13f3f5352695
 R
 "src/elements/css/GameOrderCard.css,e\7\e79bc769adff6f400a1a08610c59db2f80f1b154
-V
-&src/elements/css/AdditionOrderCard.css,7\9\797acc6de1a7292ef4b09bb2870f44caf70c29dd
 S
 #src/elements/components/Register.js,9\e\9ebd58979540dd2272cdcb052e9628ce03123834
-T
-$src/elements/css/NewsArticleCard.css,7\3\7351d144463be2fadb3e3cadcde32cf0efcaf4a2
 S
 #src/elements/API_access/UsersAPI.js,4\8\483e200bda437a5aa4aea932ea0fc3c010f8687e
 T
@@ -46,8 +33,6 @@ X
 (src/elements/css/ViewAdditionDisplay.css,3\c\3cc0115396536320d9e76edfb5335b227da09ca3
 U
 %src/elements/API_access/ReviewsAPI.js,2\c\2c0412ede6220eeba7d81263acd6c5ce77722a35
-Q
-!src/elements/components/Footer.js,8\1\81ed86725ce48bc97c6a714a834db5057c378bd6
 U
 %src/elements/components/ReviewCard.js,6\8\684b5b3e486e26c926a87d2ff601b3edbb664958
 U
@@ -66,8 +51,6 @@ S
 #src/elements/components/ChatRoom.js,1\7\177d101ffa7e2aed511e9105b347180b967d4425
 R
 "src/elements/css/VideogameCard.css,8\4\842784e1963bb1e7987d06fd64a5c8a631bd40ce
-W
-'src/elements/css/VideogameCardAdmin.css,2\9\2959efdde3e768e72cb7acd6ccedc3c472c843ba
 \
 ,src/elements/components/UpdateNewsArticle.js,8\a\8acbc1b3275b7f4841bc14713ba67df586bdd873
 V
@@ -96,8 +79,6 @@ V
 &src/elements/display/ProfileDisplay.js,f\d\fd4c805ace301337f24eca9f1a737567e9723de0
 X
 (src/elements/components/VideogameCard.js,e\3\e308b4fdc8ffa1911faa0d83c88eddd41dc14127
-]
--src/elements/components/VideogameCardAdmin.js,0\b\0ba417082febdefe389508714f9c4c18d649f0ed
 `
 0src/elements/display/UpdateNewsArticleDisplay.js,3\b\3bbd6b405dd85d0bf2963a3ee288fddf9aa27ac1
 ^

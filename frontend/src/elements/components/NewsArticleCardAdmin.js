@@ -57,8 +57,8 @@ const NewsArticleCardAdmin = (newsArticle) => {
                             <b><p>General</p></b>}
                         {newsArticle.newsArticle.text.length > 125 ?
                             <p className="text">{newsArticle.newsArticle.text.substr(0, 125)}...</p> :
-                            <p className="text">{newsArticle.newsArticle.text}</p>}
-                        <button onClick={() => deleteNewsArticle(newsArticle.newsArticle.id) }>Remove</button> <button onClick={() => {
+                            <p className="text">{newsArticle.newsArticle.text}</p>}<br/>
+                        <button className="newsButton" onClick={() => deleteNewsArticle(newsArticle.newsArticle.id) }>Remove</button> <button  className="newsButton" onClick={() => {
                         navigate(`/updateNewsArticle/${newsArticle.newsArticle.id}`, {
 
                         });

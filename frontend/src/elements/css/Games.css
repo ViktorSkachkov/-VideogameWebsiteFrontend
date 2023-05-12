@@ -7,11 +7,22 @@
     display: inline-block;
     justify-items: center;
 }
-.title {
-    padding-left: 4%;
+.titleGames {
+    color: white;
 }
 .listOfGamesAdmin {
     padding-bottom: 20px;
     padding-left: 4%;
     padding-right: 4%;
+}
+.gameButton {
+    background-color: #fe0000;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 20px;
+    color: white;
 }
