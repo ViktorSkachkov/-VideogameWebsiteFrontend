@@ -29,13 +29,11 @@ const ProfileDisplay = (props) => {
                         <label htmlFor="bankAccount" className="formLabelBankAccount">Bank Account</label><br/>
                         <input type="bankAccount" value={props.bankAccount} onChange={props.onBankAccount} className="Label"/><br/><br/>
 
-                        <button type="submit" className="updateProfileButton">Update Account</button><br/><br/>
+                        <button type="submit" className="profileButton">Update Account</button>      {props.roles.some(r => r == "CUSTOMER") ?
+                        <button className="profileButton" onClick={() => props.deleteProfile(props.id)}>Delete Account</button> :
+                        <></>}  <button className="profileButton" onClick={() => navigate(`/orders/${props.id}`)}>View Orders</button>
                     </form>
-                    {props.roles.some(r => r == "CUSTOMER") ?
-                        <> <button onClick={() => props.deleteProfile(props.id)}>Delete Account</button><br/><br/></> :
-                        <></>}
-                    <button onClick={() => navigate(`/orders/${props.id}`)}>View Orders</button>
-                </center><br/><br/><br/>
+                </center><br/><br/><br/><br/>
             </> : <p>Loading...</p>}
         </>
     )
