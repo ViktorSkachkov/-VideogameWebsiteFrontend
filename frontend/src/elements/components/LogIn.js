@@ -2,6 +2,7 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {LoginAPI} from "../API_access/LoginAPI";
 import LoginDisplay from "../display/LoginDisplay";
+import '../css/Login.css';
 
 const LogIn = (updateUser) => {
     const [username, setUsername] = useState("");

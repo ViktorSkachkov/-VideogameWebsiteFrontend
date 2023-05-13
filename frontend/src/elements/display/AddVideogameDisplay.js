@@ -4,7 +4,7 @@ const AddVideogameDisplay = (props) => {
     return (
         <>
             <center>
-                <form onSubmit={props.handleSubmit}>
+                <form className="formBackground" onSubmit={props.handleSubmit}>
                     <br/><br/>
                     <label htmlFor="image" className="formLabelImage">Image</label><br/><br/>
                     <input type="file" name="image" onChange={(e) => {

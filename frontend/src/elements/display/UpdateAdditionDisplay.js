@@ -2,7 +2,7 @@ const UpdateAdditionDisplay = (props) => {
 
     return (
         <>
-            <center>
+            <center className="formBackground"><br/>
                 <img src={props.image} width="400px" height="400px" alt=""/>
                 <form onSubmit={props.handleSubmit}>
                     <br/><br/>
@@ -15,8 +15,8 @@ const UpdateAdditionDisplay = (props) => {
                     <label htmlFor="number" className="formLabelPrice">Price</label><br/>
                     <input type="number" name="price" onChange={props.onChangePrice} value={props.price} className="Label" /><br/><br/>
                     <button type="submit" className="normalButton">Submit</button>
-                </form><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            </center>
+                </form>
+            </center><br/><br/><br/><br/>
         </>
     )
 }

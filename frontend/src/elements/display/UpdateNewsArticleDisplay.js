@@ -2,7 +2,7 @@ const UpdateNewsArticleDisplay = (props) => {
 
     return (
         <>
-            <center>
+            <center className="formBackground"><br/>
                 <img src={props.image} width="400px" height="400px" alt=""/>
                 <form onSubmit={props.handleSubmit}>
                     <br/><br/>
@@ -13,8 +13,8 @@ const UpdateNewsArticleDisplay = (props) => {
                     <label htmlFor="text" className="formLabelText">Text</label><br/>
                     <textarea type="text" name="text" onChange={props.onChangeText} value={props.text} className="UpdateTextArea" /><br/><br/>
                     <button type="submit" className="normalButton">Submit</button>
-                </form><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            </center>
+                </form>
+            </center><br/><br/><br/><br/>
         </>
     )
 }
