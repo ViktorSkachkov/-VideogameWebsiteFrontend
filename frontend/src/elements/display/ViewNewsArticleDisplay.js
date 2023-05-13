@@ -3,8 +3,8 @@ const ViewNewsArticleDisplay = (props) => {
     return (
         <>
             {props.newsArticle != null ?
-                <div className="viewGameBody">
-                    <center>
+                <div className="viewNewsBody">
+                    <center className="formBackground"><br/>
                         <img src={props.newsArticle.image} width="400px" height="400px" alt="Currently the image can't load"/>
                         <h1>{props.newsArticle.title}</h1>
                         <p>{props.newsArticle.text}</p>

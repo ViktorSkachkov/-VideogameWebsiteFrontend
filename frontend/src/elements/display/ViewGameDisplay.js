@@ -12,9 +12,9 @@ const ViewGameDisplay = (props) => {
                         <h1>{props.game.name}</h1>
                         <b><p>Price: {props.game.price}</p></b>
                         <p>{props.game.description}</p>
-                        <label htmlFor="units" className="formLabelUnits">Number</label><br/>
-                        <input type="number" name="units" value={props.units} onChange={props.onChangeUnits} className="Label"/>
-                        <button onClick={() => props.buyGame(props.game.id) }>Buy</button>
+                        <label htmlFor="units" className="formLabelUnits">Number</label>
+                        <input type="number" name="units" value={props.units} onChange={props.onChangeUnits} className="gameNumber"/>
+                        <button className="buyGameButton" onClick={() => props.buyGame(props.game.id) }>Buy</button>
                         <h3>Reviews</h3>
 
                         {props.reviews.map((review) => (

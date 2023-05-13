@@ -1,7 +1,7 @@
 const RegisterDisplay = (props) => {
     return (
         <>
-            <center><br/><br/>
+            <center className="formBackground"><br/><br/>
                 <h1>
                     REGISTER
                 </h1>
@@ -22,9 +22,9 @@ const RegisterDisplay = (props) => {
                     <label htmlFor="bankAccount" className="formLabelBankAccount">Bank Account</label><br/>
                     <input type="bankAccount" onChange={props.onChangeBankAccount} className="Label"/><br/><br/>
 
-                    <button type="submit" className="normalButton">Submit</button><br/><br/><br/><br/><br/><br/><br/>
+                    <button type="submit" className="normalButton">Submit</button>
                 </form>
-            </center>
+            </center><br/><br/><br/><br/>
         </>
     )
 }

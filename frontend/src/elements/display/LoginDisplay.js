@@ -2,7 +2,7 @@
 const LoginDisplay = (props) => {
     return (
         <>
-            <center><br/><br/>
+            <center className="formBackground"><br/>
                 <h1 className="loginText">
                     LOGIN
                 </h1>
@@ -13,9 +13,9 @@ const LoginDisplay = (props) => {
                     <label htmlFor="password" className="formLoginLabelPassword">Password</label><br/>
                     <input type="password" name="password" onChange={props.onChangePwd} className="Label"/>
                     <br/><br/>
-                    <button type="submit" className="normalButton">Submit</button><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                    <button type="submit" className="normalButton">Submit</button>
                 </form>
-            </center>
+            </center><br/><br/><br/><br/>
         </>
     )
 }

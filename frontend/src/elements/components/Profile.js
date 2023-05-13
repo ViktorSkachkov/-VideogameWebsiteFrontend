@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import '../css/Profile.css';
 import {useNavigate, useParams} from "react-router-dom";
 import ProfileDisplay from "../display/ProfileDisplay";
 import {UsersAPI} from "../API_access/UsersAPI";
@@ -11,6 +12,7 @@ const Profile = (props) => {
     const [repeatPwd, setRepeatPwd] = useState("");
     const [email, setEmail] = useState("");
     const [bankAccount, setBankAccount] = useState("");
+    const [roles, setRoles] = useState([]);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     let params = useParams();
@@ -20,7 +22,17 @@ const Profile = (props) => {
 
     useEffect(() => {
         getUser();
+        getRoles();
     }, []);
+
+    const getRoles = () => {
+        console.log("props " + props.token);
+        let token_deserialized = JSON.parse(localStorage.getItem("token"));
+        if(token_deserialized != null) {
+            setRoles(token_deserialized.userRoles.map(element => element.role));
+        }
+    }
+
     const updateProfile = (e) => {
         e.preventDefault();
         if(pwd != repeatPwd) {
@@ -99,7 +111,8 @@ const Profile = (props) => {
     return (
         <ProfileDisplay updateProfile={updateProfile} deleteProfile={deleteProfile}
                         onChangeUsername={onChangeUsername} onChangePwd={onChangePwd} onChangeRepeatPwd={onChangeRepeatPwd} onChangeEmail={onChangeEmail} onBankAccount={onBankAccount}
-                        id={id} user={user} username={username} pwd={pwd} repeatPwd={repeatPwd} email={email} bankAccount={bankAccount}/>
+                        id={id} user={user} username={username} pwd={pwd} repeatPwd={repeatPwd} email={email} bankAccount={bankAccount}
+        roles={roles}/>
     )
 }
 export default Profile;

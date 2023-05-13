@@ -6,7 +6,7 @@ const ProfileDisplay = (props) => {
     return (
         <>
             {props.user != null ? <>
-                <center><br/><br/>
+                <center className="formBackground"><br/>
                     <h1>
                         Your Profile! Welcome {props.username}
                     </h1>
@@ -29,14 +29,14 @@ const ProfileDisplay = (props) => {
                         <label htmlFor="bankAccount" className="formLabelBankAccount">Bank Account</label><br/>
                         <input type="bankAccount" value={props.bankAccount} onChange={props.onBankAccount} className="Label"/><br/><br/>
 
-                        <button type="submit" className="normalButton">Update Account<br/> Information</button><br/><br/>
+                        <button type="submit" className="updateProfileButton">Update Account</button><br/><br/>
                     </form>
-                    {props.user.userRoles.some(r => r == "EMPLOYEE") ?
+                    {props.roles.some(r => r == "CUSTOMER") ?
                         <> <button onClick={() => props.deleteProfile(props.id)}>Delete Account</button><br/><br/></> :
                         <></>}
-                    <button onClick={() => navigate(`/orders/${props.id}`)}>View Your Orders</button><br/><br/><br/>
-                </center>
-            </> : <></>}
+                    <button onClick={() => navigate(`/orders/${props.id}`)}>View Orders</button>
+                </center><br/><br/><br/>
+            </> : <p>Loading...</p>}
         </>
     )
 }

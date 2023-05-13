@@ -13,9 +13,9 @@ const ViewAdditionDisplay = (props) => {
                         <b><p>Price: {props.addition.price}</p></b>
                         <b><p>For {props.game.name}</p></b>
                         <p>{props.addition.description}</p>
-                        <label htmlFor="units" className="formLabelUnits">Number</label><br/>
-                        <input type="number" name="units" value={props.units} onChange={props.onChangeUnits} className="Label"/>
-                        <button onClick={() => props.buyAddition(props.addition.id) }>Buy</button>
+                        <label htmlFor="units" className="formLabelUnits">Number</label>
+                        <input type="number" name="units" value={props.units} onChange={props.onChangeUnits} className="additionNumber"/>
+                        <button className="buyAdditionButton" onClick={() => props.buyAddition(props.addition.id) }>Buy</button>
                         <h3>Reviews</h3>
 
                         {props.reviews.map((review) => (

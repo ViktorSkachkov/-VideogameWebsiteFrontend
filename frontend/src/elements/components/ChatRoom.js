@@ -1,6 +1,6 @@
 import SockJS from 'sockjs-client';
 import {over} from 'stompjs';
-import '../css/Support.css';
+import '../css/ChatRoom.css';
 import {useEffect, useState} from "react";
 import {UsersAPI} from "../API_access/UsersAPI";
 import {useParams} from "react-router-dom";

@@ -43,7 +43,7 @@ const ReviewCard = (props) => {
                 <div>{props.review.text}</div>
             </div>
             <div className="reviewDelete">
-                <button onClick={() => deleteReview(props.review.id) } >Delete</button>
+                <button className="deleteButton" onClick={() => deleteReview(props.review.id) } >Delete</button>
             </div>
         </div>
                 :
