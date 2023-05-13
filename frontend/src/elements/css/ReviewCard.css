@@ -3,6 +3,10 @@
     border-style: solid;
     border-color: black;
     margin-bottom: 20px;
+    background-color: white;
+}
+.reviewOuter {
+    padding: 5px;
 }
 .reviewText {
     border: transparent;

@@ -32,7 +32,7 @@ const ReviewCard = (props) => {
             })
     };
     return (
-        <>
+        <div className="reviewOuter">
         {user != null ?
         <div className="reviewCard">
             <div className="reviewUsername">
@@ -48,7 +48,7 @@ const ReviewCard = (props) => {
         </div>
                 :
                 <p>Loading...</p>}
-        </>
+        </div>
     )
 }
 export default ReviewCard;

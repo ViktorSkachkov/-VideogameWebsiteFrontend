@@ -43,8 +43,8 @@ const AdditionCard = (addition) => {
                 <b><p className="price">Price: {addition.addition.price}</p></b>
                 <b><p>For {game.name}</p></b>
                 {addition.addition.description.length > 125 ?
-                    <p className="description">{addition.addition.description.substr(0, 125)}...</p> :
-                <p className="description">{addition.addition.description}</p>}
+                    <p className="additionDescription">{addition.addition.description.substr(0, 125)}...</p> :
+                <p className="additionDescription">{addition.addition.description}</p>}
             </div>
         </div> :
                 <p>Loading...</p>}

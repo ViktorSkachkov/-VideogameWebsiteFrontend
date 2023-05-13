@@ -1,4 +1,14 @@
 .viewAdditionBody {
-    padding-left: 4%;
-    padding-right: 4%;
+    padding: 20px;
+}
+.submitAdditionOrderButton {
+    background-color: #fe0000;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 15px;
+    color: white;
 }

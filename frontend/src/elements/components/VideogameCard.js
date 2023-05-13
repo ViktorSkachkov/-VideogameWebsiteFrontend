@@ -19,7 +19,7 @@ const VideogameCard = (videogame) => {
             <div className="lowerPart">
                 <b><p className="price">Price: {videogame.videogame.price}</p></b>
                 {videogame.videogame.description.length > 125 ?
-                <p className="description">{videogame.videogame.description.substr(0, 125)}...</p> :
+                <p className="videogameDescription">{videogame.videogame.description.substr(0, 125)}...</p> :
                     <p>{videogame.videogame.description}</p>}
             </div>
         </div>
