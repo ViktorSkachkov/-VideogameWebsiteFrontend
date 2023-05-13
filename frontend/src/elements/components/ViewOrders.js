@@ -42,14 +42,14 @@ const ViewOrders = (loggedUser) => {
     return (
         <div>
             <center>
-            <h1>Your Game Orders</h1>
+            <h1 className="orderH1Title">Your Game Orders</h1>
                 <div className="listOfOrders">
             {gameOrders.map(gameOrder => (
                     <GameOrderCard gameOrder={gameOrder}/>
                 )
             )}
                 </div>
-            <h1>Your Addition Orders</h1>
+            <h1 className="orderH1Title">Your Addition Orders</h1>
                 <div className="listOfOrders">
             {additionOrders.map(additionOrder => (
                     <AdditionOrderCard additionOrder={additionOrder}/>

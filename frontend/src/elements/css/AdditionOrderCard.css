@@ -3,14 +3,15 @@
     border-style: solid;
     border-color: black;
     margin-bottom: 20px;
+    background-color: white;
 }
 .text {
     margin-left: 5px;
     margin-right: 5px;
 }
 .orderDescription {
-    border-style: solid;
-    border-color: darkred;
+    /*border-style: solid;
+    border-color: darkred;*/
     margin-left: 5px;
     margin-right: 5px;
 }

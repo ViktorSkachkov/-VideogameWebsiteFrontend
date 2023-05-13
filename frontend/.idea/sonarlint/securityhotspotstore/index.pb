@@ -7,16 +7,10 @@ Z
 ,src/elements/API_access/AdditionOrdersAPI.js,d\2\d2d9d77ed8383c62db8d80d32dcf15b81ba5dada
 X
 (src/elements/API_access/GameOrdersAPI.js,0\7\07eeb17e104195f99ac325024c9d13f3f5352695
-R
-"src/elements/css/GameOrderCard.css,e\7\e79bc769adff6f400a1a08610c59db2f80f1b154
 S
 #src/elements/API_access/UsersAPI.js,4\8\483e200bda437a5aa4aea932ea0fc3c010f8687e
-O
-src/elements/css/ViewOrders.css,4\1\41d3a46c81d022cecf8b1d5d73d2bc820c197e68
 U
 %src/elements/API_access/ReviewsAPI.js,2\c\2c0412ede6220eeba7d81263acd6c5ce77722a35
-U
-%src/elements/components/ViewOrders.js,f\9\f98cedab235dee7ee9eb113c12848802e6710999
 S
 #src/elements/API_access/LoginAPI.js,9\2\928902487339eb735f695db931db973f53b1328d
 W
@@ -25,8 +19,6 @@ W
 ,src/elements/components/AdditionOrderCard.js,8\2\8294535847f3e47e1429174f2f0452386bb30118
 L
 src/elements/css/Support.css,4\3\434cf79d5f101be28b48b5702a1774bd6245e9ea
-X
-(src/elements/components/GameOrderCard.js,c\a\ca193eb02b65f7fb8cb2ed2a0a0668b9c980af36
 W
 'src/elements/components/AddVideogame.js,9\5\9582c580e72acb2a0fc512fc42b9b001aac930d5
 Y
@@ -54,10 +46,6 @@ S
 #src/elements/display/ShopDisplay.js,d\e\deee0c82180e7b5d6dc896e2ba1347eade1b19da
 \
 ,src/elements/components/AdditionCardAdmin.js,e\1\e1aa457480589dd6234f8bb48ae1c4c583502365
-V
-&src/elements/css/AdditionOrderCard.css,7\9\797acc6de1a7292ef4b09bb2870f44caf70c29dd
-V
-&src/elements/css/AdditionCardAdmin.css,3\5\358065d47c5cc43fe530b90ca15c242bf0862f73
 U
 %src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
 ]
