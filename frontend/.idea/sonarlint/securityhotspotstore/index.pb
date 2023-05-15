@@ -40,8 +40,6 @@ S
 -src/elements/components/VideogameCardAdmin.js,0\b\0ba417082febdefe389508714f9c4c18d649f0ed
 T
 $src/elements/css/NewsArticleCard.css,7\3\7351d144463be2fadb3e3cadcde32cf0efcaf4a2
-P
- src/elements/components/LogIn.js,a\1\a10072ecaadad89ad5f36e1d4e0cdc2dc9315ad7
 O
 src/elements/css/Navigation.css,4\0\4096c0418c60e4050f06c22f89be888db85df520
 S
@@ -108,16 +106,12 @@ T
 $src/elements/display/LoginDisplay.js,8\9\89ac1c8336b0c52209387c460a8cc8a899e5f9c0
 S
 #src/elements/display/NewsDisplay.js,1\3\133a660911cd2df5fc28c58e1c870ea4d62e10a0
-S
-#src/elements/components/Register.js,9\e\9ebd58979540dd2272cdcb052e9628ce03123834
 M
 src/elements/css/Register.css,4\b\4b0d88377813c64df589767a99f82cf05016deab
 T
 $src/elements/display/GamesDisplay.js,2\2\222870164c6af78e48e5b9a5d8bd490f8037e4ef
 P
  src/elements/components/Games.js,1\8\1872eb6efb753a43cf33e1ae646b53a0380f0e44
-R
-"src/elements/components/Profile.js,6\6\6671b80147b05c36c414a6884fabfba00885c187
 U
 %src/elements/components/ViewOrders.js,f\9\f98cedab235dee7ee9eb113c12848802e6710999
 O

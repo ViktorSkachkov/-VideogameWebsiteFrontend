@@ -35,18 +35,21 @@ const Profile = (props) => {
 
     const updateProfile = (e) => {
         e.preventDefault();
-        if(pwd != repeatPwd) {
-            alert('The password and the repeated password are different!');
-        }
 
-        let data = {
-            "id": id,
-            "username": username,
-            "pwd": pwd,
-            "email": email,
-            "bankAccount": bankAccount,
-            "userRoles": user.userRoles,
-        }
+            if(pwd != repeatPwd) {
+                alert('The password and the repeated password are different!');
+            }
+
+            let data = {
+                "id": id,
+                "username": username,
+                "pwd": pwd,
+                "email": email,
+                "bankAccount": bankAccount,
+                "userRoles": user.userRoles,
+            }
+
+
 
         UsersAPI.update(data, token).then(
             function (response) {
@@ -78,9 +81,8 @@ const Profile = (props) => {
     const getUser = () => {
         UsersAPI.getById(id, token).then(
             function (response) {
-                let {username, pwd, email, bankAccount} = response.data;
+                let {username, email, bankAccount} = response.data;
                 setRepeatPwd(pwd);
-                setPwd(pwd);
                 setUsername(username);
                 setEmail(email);
                 setBankAccount(bankAccount);
