@@ -20,6 +20,24 @@ export const GamesAPI = {
             },
         });
     },
+    getForNewsFilter: function(token) {
+        return axiosInstance.request({
+            method: "GET",
+            url: `/newsFilter`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    getForAdditionsFilter: function(token) {
+        return axiosInstance.request({
+            method: "GET",
+            url: `/additionsFilter`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
     getFeatured: function(token) {
         return axiosInstance.request({
             method: "GET",

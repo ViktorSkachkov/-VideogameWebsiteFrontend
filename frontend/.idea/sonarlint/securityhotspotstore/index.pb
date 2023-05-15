@@ -38,8 +38,6 @@ N
 src/elements/components/App.js,2\f\2f8d52a9a274c5f318c24a36bafaffb8cdaf6059
 H
 src/elements/css/App.css,9\0\902c01337fdcb3064507bc54d2cbe5af669b8c80
-O
-src/elements/components/Shop.js,4\7\47602badb1b84b462adcc7a061fc3ee1cac1ae4a
 S
 #src/elements/display/ShopDisplay.js,d\e\deee0c82180e7b5d6dc896e2ba1347eade1b19da
 \

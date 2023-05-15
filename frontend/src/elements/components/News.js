@@ -53,7 +53,7 @@ const News = (props) => {
     }
 
     const getVideogames = () => {
-        GamesAPI.getAll(token).then(
+        GamesAPI.getForNewsFilter(token).then(
             function (response) {
                 setVideogames(response.data);
             }
