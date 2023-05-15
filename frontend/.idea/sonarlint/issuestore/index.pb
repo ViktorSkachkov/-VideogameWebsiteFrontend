@@ -48,10 +48,6 @@ S
 -src/elements/components/VideogameCardAdmin.js,0\b\0ba417082febdefe389508714f9c4c18d649f0ed
 T
 $src/elements/css/NewsArticleCard.css,7\3\7351d144463be2fadb3e3cadcde32cf0efcaf4a2
-U
-%src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
-O
-src/elements/components/News.js,4\9\4944dd02f47106f590781a784590034514b7dbbc
 ]
 -src/elements/display/AddNewsArticleDisplay.js,5\9\5918504b4b31d43e57b70214fa4791f6e9a346a9
 [
@@ -116,10 +112,6 @@ W
 'src/elements/display/ViewGameDisplay.js,7\f\7fe73da9c638cbf868723dd34e18596a5161ba1b
 ^
 .src/elements/display/ViewNewsArticleDisplay.js,f\2\f2bfd8691af86ea505c716f3058a2ed574993467
-O
-src/elements/components/Home.js,2\e\2e5eceb605d07e375c248dea43516ef19400bc5a
-S
-#src/elements/display/HomeDisplay.js,7\f\7f190d08f8050929d625874aaf03d3f62e768ca1
 I
 src/elements/css/Home.css,e\d\ed53f49c168d3785551efddc292393744270eae9
 S

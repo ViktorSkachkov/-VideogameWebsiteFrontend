@@ -27,7 +27,7 @@ const Navigation = (props) => {
                 <img  onClick={() => {
                     navigate(`/`, {
                     });
-                }} src="/logo.png" height="50px" width="100px" alt=""/>
+                }} src="/logo.png" alt=""/>
             </div>
             {roles.length == 0 ?
                 <>

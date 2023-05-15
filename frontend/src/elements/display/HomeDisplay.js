@@ -14,12 +14,6 @@ const HomeDisplay = (props) => {
                         <VideogameCard videogame={videogame} />
                     ))}
                 </div>
-                <h1 className="title">Upcoming Games</h1>
-                <div className="listOfGames">
-                    {props.upcomingVideogames.map((videogame) => (
-                        <VideogameCard videogame={videogame} />
-                    ))}
-                </div>
             </> : <><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             </>}
         </>
