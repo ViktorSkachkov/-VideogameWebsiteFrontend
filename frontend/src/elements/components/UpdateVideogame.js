@@ -10,7 +10,7 @@ const UpdateVideogame = (loggedUser) => {
     const [name, setName] = useState();
     const [price, setPrice] = useState();
     const [description, setDescription] = useState();
-    const [featured, setFeatured] = useState(true);
+    const [featured, setFeatured] = useState(false);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     let params = useParams();
@@ -73,28 +73,9 @@ const UpdateVideogame = (loggedUser) => {
             })
     }
 
-    /*return (
-        <>
-            <center>
-            <form onSubmit={handleSubmit}>
-                <br/><br/>
-                <label htmlFor="image" className="formLabelImage">Image</label><br/><br/>
-                <input type="file" name="image" onChange={onChangeImage} className="Label"/><br/><br/>
-                <label htmlFor="name" className="formLabelName">Name</label><br/>
-                <input type="text" name="name" onChange={onChangeName} value={name} className="Label" /><br/><br/>
-                <label htmlFor="username" className="formLabelDescription">Description</label><br/>
-                <textarea type="text" name="description" onChange={onChangeDescription} value={description} className="Label" /><br/><br/>
-                <label htmlFor="number" className="formLabelPrice">Price</label><br/>
-                <input type="number" name="price" onChange={onChangePrice} value={price} className="Label" /><br/><br/>
-                <button type="submit" className="normalButton">Submit</button>
-            </form><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            </center>
-        </>
-    )*/
-
     return (
         <UpdateVideogameDisplay handleSubmit={handleSubmit} onChangeName={onChangeName} onChangeImage={onChangeImage} onChangePrice={onChangePrice} onChangeDescription={onChangeDescription}
-                                image={image} name={name} price={price} description={description} featured={featured}/>
+                                image={image} name={name} price={price} description={description} featured={featured} setFeatured={setFeatured}/>
     )
 }
 export default UpdateVideogame;

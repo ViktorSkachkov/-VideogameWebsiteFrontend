@@ -53,7 +53,7 @@ const AddAddition = (loggedUser) => {
 
     return (
         <AddAdditionDisplay handleSubmit={handleSubmit} onChangeName={onChangeName} onChangePrice={onChangePrice} onChangeDescription={onChangeDescription} onChangeImage={onChangeImage}
-        name={name} price={price} description={description}/>
+        name={name} price={price} description={description} gameId={gameId} setGameId={setGameId}/>
     )
 }
 export default AddAddition;

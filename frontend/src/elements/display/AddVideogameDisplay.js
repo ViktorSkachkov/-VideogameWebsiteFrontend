@@ -1,6 +1,12 @@
 
 const AddVideogameDisplay = (props) => {
 
+    const handleChangeFeatured = (e) => {
+        e.preventDefault();
+
+        props.setFeatured(e.target.value);
+    }
+
     return (
         <>
             <center>
@@ -10,6 +16,11 @@ const AddVideogameDisplay = (props) => {
                     <input type="file" name="image" onChange={(e) => {
                         props.onChangeImage(e);
                     }} required={true} accept="image/*" className="Label"/><br/><br/>
+                    <label htmlFor="name" className="formLabelFeatured">Featured</label><br/>
+                    <select value={props.featured} onChange={handleChangeFeatured}>
+                            <option value={true}>Featured</option>
+                            <option value={false}>Not Featured</option>
+                    </select><br/><br/>
                     <label htmlFor="name" className="formLabelName">Name</label><br/>
                     <input type="text" name="name" onChange={props.onChangeName} value={props.name} className="Label" /><br/><br/>
                     <label htmlFor="username" className="formLabelDescription">Description</label><br/>

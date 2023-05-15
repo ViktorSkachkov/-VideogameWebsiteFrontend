@@ -53,7 +53,7 @@ const AddVideogame = (loggedUser) => {
 
     return (
         <AddVideogameDisplay handleSubmit={handleSubmit} onChangeName={onChangeName} onChangeImage={onChangeImage} onChangePrice={onChangePrice} onChangeDescription={onChangeDescription}
-        image={image} name={name} price={price} description={description} featured={featured}/>
+        image={image} name={name} price={price} description={description} featured={featured} setFeatured={setFeatured}/>
     )
 }
 export default AddVideogame;

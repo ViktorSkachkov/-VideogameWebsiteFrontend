@@ -1,6 +1,0 @@
-
-ajavascript:S1481"9Remove the declaration of the unused 'setToken' variable.(û‰ÚÐüÿÿÿÿ8ùø¡†ÿ0
-^javascript:S1854"6Remove this useless assignment to variable "setToken".(û‰ÚÐüÿÿÿÿ8ûø¡†ÿ0
-djavascript:S1481"<Remove the declaration of the unused 'setFeatured' variable.(©€¿³ýÿÿÿÿ8üø¡†ÿ0
-ajavascript:S1854"9Remove this useless assignment to variable "setFeatured".(©€¿³ýÿÿÿÿ8üø¡†ÿ0
-Qjavascript:S3504")Unexpected var, use let or const instead.(Â¼œÔýÿÿÿÿ8üø¡†ÿ0
