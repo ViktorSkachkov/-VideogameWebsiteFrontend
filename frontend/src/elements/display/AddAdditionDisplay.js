@@ -19,6 +19,7 @@ const AddAdditionDisplay = (props) => {
         GamesAPI.getAll(token).then(
             function (response) {
                 setVideogames(response.data);
+                props.setGameId(response.data.at(0).id);
             }
         )
             .catch(function (error) {

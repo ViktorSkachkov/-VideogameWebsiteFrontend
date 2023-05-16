@@ -29,6 +29,7 @@ const AddAddition = (loggedUser) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
+
         if(description.length > 125) {
         let data = {
             "gameId": gameId,

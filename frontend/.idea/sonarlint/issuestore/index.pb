@@ -124,3 +124,21 @@ R
 "src/elements/css/GameOrderCard.css,e\7\e79bc769adff6f400a1a08610c59db2f80f1b154
 V
 &src/elements/css/AdditionOrderCard.css,7\9\797acc6de1a7292ef4b09bb2870f44caf70c29dd
+O
+src/elements/components/Home.js,2\e\2e5eceb605d07e375c248dea43516ef19400bc5a
+S
+#src/elements/display/HomeDisplay.js,7\f\7f190d08f8050929d625874aaf03d3f62e768ca1
+V
+&src/elements/css/AdditionCardAdmin.css,3\5\358065d47c5cc43fe530b90ca15c242bf0862f73
+U
+%src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
+O
+src/elements/css/ViewOrders.css,4\1\41d3a46c81d022cecf8b1d5d73d2bc820c197e68
+L
+src/elements/css/Profile.css,9\7\97e5120d65260935d2888a48ea425575985f4586
+S
+#src/elements/API_access/GamesAPI.js,5\2\526652f86a5362e2829ae8e6cb4db0012488750d
+O
+src/elements/components/Shop.js,4\7\47602badb1b84b462adcc7a061fc3ee1cac1ae4a
+O
+src/elements/components/News.js,4\9\4944dd02f47106f590781a784590034514b7dbbc
