@@ -25,6 +25,7 @@ import {UsersAPI} from "../API_access/UsersAPI";
 import ViewOrders from "./ViewOrders";
 import PrivateRoute from "./PrivateRoute";
 import '../css/App.css';
+import RankOrders from "./RankOrders";
 
 function App() {
     const [token, setToken] = useState("");
@@ -163,6 +164,10 @@ return (
                     <PrivateRoute>
                             <AddNewsArticle loggedUser={loggedUser} token={token} />
                     </PrivateRoute>}/>
+            <Route path="/rankOrders" element={
+                <PrivateRoute>
+                    <RankOrders loggedUser={loggedUser} token={token} />
+                </PrivateRoute>}/>
             <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
     </Router>

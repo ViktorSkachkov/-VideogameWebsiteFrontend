@@ -1,10 +1,6 @@
 
 <
 src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
-\
-,src/elements/API_access/AdditionOrdersAPI.js,d\2\d2d9d77ed8383c62db8d80d32dcf15b81ba5dada
-X
-(src/elements/API_access/GameOrdersAPI.js,0\7\07eeb17e104195f99ac325024c9d13f3f5352695
 S
 #src/elements/API_access/UsersAPI.js,4\8\483e200bda437a5aa4aea932ea0fc3c010f8687e
 U
@@ -26,14 +22,10 @@ K
 src/elements/css/Footer.css,1\b\1b6e038b4700f2073d2bacfa8764f77617e63956
 Q
 !src/elements/components/Footer.js,8\1\81ed86725ce48bc97c6a714a834db5057c378bd6
-N
-src/elements/components/App.js,2\f\2f8d52a9a274c5f318c24a36bafaffb8cdaf6059
 H
 src/elements/css/App.css,9\0\902c01337fdcb3064507bc54d2cbe5af669b8c80
 _
 /src/elements/components/NewsArticleCardAdmin.js,3\6\361d6ebf713955f9ac4892921e34c8db62f5a8e7
-S
-#src/elements/display/ShopDisplay.js,d\e\deee0c82180e7b5d6dc896e2ba1347eade1b19da
 \
 ,src/elements/components/AdditionCardAdmin.js,e\1\e1aa457480589dd6234f8bb48ae1c4c583502365
 ]
@@ -112,8 +104,6 @@ T
 $src/elements/display/GamesDisplay.js,2\2\222870164c6af78e48e5b9a5d8bd490f8037e4ef
 S
 #src/elements/display/NewsDisplay.js,1\3\133a660911cd2df5fc28c58e1c870ea4d62e10a0
-U
-%src/elements/components/ViewOrders.js,f\9\f98cedab235dee7ee9eb113c12848802e6710999
 O
 src/elements/css/ReviewCard.css,3\5\35e68202d34953def0ef8778a3dbbfc3f8dd2e0d
 V
@@ -130,8 +120,6 @@ S
 #src/elements/display/HomeDisplay.js,7\f\7f190d08f8050929d625874aaf03d3f62e768ca1
 V
 &src/elements/css/AdditionCardAdmin.css,3\5\358065d47c5cc43fe530b90ca15c242bf0862f73
-U
-%src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
 O
 src/elements/css/ViewOrders.css,4\1\41d3a46c81d022cecf8b1d5d73d2bc820c197e68
 L
@@ -139,6 +127,12 @@ L
 S
 #src/elements/API_access/GamesAPI.js,5\2\526652f86a5362e2829ae8e6cb4db0012488750d
 O
-src/elements/components/Shop.js,4\7\47602badb1b84b462adcc7a061fc3ee1cac1ae4a
-O
 src/elements/components/News.js,4\9\4944dd02f47106f590781a784590034514b7dbbc
+Q
+!src/elements/css/AddVideogame.css,6\7\6798bf9d6f50f96f23fa9cf9934153974adffa16
+[
++src/elements/display/AddVideogameDisplay.js,4\1\4113f8eb2f6673d4d3e9a636daa85076a3752bf6
+J
+src/elements/css/Login.css,7\8\7821bfcc0d4b44f3157521434a20cfc0c773402c
+^
+.src/elements/display/UpdateVideogameDisplay.js,b\3\b3488b4e14801863df692b1344fa6a14dce410f2

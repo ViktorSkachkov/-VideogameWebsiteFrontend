@@ -38,4 +38,13 @@ export const GameOrdersAPI = {
             },
         });
     },
+    getRanking: function(token) {
+        return axiosInstance.request({
+            method: "GET",
+            url: `/ranked`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
 }

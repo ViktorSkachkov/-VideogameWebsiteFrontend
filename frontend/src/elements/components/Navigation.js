@@ -46,11 +46,18 @@ const Navigation = (props) => {
                 <Link to="/shop">Shop</Link>
                 <Link to="/news">News</Link>
             </div>
+            {roles.some(r => r == "EMPLOYEE") ?
             <div>
                 <Link to="/chat">Chat</Link>
+                <Link to="/rankOrders">Ranked Orders</Link>
                 <Link to={`/profile/${id}`}>Profile</Link>
                 <Link to="/" onClick={props.removeUser}>LogOut</Link>
-            </div></>}
+            </div> : <div>
+                    <Link to="/chat">Chat</Link>
+                    <Link to={`/profile/${id}`}>Profile</Link>
+                    <Link to="/" onClick={props.removeUser}>LogOut</Link>
+                </div>}
+                </>}
         </nav>
     )
 };
