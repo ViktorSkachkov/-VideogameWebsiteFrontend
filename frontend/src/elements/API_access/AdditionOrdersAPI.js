@@ -38,10 +38,10 @@ export const AdditionOrdersAPI = {
             },
         });
     },
-    getRanking: function(token) {
+    getRanking: function(id, token) {
         return axiosInstance.request({
             method: "GET",
-            url: `/ranked`,
+            url: `/ranked/${id}`,
             headers: {
                 "Authorization": `Bearer ${token}`,
             },

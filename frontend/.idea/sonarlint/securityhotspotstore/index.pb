@@ -30,8 +30,6 @@ H
 ,src/elements/components/AdditionCardAdmin.js,e\1\e1aa457480589dd6234f8bb48ae1c4c583502365
 ]
 -src/elements/components/VideogameCardAdmin.js,0\b\0ba417082febdefe389508714f9c4c18d649f0ed
-T
-$src/elements/css/NewsArticleCard.css,7\3\7351d144463be2fadb3e3cadcde32cf0efcaf4a2
 O
 src/elements/css/Navigation.css,4\0\4096c0418c60e4050f06c22f89be888db85df520
 S
@@ -130,9 +128,19 @@ S
 #src/elements/API_access/GamesAPI.js,5\2\526652f86a5362e2829ae8e6cb4db0012488750d
 Q
 !src/elements/css/AddVideogame.css,6\7\6798bf9d6f50f96f23fa9cf9934153974adffa16
-[
-+src/elements/display/AddVideogameDisplay.js,4\1\4113f8eb2f6673d4d3e9a636daa85076a3752bf6
 J
 src/elements/css/Login.css,7\8\7821bfcc0d4b44f3157521434a20cfc0c773402c
 ^
 .src/elements/display/UpdateVideogameDisplay.js,b\3\b3488b4e14801863df692b1344fa6a14dce410f2
+P
+ src/elements/components/LogIn.js,a\1\a10072ecaadad89ad5f36e1d4e0cdc2dc9315ad7
+Y
+)src/elements/components/AddNewsArticle.js,9\3\93b77dfcf915aba7abab6064f1e0ef9cc24c8dba
+W
+'src/elements/display/RegisterDisplay.js,2\3\23bae8c2ec060868189e652ca3fc63cf1c809087
+R
+"src/elements/components/Profile.js,6\6\6671b80147b05c36c414a6884fabfba00885c187
+]
+-src/elements/display/AddNewsArticleDisplay.js,5\9\5918504b4b31d43e57b70214fa4791f6e9a346a9
+Z
+*src/elements/components/UpdateVideogame.js,3\4\345098232ec07678ba2b50de0a00599e532722c5

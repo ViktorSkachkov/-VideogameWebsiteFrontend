@@ -3,18 +3,24 @@ import {useEffect, useState} from "react";
 import {AdditionsAPI} from "../API_access/AdditionsAPI";
 import {GameOrdersAPI} from "../API_access/GameOrdersAPI";
 import {AdditionOrdersAPI} from "../API_access/AdditionOrdersAPI";
+import '../css/RankOrders.css';
 
 const RankOrders = () => {
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
     const [gameOrders, setGameOrders] = useState([]);
     const [additionOrders, setAdditionOrders] = useState([]);
+    const [period, setPeriod] = useState(0);
 
     useEffect(() => {
         getRankingOrders();
     }, []);
 
-    const getRankingOrders = () => {
-        GameOrdersAPI.getRanking(token).then(
+    const handleChangePeriod = (e) => {
+        e.preventDefault();
+
+        setPeriod(e.target.value);
+
+        GameOrdersAPI.getRanking(e.target.value, token).then(
             function (response) {
                 setGameOrders(response.data);
             }
@@ -23,7 +29,27 @@ const RankOrders = () => {
                 console.log(error);
             })
 
-        AdditionOrdersAPI.getRanking(token).then(
+        AdditionOrdersAPI.getRanking(e.target.value, token).then(
+            function (response) {
+                setAdditionOrders(response.data);
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
+    const getRankingOrders = () => {
+        GameOrdersAPI.getRanking(0, token).then(
+            function (response) {
+                setGameOrders(response.data);
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
+
+        AdditionOrdersAPI.getRanking(0, token).then(
             function (response) {
                 setAdditionOrders(response.data);
             }
@@ -35,8 +61,17 @@ const RankOrders = () => {
 
     return (
         <center>
-        <h1 className="orderH1Title">Game Orders</h1>
-        <div>
+            <div className="formBackground"><br/>
+                <select value={period} onChange={handleChangePeriod}>
+                    <option value={0}>In General</option>
+                    <option value={1}>One Month</option>
+                    <option value={6}>Six Months</option>
+                    <option value={12}>One Year</option>
+                </select>
+            <h1>Sorted By Income</h1>
+                <div className="displayStatistics">
+                    <div className="displayStatisticsGames">
+        <h2 className="">Game Orders</h2>
             <table>
                 <tr>
                     <th>
@@ -63,8 +98,10 @@ const RankOrders = () => {
                     </tr>
                 ))}
             </table>
+                    </div>
 
-            <h1 className="orderH1Title">Addition Orders</h1>
+                    <div className="displayStatisticsAdditions">
+            <h2 className="">Addition Orders</h2>
             <table>
                 <tr>
                     <th>
@@ -91,7 +128,8 @@ const RankOrders = () => {
                     </tr>
                 ))}
             </table>
-        </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            </div>
+            </div>    </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </center>
     )
 }

@@ -1,0 +1,15 @@
+table, th, td {
+    border: 1px solid;
+    background-color: white;
+}
+.displayStatistics {
+    display: flex;
+    /*align-items: center;*/
+    justify-content: center;
+}
+.displayStatisticsGames {
+    margin-right: 10px;
+}
+.displayStatisticsAdditions {
+    margin-left: 10px;
+}
