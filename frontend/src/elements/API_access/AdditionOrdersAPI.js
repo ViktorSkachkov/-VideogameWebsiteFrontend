@@ -47,4 +47,22 @@ export const AdditionOrdersAPI = {
             },
         });
     },
+    getAdditionCartItems: function(id, token) {
+        return axiosInstance.request({
+            method: "GET",
+            url: `/cart/${id}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    confirmAdditionOrders: function(id, token) {
+        return axiosInstance.request({
+            method: "PUT",
+            url: `/${id}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
 }

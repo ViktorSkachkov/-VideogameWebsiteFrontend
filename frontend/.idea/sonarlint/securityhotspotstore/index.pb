@@ -84,16 +84,12 @@ W
 .src/elements/display/ViewNewsArticleDisplay.js,f\2\f2bfd8691af86ea505c716f3058a2ed574993467
 I
 src/elements/css/Home.css,e\d\ed53f49c168d3785551efddc292393744270eae9
-S
-#src/elements/components/ChatRoom.js,1\7\177d101ffa7e2aed511e9105b347180b967d4425
 M
 src/elements/css/ChatRoom.css,6\9\69d5e76eaa2e5f3926c85834769b55a1c5d05b35
 [
 +src/elements/display/ViewAdditionDisplay.js,c\8\c8f885d84ffb7f0fd13a1ff5ffdd221b0a668238
 T
 $src/elements/display/LoginDisplay.js,8\9\89ac1c8336b0c52209387c460a8cc8a899e5f9c0
-S
-#src/elements/display/NewsDisplay.js,1\3\133a660911cd2df5fc28c58e1c870ea4d62e10a0
 M
 src/elements/css/Register.css,4\b\4b0d88377813c64df589767a99f82cf05016deab
 T
@@ -114,8 +110,6 @@ S
 #src/elements/display/HomeDisplay.js,7\f\7f190d08f8050929d625874aaf03d3f62e768ca1
 V
 &src/elements/css/AdditionCardAdmin.css,3\5\358065d47c5cc43fe530b90ca15c242bf0862f73
-O
-src/elements/components/News.js,4\9\4944dd02f47106f590781a784590034514b7dbbc
 O
 src/elements/css/ViewOrders.css,4\1\41d3a46c81d022cecf8b1d5d73d2bc820c197e68
 L
@@ -144,9 +138,9 @@ S
 #src/elements/components/Register.js,9\e\9ebd58979540dd2272cdcb052e9628ce03123834
 S
 #src/elements/display/ShopDisplay.js,d\e\deee0c82180e7b5d6dc896e2ba1347eade1b19da
-N
-src/elements/components/App.js,2\f\2f8d52a9a274c5f318c24a36bafaffb8cdaf6059
-U
-%src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
 W
 'src/elements/API_access/AdditionsAPI.js,4\1\41c241d25171dc149c0d42955022bdde1f293b60
+U
+%src/elements/components/RankOrders.js,8\f\8fe2d37b7afeb4287e4484aec148bebc40cb4a5e
+O
+src/elements/components/Shop.js,4\7\47602badb1b84b462adcc7a061fc3ee1cac1ae4a

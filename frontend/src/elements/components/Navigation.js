@@ -55,6 +55,7 @@ const Navigation = (props) => {
             </div> : <div>
                     <Link to="/chat">Chat</Link>
                     <Link to={`/profile/${id}`}>Profile</Link>
+                    <Link to={`/cart/${id}`}>Cart</Link>
                     <Link to="/" onClick={props.removeUser}>LogOut</Link>
                 </div>}
                 </>}
