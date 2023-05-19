@@ -76,8 +76,6 @@ I
 src/elements/css/Home.css,e\d\ed53f49c168d3785551efddc292393744270eae9
 [
 +src/elements/display/ViewAdditionDisplay.js,c\8\c8f885d84ffb7f0fd13a1ff5ffdd221b0a668238
-T
-$src/elements/display/LoginDisplay.js,8\9\89ac1c8336b0c52209387c460a8cc8a899e5f9c0
 M
 src/elements/css/Register.css,4\b\4b0d88377813c64df589767a99f82cf05016deab
 P
@@ -110,8 +108,6 @@ J
 src/elements/css/Login.css,7\8\7821bfcc0d4b44f3157521434a20cfc0c773402c
 ^
 .src/elements/display/UpdateVideogameDisplay.js,b\3\b3488b4e14801863df692b1344fa6a14dce410f2
-P
- src/elements/components/LogIn.js,a\1\a10072ecaadad89ad5f36e1d4e0cdc2dc9315ad7
 W
 'src/elements/display/RegisterDisplay.js,2\3\23bae8c2ec060868189e652ca3fc63cf1c809087
 R
@@ -126,8 +122,6 @@ S
 #src/elements/display/ShopDisplay.js,d\e\deee0c82180e7b5d6dc896e2ba1347eade1b19da
 S
 #src/elements/components/Register.js,9\e\9ebd58979540dd2272cdcb052e9628ce03123834
-U
-%src/elements/components/RankOrders.js,8\f\8fe2d37b7afeb4287e4484aec148bebc40cb4a5e
 O
 src/elements/css/RankOrders.css,d\a\dad2684619250c102c02224149761283e4bcb92a
 [
@@ -138,5 +132,25 @@ W
 ,src/elements/components/AdditionOrderCard.js,8\2\8294535847f3e47e1429174f2f0452386bb30118
 S
 #src/elements/components/ChatRoom.js,1\7\177d101ffa7e2aed511e9105b347180b967d4425
-\
-,src/elements/API_access/AdditionOrdersAPI.js,d\2\d2d9d77ed8383c62db8d80d32dcf15b81ba5dada
+U
+%src/elements/components/ViewOrders.js,f\9\f98cedab235dee7ee9eb113c12848802e6710999
+O
+src/elements/components/News.js,4\9\4944dd02f47106f590781a784590034514b7dbbc
+U
+%src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
+P
+ src/elements/css/AddAddition.css,e\0\e060b793eabe26311ea659fd72cdd2676b037d76
+Q
+!src/elements/components/Footer.js,8\1\81ed86725ce48bc97c6a714a834db5057c378bd6
+X
+(src/elements/components/GameOrderCard.js,c\a\ca193eb02b65f7fb8cb2ed2a0a0668b9c980af36
+W
+'src/elements/components/AdditionCard.js,b\e\be70d9d7dba563750c2ca08919703f7759c929a5
+V
+&src/elements/components/AddAddition.js,c\0\c0b9a826f57d4a32b4c6f62c2d09fffc86fe1779
+Z
+*src/elements/display/AddAdditionDisplay.js,e\a\ea3793848f09e9791ed31053ae2d7162812d8d1c
+M
+src/elements/css/ChatRoom.css,6\9\69d5e76eaa2e5f3926c85834769b55a1c5d05b35
+S
+#src/elements/display/NewsDisplay.js,1\3\133a660911cd2df5fc28c58e1c870ea4d62e10a0

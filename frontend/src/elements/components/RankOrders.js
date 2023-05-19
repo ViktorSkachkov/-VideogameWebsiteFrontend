@@ -63,7 +63,7 @@ const RankOrders = () => {
         <center>
             <div className="formBackground"><br/>
                 <select value={period} onChange={handleChangePeriod}>
-                    <option value={0}>In General</option>
+                    <option value={0}>In Total</option>
                     <option value={1}>One Month</option>
                     <option value={6}>Six Months</option>
                     <option value={12}>One Year</option>

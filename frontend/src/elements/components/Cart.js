@@ -5,10 +5,12 @@ import {useParams} from "react-router-dom";
 import CartItemGame from "./CartItemGame";
 import CartItemAddition from "./CartItemAddition";
 import '../css/Cart.css';
+import {forEach} from "react-bootstrap/ElementChildren";
 
 const Cart = () => {
     const [gameOrders, setGameOrders] = useState([]);
     const [additionOrders, setAdditionOrders] = useState([]);
+    const [finalPrice, setFinalPrice] = useState(0);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     let params = useParams();
@@ -38,6 +40,12 @@ const Cart = () => {
             })
     };
 
+    const calculateFinalPrice = (price) => {
+       /*let addToFinalPrice = finalPrice
+        addToFinalPrice += price;*/
+        setFinalPrice(finalPrice + price);
+    }
+
     return (
         <div className="mainBody">
             <center>
@@ -46,15 +54,15 @@ const Cart = () => {
 
                 <div className="listOfCartItems">
                 {gameOrders.map((gameOrder) => (
-                    <CartItemGame gameOrder={gameOrder}/>
+                    <CartItemGame gameOrder={gameOrder} calculateFinalPrice={calculateFinalPrice}/>
                 ))}
                 {additionOrders.map((additionOrder) => (
-                    <CartItemAddition additionOrder={additionOrder}/>
+                    <CartItemAddition additionOrder={additionOrder} calculateFinalPrice={calculateFinalPrice}/>
                 ))}
                 </div>
                 <br/><br/>
                         <div className="displayFinalPrice">
-                            Final price: {Math.round(7 * 100)/100}$
+                            Final price: {finalPrice}$
                         </div>
                 <br/><br/><br/><br/><br/><br/><br/><br/>
                 <button className="normalButton" onClick={() => {

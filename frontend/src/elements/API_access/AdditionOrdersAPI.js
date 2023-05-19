@@ -65,4 +65,31 @@ export const AdditionOrdersAPI = {
             },
         });
     },
+    increaseAdditionOrderUnits: function(id, token) {
+        return axiosInstance.request({
+            method: "PUT",
+            url: `/increase/${id}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    decreaseAdditionOrderUnits: function(id, token) {
+        return axiosInstance.request({
+            method: "PUT",
+            url: `/decrease/${id}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    delete: function(id, token) {
+        return axiosInstance.request({
+            method: "DELETE",
+            url: `/${id}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
 }

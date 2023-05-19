@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import '../css/CartItem.css';
 import {GamesAPI} from "../API_access/GamesAPI";
+import {GameOrdersAPI} from "../API_access/GameOrdersAPI";
 
 const CartItemGame = (props) => {
     const [increase, setIncrease] = useState("+");
@@ -13,10 +14,19 @@ const CartItemGame = (props) => {
     useEffect(() => {
         getVideogame();
     }, []);
+
+    const increaseFinalPrice = (gameElement) => {
+        if(gameElement != null) {
+            let totalPrice = gameElement.price * props.gameOrder.units;
+            props.calculateFinalPrice(totalPrice);
+        }
+    }
+
     const getVideogame = () => {
         GamesAPI.getById(gameId, token).then(
             function (response) {
                 setGame(response.data);
+                increaseFinalPrice(response.data);
             }
         )
             .catch(function (error) {
@@ -25,15 +35,36 @@ const CartItemGame = (props) => {
     }
 
     function increaseNumber(id) {
-
+        GameOrdersAPI.increaseGameOrderUnits(props.gameOrder.id, token).then(
+            function (response) {
+                window.location.reload();
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
     }
 
     function decreaseNumber(id) {
-
+        GameOrdersAPI.decreaseGameOrderUnits(props.gameOrder.id, token).then(
+            function (response) {
+                window.location.reload();
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
     }
 
     function deleteCartItem(id) {
-
+        GameOrdersAPI.delete(props.gameOrder.id, token).then(
+            function (response) {
+                window.location.reload();
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
     }
 
     return (

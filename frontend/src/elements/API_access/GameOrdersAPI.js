@@ -65,4 +65,31 @@ export const GameOrdersAPI = {
             },
         });
     },
+    increaseGameOrderUnits: function(id, token) {
+        return axiosInstance.request({
+            method: "PUT",
+            url: `/increase/${id}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    decreaseGameOrderUnits: function(id, token) {
+        return axiosInstance.request({
+            method: "PUT",
+            url: `/decrease/${id}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    delete: function(id, token) {
+        return axiosInstance.request({
+            method: "DELETE",
+            url: `/${id}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
 }

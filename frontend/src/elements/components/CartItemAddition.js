@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {AdditionsAPI} from "../API_access/AdditionsAPI";
+import {AdditionOrdersAPI} from "../API_access/AdditionOrdersAPI";
 
 const CartItemAddition = (props) => {
     const [increase, setIncrease] = useState("+");
@@ -12,10 +13,19 @@ const CartItemAddition = (props) => {
     useEffect(() => {
         getAddition();
     }, []);
+
+    const increaseFinalPrice = (additionElement) => {
+        if(additionElement != null) {
+            let totalPrice = additionElement.price * props.additionOrder.units;
+            props.calculateFinalPrice(totalPrice);
+        }
+    }
+
     const getAddition = () => {
         AdditionsAPI.getById(additionId, token).then(
             function (response) {
                 setAddition(response.data);
+                increaseFinalPrice(response.data);
             }
         )
             .catch(function (error) {
@@ -24,50 +34,37 @@ const CartItemAddition = (props) => {
     }
 
     function increaseNumber(id) {
-
+        AdditionOrdersAPI.increaseAdditionOrderUnits(props.additionOrder.id, token).then(
+            function (response) {
+                window.location.reload();
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
     }
 
     function decreaseNumber(id) {
-
+        AdditionOrdersAPI.decreaseAdditionOrderUnits(props.additionOrder.id, token).then(
+            function (response) {
+                window.location.reload();
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
     }
 
     function deleteCartItem(id) {
-
+        AdditionOrdersAPI.delete(props.additionOrder.id, token).then(
+            function (response) {
+                window.location.reload();
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
     }
-
-    /*return (
-        <div>
-            {addition != null ?
-                <div className="cartItem">
-                    <div>
-                        <img src={addition.image} height="60px" width="60px" alt=""/>
-                    </div>
-                    {addition.name.length <= 7 ?
-                    <div className="cartTitle"><b>{addition.name}</b></div>
-                        :
-                        <div className="cartTitle"><b>{addition.name.substr(0, 6)}<br/>
-                            {addition.name.substr(7, addition.name.length - 1)}
-                        </b></div>}
-                    <div>
-                        <button className="arrowCartButton" onClick={() => {
-                            decreaseNumber(props.additionOrder.id)
-                        }}>{decrease}</button>
-                        <input type="text" className="displayCartUnits" value={props.additionOrder.units} />
-                        <button className="arrowCartButton" onClick={() => {
-                            increaseNumber(props.additionOrder.id)
-                        }}>{increase}</button>
-                    </div>
-                    <div className="cartPrice"><b>{addition.price * props.additionOrder.units}</b></div>
-                    <div className="deleteCartText" onClick={() => {
-                        deleteCartItem(props.additionOrder.id)
-                    }}>Delete
-                    </div>
-                </div>
-                :
-                <p>Loading...</p>}
-            <br/>
-        </div>
-    )*/
 
     return (
         <div>
