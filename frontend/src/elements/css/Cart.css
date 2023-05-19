@@ -1,0 +1,12 @@
+.listOfCartItems {
+    padding-bottom: 20px;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+.titleCart {
+    color: beige;
+}
+.deleteCartText {
+    text-decoration: underline;
+    margin-right: 1px;
+}

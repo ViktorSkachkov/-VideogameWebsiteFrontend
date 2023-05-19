@@ -1,0 +1,29 @@
+.arrowCartButton {
+    background-color: #fe0000;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    color: beige;
+}
+
+.cartItem {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-style: solid;
+    border-color: black;
+    /*padding-top: 20px;*/
+    /*padding-bottom: 10px;*/
+    background-color: white;
+}
+.displayCartUnits {
+    text-align: center;
+}
+.cartTitle {
+    width: 70px;
+}

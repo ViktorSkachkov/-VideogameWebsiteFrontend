@@ -4,6 +4,7 @@ import {AdditionOrdersAPI} from "../API_access/AdditionOrdersAPI";
 import {useParams} from "react-router-dom";
 import CartItemGame from "./CartItemGame";
 import CartItemAddition from "./CartItemAddition";
+import '../css/Cart.css';
 
 const Cart = () => {
     const [gameOrders, setGameOrders] = useState([]);
@@ -41,14 +42,16 @@ const Cart = () => {
         <div className="mainBody">
             <center>
                 <br/>
-                <h1>CART</h1><br/>
-                
+                <h1 className="titleCart">CART</h1><br/>
+
+                <div className="listOfCartItems">
                 {gameOrders.map((gameOrder) => (
                     <CartItemGame gameOrder={gameOrder}/>
                 ))}
                 {additionOrders.map((additionOrder) => (
                     <CartItemAddition additionOrder={additionOrder}/>
                 ))}
+                </div>
                 <br/><br/>
                         <div className="displayFinalPrice">
                             Final price: {Math.round(7 * 100)/100}$

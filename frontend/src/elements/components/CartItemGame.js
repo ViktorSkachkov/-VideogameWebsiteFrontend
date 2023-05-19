@@ -1,31 +1,69 @@
-const CartItemGame = (props) => {
-    /*return (
-        <div>
-            <div className="displayCartItems">
-                <div className="imageAndName">
-                    <img src={cartItems.at(i).meal.image} height="60px" width="60px" alt=""/> <p className="cartTitle">{cartItems.at(i).meal.name}</p>
-                </div>
+import {useState, useEffect} from "react";
+import '../css/CartItem.css';
+import {GamesAPI} from "../API_access/GamesAPI";
 
-                <div className="rightSideOfCartItem">
-                    <button className="cartButton" onClick={() => {
-                        decreaseNumber(i)
-                    }}>{decrease}</button>
-                    <input type="text" className="changedSize" value={listOfNumberOfItems.at(i)}/>
-                    <button className="rightArrowCartButton" onClick={() => {
-                        increaseNumber(i)
-                    }}>{increase}</button>
-                    X{price}
-                    <button className="deleteCartButton" onClick={() => {
-                        deleteCartItem(cartItems.at(i).id)
-                    }}>Delete</button>
-                </div>
-            </div>
-            <br/>
-        </div>
-    )*/
+const CartItemGame = (props) => {
+    const [increase, setIncrease] = useState("+");
+    const [decrease, setDecrease] = useState("-");
+
+    const [gameId, setGameId] = useState(props.gameOrder.game);
+    const [game, setGame] = useState(null);
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+
+    useEffect(() => {
+        getVideogame();
+    }, []);
+    const getVideogame = () => {
+        GamesAPI.getById(gameId, token).then(
+            function (response) {
+                setGame(response.data);
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
+    function increaseNumber(id) {
+
+    }
+
+    function decreaseNumber(id) {
+
+    }
+
+    function deleteCartItem(id) {
+
+    }
+
     return (
         <div>
-            pppp
+            {game != null ?
+            <div className="cartItem">
+                <div>
+                    <img src={game.image} height="60px" width="60px" alt=""/>
+                </div>
+
+                <div className="cartTitle"><b>{game.name}</b></div>
+
+                <div>
+                    <button className="arrowCartButton" onClick={() => {
+                        decreaseNumber(props.gameOrder.id)
+                    }}>{decrease}</button>
+                    <input type="text" className="displayCartUnits" value={props.gameOrder.units} />
+                    <button className="arrowCartButton" onClick={() => {
+                        increaseNumber(props.gameOrder.id)
+                    }}>{increase}</button>
+                </div>
+                <div className="cartPrice"><b>{game.price * props.gameOrder.units}</b></div>
+                <div className="deleteCartText" onClick={() => {
+                    deleteCartItem(props.gameOrder.id)
+                    }}>Delete
+                </div>
+            </div>
+                :
+                <p>Loading...</p>}
+            <br/>
         </div>
     )
 }
