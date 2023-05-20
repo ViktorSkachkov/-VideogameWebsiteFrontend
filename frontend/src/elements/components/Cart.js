@@ -78,27 +78,6 @@ const Cart = () => {
             })
     }
 
-    function rejectOrder() {
-        /*AdditionOrdersAPI.confirmAdditionOrders(id, token).then(
-            function (response) {
-
-            }
-        )
-            .catch(function (error) {
-                console.log(error);
-            })
-
-        GameOrdersAPI.confirmGameOrders(id, token).then(
-            function (response) {
-                alert('Order completed!');
-                window.location.reload();
-            }
-        )
-            .catch(function (error) {
-                console.log(error);
-            })*/
-    }
-
     return (
         <div className="mainBody">
             <center>
@@ -112,14 +91,10 @@ const Cart = () => {
                     <CartItemAddition additionOrder={additionOrder} />
                 ))}
                 </div>
-                <br/>
                         <div className="displayFinalPrice">
                             <b>Final price: {finalPriceGames + finalPriceAdditions}$</b>
                         </div>
                 <br/>
-                <button className="cartButton" onClick={() => {
-                    rejectOrder();
-                }}>Reject Order</button>
                 <button className="cartButton" onClick={() => {
                     confirmOrder();
                 }}>Confirm Order</button>

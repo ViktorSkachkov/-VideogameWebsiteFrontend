@@ -126,8 +126,6 @@ U
 %src/elements/components/ViewOrders.js,f\9\f98cedab235dee7ee9eb113c12848802e6710999
 O
 src/elements/components/News.js,4\9\4944dd02f47106f590781a784590034514b7dbbc
-U
-%src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
 Q
 !src/elements/components/Footer.js,8\1\81ed86725ce48bc97c6a714a834db5057c378bd6
 X
