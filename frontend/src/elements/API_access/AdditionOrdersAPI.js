@@ -56,15 +56,6 @@ export const AdditionOrdersAPI = {
             },
         });
     },
-    confirmAdditionOrders: function(id, token) {
-        return axiosInstance.request({
-            method: "PUT",
-            url: `/${id}`,
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
-        });
-    },
     increaseAdditionOrderUnits: function(id, token) {
         return axiosInstance.request({
             method: "PUT",
@@ -78,6 +69,15 @@ export const AdditionOrdersAPI = {
         return axiosInstance.request({
             method: "PUT",
             url: `/decrease/${id}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
+    confirmAdditionOrders: function(id, token) {
+        return axiosInstance.request({
+            method: "PUT",
+            url: `/${id}`,
             headers: {
                 "Authorization": `Bearer ${token}`,
             },

@@ -14,18 +14,10 @@ const CartItemAddition = (props) => {
         getAddition();
     }, []);
 
-    const increaseFinalPrice = (additionElement) => {
-        if(additionElement != null) {
-            let totalPrice = additionElement.price * props.additionOrder.units;
-            props.calculateFinalPrice(totalPrice);
-        }
-    }
-
     const getAddition = () => {
         AdditionsAPI.getById(additionId, token).then(
             function (response) {
                 setAddition(response.data);
-                increaseFinalPrice(response.data);
             }
         )
             .catch(function (error) {

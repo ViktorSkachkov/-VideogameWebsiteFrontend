@@ -94,7 +94,7 @@ const ViewGame = (loggedUser) => {
             }
             GameOrdersAPI.create(data, token).then(
                 function (response) {
-                    alert('Order successfully made!');
+                    alert('Product successfully added to cart!');
                 }
             )
                 .catch(function (error) {

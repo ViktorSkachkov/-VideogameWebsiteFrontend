@@ -10,7 +10,8 @@ import {forEach} from "react-bootstrap/ElementChildren";
 const Cart = () => {
     const [gameOrders, setGameOrders] = useState([]);
     const [additionOrders, setAdditionOrders] = useState([]);
-    const [finalPrice, setFinalPrice] = useState(0);
+    const [finalPriceGames, setFinalPriceGames] = useState(0);
+    const [finalPriceAdditions, setFinalPriceAdditions] = useState(0);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     let params = useParams();
@@ -21,9 +22,12 @@ const Cart = () => {
     }, []);
 
     const getOrders = () => {
+        let gameOrders2 = [];
+        let additionOrders2 = [];
         GameOrdersAPI.getGameCartItems(id, token).then(
             function (response) {
                 setGameOrders(response.data);
+                calculateFinalPriceGames(response.data);
             }
         )
             .catch(function (error) {
@@ -33,6 +37,7 @@ const Cart = () => {
         AdditionOrdersAPI.getAdditionCartItems(id, token).then(
             function (response) {
                 setAdditionOrders(response.data);
+                calculateFinalPriceAdditions(response.data);
             }
         )
             .catch(function (error) {
@@ -40,36 +45,86 @@ const Cart = () => {
             })
     };
 
-    const calculateFinalPrice = (price) => {
-       /*let addToFinalPrice = finalPrice
-        addToFinalPrice += price;*/
-        setFinalPrice(finalPrice + price);
+    const calculateFinalPriceGames = (elements) => {
+        let price = 0;
+        elements.forEach(element => price += element.totalPrice);
+        setFinalPriceGames(price);
+    }
+
+    const calculateFinalPriceAdditions = (elements) => {
+        let price = 0;
+        elements.forEach(element => price += element.totalPrice);
+        setFinalPriceAdditions(price);
+    }
+
+    function confirmOrder() {
+        AdditionOrdersAPI.confirmAdditionOrders(id, token).then(
+            function (response) {
+
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
+
+        GameOrdersAPI.confirmGameOrders(id, token).then(
+            function (response) {
+                alert('Order completed!');
+                window.location.reload();
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
+    function rejectOrder() {
+        /*AdditionOrdersAPI.confirmAdditionOrders(id, token).then(
+            function (response) {
+
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })
+
+        GameOrdersAPI.confirmGameOrders(id, token).then(
+            function (response) {
+                alert('Order completed!');
+                window.location.reload();
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            })*/
     }
 
     return (
         <div className="mainBody">
             <center>
-                <br/>
+            <div className="formBackground"><br/>
                 <h1 className="titleCart">CART</h1><br/>
-
                 <div className="listOfCartItems">
                 {gameOrders.map((gameOrder) => (
-                    <CartItemGame gameOrder={gameOrder} calculateFinalPrice={calculateFinalPrice}/>
+                    <CartItemGame gameOrder={gameOrder}/>
                 ))}
                 {additionOrders.map((additionOrder) => (
-                    <CartItemAddition additionOrder={additionOrder} calculateFinalPrice={calculateFinalPrice}/>
+                    <CartItemAddition additionOrder={additionOrder} />
                 ))}
                 </div>
-                <br/><br/>
+                <br/>
                         <div className="displayFinalPrice">
-                            Final price: {finalPrice}$
+                            <b>Final price: {finalPriceGames + finalPriceAdditions}$</b>
                         </div>
-                <br/><br/><br/><br/><br/><br/><br/><br/>
-                <button className="normalButton" onClick={() => {
-
-                }}>Order</button>
-                <br/><br/><br/>
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <br/>
+                <button className="cartButton" onClick={() => {
+                    rejectOrder();
+                }}>Reject Order</button>
+                <button className="cartButton" onClick={() => {
+                    confirmOrder();
+                }}>Confirm Order</button>
+            </div>
+                <br/><br/><br/><br/>
             </center>
         </div>
     )

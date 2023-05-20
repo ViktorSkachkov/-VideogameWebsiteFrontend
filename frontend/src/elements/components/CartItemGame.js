@@ -15,18 +15,20 @@ const CartItemGame = (props) => {
         getVideogame();
     }, []);
 
-    const increaseFinalPrice = (gameElement) => {
+    /*const increaseFinalPrice = (gameElement) => {
         if(gameElement != null) {
-            let totalPrice = gameElement.price * props.gameOrder.units;
-            props.calculateFinalPrice(totalPrice);
+            let totalPrice = 0;
+            totalPrice += props.finalPrice;
+           totalPrice += gameElement.price * props.gameOrder.units;
+            props.setFinalPrice(totalPrice);
         }
-    }
+    }*/
 
     const getVideogame = () => {
         GamesAPI.getById(gameId, token).then(
             function (response) {
                 setGame(response.data);
-                increaseFinalPrice(response.data);
+                //increaseFinalPrice(response.data);
             }
         )
             .catch(function (error) {

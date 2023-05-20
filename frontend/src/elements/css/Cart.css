@@ -4,12 +4,25 @@
     padding-right: 4%;
 }
 .titleCart {
-    color: beige;
+    color: black;
 }
 .deleteCartText {
     text-decoration: underline;
     margin-right: 1px;
 }
 .displayFinalPrice {
+    color: black;
+}
+.cartButton {
+    background-color: #fe0000;
+    margin-left: 10px;
+    margin-right: 10px;
+    /*padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;*/
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
     color: beige;
 }

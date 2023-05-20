@@ -95,7 +95,7 @@ const ViewAddition = (loggedUser) => {
             }
             AdditionOrdersAPI.create(data, token).then(
                 function (response) {
-                    alert('Order successfully made!');
+                    alert('Product successfully added to cart!');
                 }
             )
                 .catch(function (error) {
