@@ -15,15 +15,6 @@ const CartItemGame = (props) => {
         getVideogame();
     }, []);
 
-    /*const increaseFinalPrice = (gameElement) => {
-        if(gameElement != null) {
-            let totalPrice = 0;
-            totalPrice += props.finalPrice;
-           totalPrice += gameElement.price * props.gameOrder.units;
-            props.setFinalPrice(totalPrice);
-        }
-    }*/
-
     const getVideogame = () => {
         GamesAPI.getById(gameId, token).then(
             function (response) {

@@ -36,8 +36,6 @@ R
 "src/elements/css/VideogameCard.css,8\4\842784e1963bb1e7987d06fd64a5c8a631bd40ce
 T
 $src/elements/css/ViewGameDisplay.css,c\b\cbc8d0de3b61f1cd0c54f9ff1a5d915c67d94954
-I
-src/elements/css/Shop.css,b\e\bed9f26f289073ac1d04c5186b70e9123d3b0eaf
 M
 src/elements/css/ViewGame.css,f\0\f0c2e1cf259762d9f543c6959538b5b7794c6a4d
 J
@@ -94,22 +92,14 @@ R
 "src/elements/components/Profile.js,6\6\6671b80147b05c36c414a6884fabfba00885c187
 S
 #src/elements/components/Register.js,9\e\9ebd58979540dd2272cdcb052e9628ce03123834
-S
-#src/elements/display/ShopDisplay.js,d\e\deee0c82180e7b5d6dc896e2ba1347eade1b19da
 O
 src/elements/css/RankOrders.css,d\a\dad2684619250c102c02224149761283e4bcb92a
 \
 ,src/elements/components/AdditionOrderCard.js,8\2\8294535847f3e47e1429174f2f0452386bb30118
-S
-#src/elements/components/ChatRoom.js,1\7\177d101ffa7e2aed511e9105b347180b967d4425
 U
 %src/elements/components/ViewOrders.js,f\9\f98cedab235dee7ee9eb113c12848802e6710999
 Q
 !src/elements/components/Footer.js,8\1\81ed86725ce48bc97c6a714a834db5057c378bd6
-X
-(src/elements/components/GameOrderCard.js,c\a\ca193eb02b65f7fb8cb2ed2a0a0668b9c980af36
-W
-'src/elements/components/AdditionCard.js,b\e\be70d9d7dba563750c2ca08919703f7759c929a5
 M
 src/elements/css/ChatRoom.css,6\9\69d5e76eaa2e5f3926c85834769b55a1c5d05b35
 S
@@ -120,9 +110,43 @@ X
 (src/elements/components/VideogameCard.js,e\3\e308b4fdc8ffa1911faa0d83c88eddd41dc14127
 T
 $src/elements/css/NewsArticleCard.css,7\3\7351d144463be2fadb3e3cadcde32cf0efcaf4a2
-O
-src/elements/components/Shop.js,4\7\47602badb1b84b462adcc7a061fc3ee1cac1ae4a
 U
 %src/elements/components/RankOrders.js,8\f\8fe2d37b7afeb4287e4484aec148bebc40cb4a5e
 M
 src/elements/css/CartItem.css,d\7\d72ef8507b195654d00c8187a4ade1eaf41154f6
+P
+ src/elements/components/LogIn.js,a\1\a10072ecaadad89ad5f36e1d4e0cdc2dc9315ad7
+T
+$src/elements/display/LoginDisplay.js,8\9\89ac1c8336b0c52209387c460a8cc8a899e5f9c0
+W
+'src/elements/API_access/AdditionsAPI.js,4\1\41c241d25171dc149c0d42955022bdde1f293b60
+X
+(src/elements/API_access/GameOrdersAPI.js,0\7\07eeb17e104195f99ac325024c9d13f3f5352695
+\
+,src/elements/API_access/AdditionOrdersAPI.js,d\2\d2d9d77ed8383c62db8d80d32dcf15b81ba5dada
+]
+-src/elements/display/AddNewsArticleDisplay.js,5\9\5918504b4b31d43e57b70214fa4791f6e9a346a9
+[
++src/elements/display/AddVideogameDisplay.js,4\1\4113f8eb2f6673d4d3e9a636daa85076a3752bf6
+[
++src/elements/display/ViewAdditionDisplay.js,c\8\c8f885d84ffb7f0fd13a1ff5ffdd221b0a668238
+P
+ src/elements/css/AddAddition.css,e\0\e060b793eabe26311ea659fd72cdd2676b037d76
+I
+src/elements/css/Cart.css,2\1\21011f1b07cafcf7f901e4776d1426d930567b20
+O
+src/elements/components/Cart.js,1\b\1bae5ad037b5d0dd8aa10e90fe47b19673877494
+T
+$src/elements/components/Additions.js,f\5\f5ead094f895a15149ec77cb89d964756a5ee09f
+U
+%src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
+N
+src/elements/components/App.js,2\f\2f8d52a9a274c5f318c24a36bafaffb8cdaf6059
+W
+'src/elements/display/ViewGameDisplay.js,7\f\7fe73da9c638cbf868723dd34e18596a5161ba1b
+Z
+*src/elements/display/AddAdditionDisplay.js,e\a\ea3793848f09e9791ed31053ae2d7162812d8d1c
+P
+ src/elements/components/Games.js,1\8\1872eb6efb753a43cf33e1ae646b53a0380f0e44
+W
+'src/elements/components/ViewAddition.js,0\f\0fc16d79c748ace43c48eba00460c612b2875cf9

@@ -17,7 +17,7 @@ const UpdateAddition = (loggedUser) => {
     const id = params.id;
 
     let navigate = useNavigate();
-    
+
     useEffect(() => {
         getAddition();
     }, []);
