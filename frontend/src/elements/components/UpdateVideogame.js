@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Cookies from "universal-cookie";
 import UpdateVideogameDisplay from "../display/UpdateVideogameDisplay";
 import {GamesAPI} from "../API_access/GamesAPI";
@@ -15,6 +15,8 @@ const UpdateVideogame = (loggedUser) => {
 
     let params = useParams();
     const id = params.id;
+
+    let navigate = useNavigate();
 
     useEffect(() => {
         getVideogame();
@@ -65,6 +67,7 @@ const UpdateVideogame = (loggedUser) => {
         }
         GamesAPI.update(data, token).then(
             function (response) {
+                navigate(`/games`);
                 alert('Videogame successfully updated!');
             }
         )

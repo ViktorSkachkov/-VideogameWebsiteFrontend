@@ -2,7 +2,7 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Navigation from "./Navigation";
 import Home from "./Home";
 import Games from "./Games";
-import Shop from "./Shop";
+import Additions from "./Additions";
 import News from "./News";
 import ChatRoom from "./ChatRoom";
 import Footer from "./Footer";
@@ -107,9 +107,9 @@ return (
                 <PrivateRoute>
                     <Games loggedUser={loggedUser} token={token} restoreToken={restoreToken}  />
                 </PrivateRoute>}/>
-            <Route path="/shop" element={
+            <Route path="/additions" element={
                 <PrivateRoute>
-                    <Shop loggedUser={loggedUser} token={token}  />
+                    <Additions loggedUser={loggedUser} token={token}  />
                 </PrivateRoute>}/>
             <Route path="/news" element={
                 <PrivateRoute>

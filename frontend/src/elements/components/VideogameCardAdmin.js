@@ -11,7 +11,8 @@ const VideogameCardAdmin = (videogame) => {
     function deleteGame(id) {
         GamesAPI.delete(id, token).then(
             function (response) {
-                alert('Videogame successfully deleted!');
+                //alert('Videogame successfully deleted!');
+                window.location.reload();
             }
         )
             .catch(function (error) {

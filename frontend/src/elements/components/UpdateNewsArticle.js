@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import UpdateNewsArticleDisplay from "../display/UpdateNewsArticleDisplay";
@@ -15,6 +15,8 @@ const UpdateNewsArticle = (loggedUser) => {
 
     let params = useParams();
     const id = params.id;
+
+    let navigate = useNavigate();
 
     useEffect(() => {
         getNewsArticle();
@@ -60,6 +62,7 @@ const UpdateNewsArticle = (loggedUser) => {
         };
         NewsAPI.update(data, token).then(
             function (response) {
+                navigate(`/news`);
                 alert('News article successfully updated!');
             }
         )

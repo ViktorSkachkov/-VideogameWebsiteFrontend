@@ -2,6 +2,7 @@ import {useState} from "react";
 import AddNewsArticleDisplay from "../display/AddNewsArticleDisplay";
 import {NewsAPI} from "../API_access/NewsAPI";
 import "../css/AddNewsArticle.css"
+import {useNavigate} from "react-router-dom";
 
 const AddNewsArticle = (loggedUser) => {
     const [gameId, setGameId] = useState(0);
@@ -9,6 +10,8 @@ const AddNewsArticle = (loggedUser) => {
     const [title, setTitle] = useState();
     const [text, setText] = useState("");
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+
+    let navigate = useNavigate();
 
     const onChangeText = event => {
         setText(event.target.value);
@@ -35,6 +38,7 @@ const AddNewsArticle = (loggedUser) => {
         }
         NewsAPI.create(data, token).then(
             function (response) {
+                navigate(`/news`);
                 alert('News article successfully added!');
             }
         )

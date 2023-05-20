@@ -60,8 +60,6 @@ const ViewGame = (loggedUser) => {
         ReviewsAPI.create(data, token).then(
             function (response) {
                 window.location.reload();
-                //navigate(`/game/${id}`);
-                //alert('Review successfully added!');
             }
         )
             .catch(function (error) {
@@ -82,10 +80,6 @@ const ViewGame = (loggedUser) => {
 
     function buyGame(id) {
         if(units >= 1) {
-            //const token_deserialized = JSON.parse(localStorage.getItem("token"));
-            //if(token_deserialized != null) {
-            //let userId = token_deserialized.id;
-            //}
 
             let data = {
                 "game": id,
@@ -94,6 +88,7 @@ const ViewGame = (loggedUser) => {
             }
             GameOrdersAPI.create(data, token).then(
                 function (response) {
+                    navigate(`/games`);
                     alert('Product successfully added to cart!');
                 }
             )

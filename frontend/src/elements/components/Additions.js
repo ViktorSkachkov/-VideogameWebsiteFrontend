@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
-import '../css/Shop.css';
-import ShopDisplay from "../display/ShopDisplay";
+import '../css/Additions.css';
+import AdditionsDisplay from "../display/AdditionsDisplay";
 import {AdditionsAPI} from "../API_access/AdditionsAPI";
 import {GamesAPI} from "../API_access/GamesAPI";
 
-const Shop = () => {
+const Additions = () => {
     const [additions, setAdditions] = useState([]);
     const [roles, setRoles] = useState([]);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
@@ -62,8 +62,8 @@ const Shop = () => {
     }
 
     return (
-        <ShopDisplay additions={additions} roles={roles} handleChangeVideogame={handleChangeVideogame}
-                     gameId={gameId} videogames={videogames}/>
+        <AdditionsDisplay additions={additions} roles={roles} handleChangeVideogame={handleChangeVideogame}
+                          gameId={gameId} videogames={videogames}/>
     )
 }
-export default Shop;
+export default Additions;

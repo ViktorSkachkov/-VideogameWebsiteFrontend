@@ -2,7 +2,7 @@ import {useNavigate} from "react-router-dom";
 import AdditionCardAdmin from "../components/AdditionCardAdmin";
 import AdditionCard from "../components/AdditionCard";
 
-const ShopDisplay = (props) => {
+const AdditionsDisplay = (props) => {
     let navigate = useNavigate();
 
     return (
@@ -43,4 +43,4 @@ const ShopDisplay = (props) => {
         </>
     )
 }
-export default ShopDisplay;
+export default AdditionsDisplay;

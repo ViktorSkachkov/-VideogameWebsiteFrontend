@@ -43,7 +43,7 @@ const Navigation = (props) => {
                 <div className='navLinks'>
                 <Link to="/">Home</Link>
                 <Link to="/games">Games</Link>
-                <Link to="/shop">Shop</Link>
+                <Link to="/additions">Additions</Link>
                 <Link to="/news">News</Link>
             </div>
             {roles.some(r => r == "EMPLOYEE") ?

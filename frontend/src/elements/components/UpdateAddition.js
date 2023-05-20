@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Cookies from "universal-cookie";
 import UpdateAdditionDisplay from "../display/UpdateAdditionDisplay";
 import {AdditionsAPI} from "../API_access/AdditionsAPI";
@@ -16,6 +16,8 @@ const UpdateAddition = (loggedUser) => {
     let params = useParams();
     const id = params.id;
 
+    let navigate = useNavigate();
+    
     useEffect(() => {
         getAddition();
     }, []);
@@ -64,6 +66,7 @@ const UpdateAddition = (loggedUser) => {
         }
         AdditionsAPI.update(data, token).then(
             function (response) {
+                navigate(`/additions`);
                 alert('Addition successfully updated!');
             }
         )

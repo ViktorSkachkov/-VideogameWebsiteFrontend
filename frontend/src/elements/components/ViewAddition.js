@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import ViewAdditionDisplay from "../display/ViewAdditionDisplay";
 import '../css/ViewAddition.css';
 import {AdditionsAPI} from "../API_access/AdditionsAPI";
@@ -18,6 +18,8 @@ const ViewAddition = (loggedUser) => {
 
     let params = useParams();
     const id = params.id;
+
+    let navigate = useNavigate();
 
     useEffect(() => {
         getAddition();
@@ -84,9 +86,8 @@ const ViewAddition = (loggedUser) => {
     function buyAddition(id) {
         if(units >= 1) {
             const token_deserialized = JSON.parse(localStorage.getItem("token"));
-            //if(token_deserialized != null) {
+
             let userId = token_deserialized.id;
-            //}
 
             let data = {
                 "addition": id,
@@ -95,6 +96,7 @@ const ViewAddition = (loggedUser) => {
             }
             AdditionOrdersAPI.create(data, token).then(
                 function (response) {
+                    navigate(`/additions`);
                     alert('Product successfully added to cart!');
                 }
             )

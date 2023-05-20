@@ -12,7 +12,8 @@ const AdditionCardAdmin = (addition) => {
     function deleteAddition(id) {
         AdditionsAPI.delete(id, token).then(
             function (response) {
-                alert('Addition successfully deleted!');
+                //alert('Addition successfully deleted!');
+                window.location.reload();
             }
         )
             .catch(function (error) {

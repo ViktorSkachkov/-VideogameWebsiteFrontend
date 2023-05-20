@@ -2,6 +2,7 @@ import {useState} from "react";
 import AddVideogameDisplay from "../display/AddVideogameDisplay";
 import {GamesAPI} from "../API_access/GamesAPI";
 import "../css/AddVideogame.css"
+import {useNavigate} from "react-router-dom";
 
 const AddVideogame = (loggedUser) => {
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
@@ -10,6 +11,8 @@ const AddVideogame = (loggedUser) => {
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
     const [featured, setFeatured] = useState(false);
+
+    let navigate = useNavigate();
 
     const onChangeDescription = event => {
         setDescription(event.target.value);
@@ -39,6 +42,7 @@ const AddVideogame = (loggedUser) => {
         }
         GamesAPI.create(data, token).then(
             function (response) {
+                navigate(`/games`);
                 alert('Videogame successfully added!');
             }
         )
