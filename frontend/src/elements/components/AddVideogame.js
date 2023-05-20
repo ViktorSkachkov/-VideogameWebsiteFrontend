@@ -16,7 +16,6 @@ const AddVideogame = (loggedUser) => {
 
     const onChangeDescription = event => {
         setDescription(event.target.value);
-        //k
     }
     const onChangePrice = event => {
         setPrice(event.target.value);
