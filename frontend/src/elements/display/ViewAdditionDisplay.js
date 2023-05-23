@@ -15,16 +15,17 @@ const ViewAdditionDisplay = (props) => {
                         <p>{props.addition.description}</p>
                         <label htmlFor="units" className="formLabelUnits">Number</label>
                         <input type="number" name="units" value={props.units} onChange={props.onChangeUnits} className="additionNumber"/>
-                        <button className="buyAdditionButton" onClick={() => props.buyAddition(props.addition.id) }>Buy</button>
-                        <h3>Reviews</h3>
+                        <button className="buyAdditionButton" onClick={() => props.buyAddition(props.addition.id) }>Buy</button><br/><br/><br/><br/>
 
+                        <label htmlFor="review" className="review"><b>Write Review</b></label><br/>
+                        <textarea className="reviewTextArea" onChange={props.onChangeReview} name="review" type="text"/><br/><br/>
+                        <button onClick={() => props.addReview() } className="submitAdditionOrderButton">Submit Review</button><br/><br/>
+
+                        <hr/>
+                        <h3>Reviews</h3>
                         {props.reviews.map((review) => (
                             <ReviewCard review={review} token={props.token} userId={props.userId}/>
                         ))}
-
-                        <label htmlFor="review" className="review">Write Review</label><br/>
-                        <textarea className="reviewTextArea" onChange={props.onChangeReview} name="review" type="text"/><br/><br/>
-                        <button onClick={() => props.addReview() } className="submitAdditionOrderButton">Submit Review</button><br/><br/>
                     </center>
                 </div> :
                 <p>Loading...</p>}<br/><br/><br/><br/>

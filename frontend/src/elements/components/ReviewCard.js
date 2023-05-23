@@ -47,7 +47,7 @@ const ReviewCard = (props) => {
                     <button className="deleteButton" onClick={() => deleteReview(props.review.id)}>Delete</button>
                 </div> :
                 <div className="reviewDelete">
-                    
+
                 </div>
             }
         </div>

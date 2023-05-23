@@ -17,7 +17,12 @@ const AdditionsDisplay = (props) => {
                 </select><br/><br/>
 
                 {props.roles.some(r => r == "EMPLOYEE") ?
-                    <> <div className="listOfAdditionsAdmin">
+                    <>
+                        <button className="shopButton" onClick={() => {
+                            navigate(`/addAddition`, {
+                            });
+                        }}>Add Addition</button><br/><br/>
+                        <div className="listOfAdditionsAdmin">
                         {
                             props.additions.map((addition) => (
                                 <AdditionCardAdmin addition={addition} handleChangeVideogame={props.handleChangeVideogame}
@@ -25,10 +30,7 @@ const AdditionsDisplay = (props) => {
                             ))
                         }
                     </div>
-                        <button className="shopButton" onClick={() => {
-                            navigate(`/addAddition`, {
-                            });
-                        }}>Add Addition</button></>
+                    </>
                     : props.roles.some(r => r == "CUSTOMER") ?
                         <div className="listOfAdditions">
                             {

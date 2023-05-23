@@ -12,15 +12,15 @@ const GamesDisplay = (props) => {
             </center>
             {props.roles.some(r => r == "EMPLOYEE") ?
                 <center>
+                    <button className="gameButton" onClick={() => {
+                        navigate(`/addVideogame`, {
+                        });
+                    }}>Add Game</button><br/><br/>
                     <div className="listOfGamesAdmin">
                         {props.videogames.map((videogame) => (
                             <VideogameCardAdmin videogame={videogame} />
                         ))}
                     </div>
-                    <button className="gameButton" onClick={() => {
-                        navigate(`/addVideogame`, {
-                        });
-                    }}>Add Game</button>
                 </center> :  props.roles.some(r => r == "CUSTOMER") ?
                     <div className="listOfGames">
                         {props.videogames.map((videogame) => (

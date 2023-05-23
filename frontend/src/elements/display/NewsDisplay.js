@@ -18,16 +18,17 @@ const NewsDisplay = (props) => {
                 </select><br/><br/>
 
                 {props.roles.some(r => r == "EMPLOYEE") ?
-                    <> <div className="listOfNewsArticles">
+                    <>
+                        <button className="newsButton" onClick={() => {
+                            navigate(`/addNewsArticle`, {
+                            });
+                        }}>Add News Article</button><br/><br/>
+                        <div className="listOfNewsArticles">
                         {props.newsArticles.map((newsArticle) => (
                             <NewsArticleCardAdmin newsArticle={newsArticle} handleChangeVideogame={props.handleChangeVideogame}
                             gameId={props.gameId}/>
                         ))}
                     </div>
-                        <button className="newsButton" onClick={() => {
-                            navigate(`/addNewsArticle`, {
-                            });
-                        }}>Add News Article</button>
                     </> : props.roles.some(r => r == "CUSTOMER") ?
                         <div className="listOfNewsArticles">
                             {props.newsArticles.map((newsArticle) => (
