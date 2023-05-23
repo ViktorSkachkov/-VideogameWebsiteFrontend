@@ -22,7 +22,7 @@ const ReviewCard = (props) => {
     }
 
     const getItem = () => {
-        UsersAPI.getById(props.review.user_id, props.token).then(
+        UsersAPI.getById(props.review.userId, props.token).then(
             function (response) {
                 setUser(response.data);
             }
@@ -42,9 +42,14 @@ const ReviewCard = (props) => {
             <div className="reviewText">
                 <div>{props.review.text}</div>
             </div>
-            <div className="reviewDelete">
-                <button className="deleteButton" onClick={() => deleteReview(props.review.id) } >Delete</button>
-            </div>
+            {props.userId == props.review.userId ?
+                <div className="reviewDelete">
+                    <button className="deleteButton" onClick={() => deleteReview(props.review.id)}>Delete</button>
+                </div> :
+                <div className="reviewDelete">
+                    
+                </div>
+            }
         </div>
                 :
                 <p>Loading...</p>}

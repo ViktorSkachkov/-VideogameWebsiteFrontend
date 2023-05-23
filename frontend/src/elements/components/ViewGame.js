@@ -52,10 +52,10 @@ const ViewGame = (loggedUser) => {
     }
     function addReview() {
         let data = {
-            "reviewed_item_id": id,
-            "user_id": userId,
+            "reviewedItemId": id,
+            "userId": userId,
             "text": review,
-            "type_of_reviewed_item": "game"
+            "typeOfReviewedItem": "game"
         }
         ReviewsAPI.create(data, token).then(
             function (response) {
@@ -71,6 +71,7 @@ const ViewGame = (loggedUser) => {
         ReviewsAPI.getById(id, "game", token).then(
             function (response) {
                 setReviews(response.data);
+                //console.log(response.data.at(0));
             }
         )
             .catch(function (error) {
@@ -103,6 +104,7 @@ const ViewGame = (loggedUser) => {
     return (
         <ViewGameDisplay onChangeReview={onChangeReview} review={review} game={game} units={units}
                          onChangeUnits={onChangeUnits} buyGame={buyGame} addReview={addReview} reviews={reviews}
+                         userId={userId}
         token={token}/>
     )
 }

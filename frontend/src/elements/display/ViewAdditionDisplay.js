@@ -19,7 +19,7 @@ const ViewAdditionDisplay = (props) => {
                         <h3>Reviews</h3>
 
                         {props.reviews.map((review) => (
-                            <ReviewCard review={review} token={props.token}/>
+                            <ReviewCard review={review} token={props.token} userId={props.userId}/>
                         ))}
 
                         <label htmlFor="review" className="review">Write Review</label><br/>

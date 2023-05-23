@@ -3,8 +3,6 @@
 src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
 S
 #src/elements/API_access/UsersAPI.js,4\8\483e200bda437a5aa4aea932ea0fc3c010f8687e
-U
-%src/elements/API_access/ReviewsAPI.js,2\c\2c0412ede6220eeba7d81263acd6c5ce77722a35
 S
 #src/elements/API_access/LoginAPI.js,9\2\928902487339eb735f695db931db973f53b1328d
 W
@@ -44,8 +42,6 @@ X
 (src/elements/css/ViewAdditionDisplay.css,3\c\3cc0115396536320d9e76edfb5335b227da09ca3
 Q
 !src/elements/css/ViewAddition.css,7\a\7a736fca76a6ee34c137ea9cb3474d3e56751917
-U
-%src/elements/components/ReviewCard.js,6\8\684b5b3e486e26c926a87d2ff601b3edbb664958
 V
 &src/elements/css/UpdateNewsArticle.css,7\d\7dff446fc3bc3cf05928cc0a687953604947a612
 T
@@ -128,8 +124,6 @@ X
 -src/elements/display/AddNewsArticleDisplay.js,5\9\5918504b4b31d43e57b70214fa4791f6e9a346a9
 [
 +src/elements/display/AddVideogameDisplay.js,4\1\4113f8eb2f6673d4d3e9a636daa85076a3752bf6
-[
-+src/elements/display/ViewAdditionDisplay.js,c\8\c8f885d84ffb7f0fd13a1ff5ffdd221b0a668238
 P
  src/elements/css/AddAddition.css,e\0\e060b793eabe26311ea659fd72cdd2676b037d76
 I
@@ -142,11 +136,21 @@ U
 %src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
 N
 src/elements/components/App.js,2\f\2f8d52a9a274c5f318c24a36bafaffb8cdaf6059
-W
-'src/elements/display/ViewGameDisplay.js,7\f\7fe73da9c638cbf868723dd34e18596a5161ba1b
 Z
 *src/elements/display/AddAdditionDisplay.js,e\a\ea3793848f09e9791ed31053ae2d7162812d8d1c
 P
  src/elements/components/Games.js,1\8\1872eb6efb753a43cf33e1ae646b53a0380f0e44
-W
-'src/elements/components/ViewAddition.js,0\f\0fc16d79c748ace43c48eba00460c612b2875cf9
+O
+src/elements/components/News.js,4\9\4944dd02f47106f590781a784590034514b7dbbc
+_
+/src/elements/components/NewsArticleCardAdmin.js,3\6\361d6ebf713955f9ac4892921e34c8db62f5a8e7
+]
+-src/elements/components/VideogameCardAdmin.js,0\b\0ba417082febdefe389508714f9c4c18d649f0ed
+\
+,src/elements/components/UpdateNewsArticle.js,8\a\8acbc1b3275b7f4841bc14713ba67df586bdd873
+Z
+*src/elements/components/UpdateVideogame.js,3\4\345098232ec07678ba2b50de0a00599e532722c5
+\
+,src/elements/components/AdditionCardAdmin.js,e\1\e1aa457480589dd6234f8bb48ae1c4c583502365
+X
+(src/elements/components/GameOrderCard.js,c\a\ca193eb02b65f7fb8cb2ed2a0a0668b9c980af36

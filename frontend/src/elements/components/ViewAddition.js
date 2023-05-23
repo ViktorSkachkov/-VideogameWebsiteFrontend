@@ -57,10 +57,10 @@ const ViewAddition = (loggedUser) => {
 
     function addReview() {
         let data = {
-            "reviewed_item_id": id,
-            "user_id": userId,
+            "reviewedItemId": id,
+            "userId": userId,
             "text": review,
-            "type_of_reviewed_item": "addition"
+            "typeOfReviewedItem": "addition"
         }
         ReviewsAPI.create(data, token).then(
             function (response) {
@@ -125,7 +125,8 @@ const ViewAddition = (loggedUser) => {
         {game != null ?
             <ViewAdditionDisplay review={review} addition={addition} onChangeReview={onChangeReview}
                                  addition={addition} units={units} onChangeUnits={onChangeUnits} buyAddition={buyAddition}
-                                 addReview={addReview} reviews={reviews} token={token} game={game}/>
+                                 addReview={addReview} reviews={reviews} token={token} game={game}
+                                 userId={userId}/>
             : <p>Loading...</p>}
         </>
     )
