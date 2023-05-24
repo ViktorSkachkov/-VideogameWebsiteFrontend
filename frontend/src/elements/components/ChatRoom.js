@@ -4,14 +4,17 @@ import '../css/ChatRoom.css';
 import {useEffect, useState} from "react";
 import {UsersAPI} from "../API_access/UsersAPI";
 import {useParams} from "react-router-dom";
+import jwtDecode from "jwt-decode";
 const ENDPOINT = "http://localhost:8080/ws";
 
 var stompClient = null;
 
-const ChatRoom = (loggedUser) => {
+const ChatRoom = (props) => {
     const [privateChats, setPrivateChats] = useState(new Map());
     const [publicChats, setPublicChats] = useState([]);
     const [tab,setTab] =useState("CHATROOM");
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+
     const [userData, setUserData] = useState({
         username: '',
         receivername: '',
@@ -19,8 +22,24 @@ const ChatRoom = (loggedUser) => {
         message: ''
     });
     useEffect(() => {
-        console.log(userData);
+        checkIfTokenHasExpired();
     }, [userData]);
+
+    const checkIfTokenHasExpired = () => {
+        if(token != null) {
+            const decode = jwtDecode(token);
+            const exp = decode.exp;
+            console.log("Expiration " + exp);
+            if (exp) {
+                const currentTime = new Date().getTime() / 1000;
+                console.log("Current  " + currentTime);
+                if (currentTime > exp) {
+                    props.removeUser();
+                    window.location.reload();
+                }
+            }
+        }
+    }
 
     const connect =()=>{
         let Sock = new SockJS('http://localhost:8080/ws');

@@ -5,8 +5,9 @@ import ViewGameDisplay from "../display/ViewGameDisplay";
 import {GamesAPI} from "../API_access/GamesAPI";
 import {GameOrdersAPI} from "../API_access/GameOrdersAPI";
 import {ReviewsAPI} from "../API_access/ReviewsAPI";
+import jwtDecode from "jwt-decode";
 
-const ViewGame = (loggedUser) => {
+const ViewGame = (props) => {
     const [game, setGame] = useState(null);
     const [review, setReview] = useState(null);
     const [units, setUnits] = useState(1);
@@ -23,7 +24,24 @@ const ViewGame = (loggedUser) => {
         getVideogame();
         getUserId();
         getReviews();
+        checkIfTokenHasExpired();
     }, []);
+
+    const checkIfTokenHasExpired = () => {
+        if(token != null) {
+            const decode = jwtDecode(token);
+            const exp = decode.exp;
+            console.log("Expiration " + exp);
+            if (exp) {
+                const currentTime = new Date().getTime() / 1000;
+                console.log("Current  " + currentTime);
+                if (currentTime > exp) {
+                    props.removeUser();
+                    window.location.reload();
+                }
+            }
+        }
+    }
 
     const getVideogame = () => {
         GamesAPI.getById(id, token).then(

@@ -1,10 +1,11 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import AddAdditionDisplay from "../display/AddAdditionDisplay";
 import {AdditionsAPI} from "../API_access/AdditionsAPI";
 import "../css/AddAddition.css"
 import {useNavigate} from "react-router-dom";
+import jwtDecode from "jwt-decode";
 
-const AddAddition = (loggedUser) => {
+const AddAddition = (props) => {
     const [gameId, setGameId] = useState(1);
     const [image, setImage] = useState("image");
     const [name, setName] = useState();
@@ -13,6 +14,26 @@ const AddAddition = (loggedUser) => {
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     let navigate = useNavigate();
+
+    useEffect(() => {
+        checkIfTokenHasExpired();
+    }, []);
+
+    const checkIfTokenHasExpired = () => {
+        if(token != null) {
+            const decode = jwtDecode(token);
+            const exp = decode.exp;
+            console.log("Expiration " + exp);
+            if (exp) {
+                const currentTime = new Date().getTime() / 1000;
+                console.log("Current  " + currentTime);
+                if (currentTime > exp) {
+                    props.removeUser();
+                    window.location.reload();
+                }
+            }
+        }
+    }
 
     const onChangeDescription = event => {
         setDescription(event.target.value);

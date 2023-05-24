@@ -1,10 +1,11 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import AddVideogameDisplay from "../display/AddVideogameDisplay";
 import {GamesAPI} from "../API_access/GamesAPI";
 import "../css/AddVideogame.css"
 import {useNavigate} from "react-router-dom";
+import jwtDecode from "jwt-decode";
 
-const AddVideogame = (loggedUser) => {
+const AddVideogame = (props) => {
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
     const [image, setImage] = useState("image");
     const [name, setName] = useState("");
@@ -13,6 +14,26 @@ const AddVideogame = (loggedUser) => {
     const [featured, setFeatured] = useState(false);
 
     let navigate = useNavigate();
+
+    useEffect(() => {
+        checkIfTokenHasExpired();
+    }, []);
+
+    const checkIfTokenHasExpired = () => {
+        if(token != null) {
+            const decode = jwtDecode(token);
+            const exp = decode.exp;
+            console.log("Expiration " + exp);
+            if (exp) {
+                const currentTime = new Date().getTime() / 1000;
+                console.log("Current  " + currentTime);
+                if (currentTime > exp) {
+                    props.removeUser();
+                    window.location.reload();
+                }
+            }
+        }
+    }
 
     const onChangeDescription = event => {
         setDescription(event.target.value);

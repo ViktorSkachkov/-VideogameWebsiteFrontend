@@ -6,8 +6,9 @@ import {AdditionsAPI} from "../API_access/AdditionsAPI";
 import {AdditionOrdersAPI} from "../API_access/AdditionOrdersAPI";
 import {ReviewsAPI} from "../API_access/ReviewsAPI";
 import {GamesAPI} from "../API_access/GamesAPI";
+import jwtDecode from "jwt-decode";
 
-const ViewAddition = (loggedUser) => {
+const ViewAddition = (props) => {
     const [addition, setAddition] = useState(null);
     const [review, setReview] = useState(null);
     const [units, setUnits] = useState(1);
@@ -25,7 +26,24 @@ const ViewAddition = (loggedUser) => {
         getAddition();
         getUserId();
         getReviews();
+        checkIfTokenHasExpired();
     }, []);
+
+    const checkIfTokenHasExpired = () => {
+        if(token != null) {
+            const decode = jwtDecode(token);
+            const exp = decode.exp;
+            console.log("Expiration " + exp);
+            if (exp) {
+                const currentTime = new Date().getTime() / 1000;
+                console.log("Current  " + currentTime);
+                if (currentTime > exp) {
+                    props.removeUser();
+                    window.location.reload();
+                }
+            }
+        }
+    }
 
     const getUserId = () => {
         const token_deserialized = JSON.parse(localStorage.getItem("token"));

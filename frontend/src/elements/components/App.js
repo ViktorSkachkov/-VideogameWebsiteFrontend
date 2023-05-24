@@ -40,17 +40,17 @@ function App() {
         console.log("token " + accessToken);
         var decode = jwtDecode(accessToken);
         console.log("decode " + decode);
+        setExpirationDate(decode.exp);
         const userID = decode.userId;
         setID(decode.userId);
         console.log("userID " + userID);
 
         UsersAPI.getById(userID, accessToken).then(
             function (response) {
-                //const token = JSON.parse(localStorage.getItem("accessToken"));
+                const token = JSON.parse(localStorage.getItem("accessToken"));
                 console.log("token2 " + userID);
-                var decode = jwtDecode(accessToken);
+                //var decode = jwtDecode(accessToken);
                 console.log("decode2 " + userID);
-                setExpirationDate(decode.exp);
                 setLoggedUser(response.data);
                 let token_serialized = JSON.stringify(response.data);
                 console.log("token_serialized " + token_serialized);
@@ -69,17 +69,26 @@ function App() {
     }
     const removeUser = () => {
         setLoggedUser(null);
-        setExpirationDate(null);
         setToken(null);
+        setExpirationDate(null);
         localStorage.removeItem("token");
         localStorage.removeItem("accessToken");
     };
 
     /*const checkTokenExpiration = () => {
-        if (expirationDate) {
+        const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+        const decode = jwtDecode(accessToken);
+        const exp = decode.exp;
+
+        console.log("Expiration " + exp);
+        if (exp) {
             const currentTime = new Date().getTime() / 1000;
-            if (currentTime > expirationDate) {
+            console.log("Current  " + currentTime);
+            if (currentTime > exp) {
                 removeUser();
+            }
+            else {
+
             }
         }
     };*/
@@ -99,43 +108,55 @@ return (
     <Router>
         <Navigation
             removeUser={removeUser}
+            updateUser={updateUser}
             loggedUser={loggedUser}
+            setLoggedUser={setLoggedUser}
+            setToken={setToken}
         />
         <Routes>
-            <Route path="/" element={<Home loggedUser={loggedUser} updateUser={updateUser} />}/>
+            <Route path="/" element={<Home loggedUser={loggedUser} updateUser={updateUser}
+                                           removeUser={removeUser} />}/>
             <Route path="/games" element={
                 <PrivateRoute>
-                    <Games loggedUser={loggedUser} token={token} restoreToken={restoreToken}  />
+                    <Games loggedUser={loggedUser} token={token} restoreToken={restoreToken}
+                           removeUser={removeUser}/>
                 </PrivateRoute>}/>
             <Route path="/additions" element={
                 <PrivateRoute>
-                    <Additions loggedUser={loggedUser} token={token}  />
+                    <Additions loggedUser={loggedUser} token={token}
+                               removeUser={removeUser}/>
                 </PrivateRoute>}/>
             <Route path="/news" element={
                 <PrivateRoute>
-                    <News loggedUser={loggedUser} token={token} />
+                    <News loggedUser={loggedUser} token={token}
+                          removeUser={removeUser} expirationDate={expirationDate}/>
             </PrivateRoute>}/>
             <Route path="/chat" element={
                 <PrivateRoute>
-                    <ChatRoom loggedUser={loggedUser} token={token} id={id} />
+                    <ChatRoom loggedUser={loggedUser} token={token} id={id}
+                              removeUser={removeUser}/>
                 </PrivateRoute>}/>
                     <Route path="/register" element={<Register updateUser={updateUser} token={token} />}/>
             <Route path="/logIn" element={<LogIn updateUser={updateUser} token={token} />}/>
             <Route path="/game/:id" element={
                     <PrivateRoute>
-                        <ViewGame loggedUser={loggedUser} token={token} />
+                        <ViewGame loggedUser={loggedUser} token={token}
+                                  removeUser={removeUser}/>
                     </PrivateRoute>}/>
             <Route path="/addition/:id" element={
                     <PrivateRoute>
-                        <ViewAddition loggedUser={loggedUser} token={token} />
+                        <ViewAddition loggedUser={loggedUser} token={token}
+                                      removeUser={removeUser}/>
                     </PrivateRoute>}/>
             <Route path="/newsArticle/:id" element={
                     <PrivateRoute>
-                            <ViewNewsArticle loggedUser={loggedUser} token={token} />
+                            <ViewNewsArticle loggedUser={loggedUser} token={token}
+                                             removeUser={removeUser}/>
                     </PrivateRoute>}/>
             <Route path="/orders/:id" element={
                     <PrivateRoute>
-                            <ViewOrders loggedUser={loggedUser} token={token} />
+                            <ViewOrders loggedUser={loggedUser} token={token}
+                                        removeUser={removeUser}/>
                     </PrivateRoute>}/>
             <Route path="/profile/:id" element={
                     <PrivateRoute>
@@ -143,35 +164,43 @@ return (
                     </PrivateRoute>}/>
             <Route path="/updateVideogame/:id" element={
                     <PrivateRoute>
-                            <UpdateVideogame loggedUser={loggedUser} token={token} />
+                            <UpdateVideogame loggedUser={loggedUser} token={token}
+                                             removeUser={removeUser}/>
                     </PrivateRoute>}/>
             <Route path="/updateAddition/:id" element={
                     <PrivateRoute>
-                            <UpdateAddition loggedUser={loggedUser} token={token} />
+                            <UpdateAddition loggedUser={loggedUser} token={token}
+                                            removeUser={removeUser}/>
                     </PrivateRoute>}/>
             <Route path="/updateNewsArticle/:id" element={
                     <PrivateRoute>
-                            <UpdateNewsArticle loggedUser={loggedUser} token={token} />
+                            <UpdateNewsArticle loggedUser={loggedUser} token={token}
+                                               removeUser={removeUser}/>
                     </PrivateRoute>}/>
             <Route path="/addVideogame" element={
                     <PrivateRoute>
-                            <AddVideogame loggedUser={loggedUser} token={token} />
+                            <AddVideogame loggedUser={loggedUser} token={token}
+                                          removeUser={removeUser}/>
                     </PrivateRoute>}/>
             <Route path="/addAddition" element={
                     <PrivateRoute>
-                            <AddAddition loggedUser={loggedUser} token={token} />
+                            <AddAddition loggedUser={loggedUser} token={token}
+                                         removeUser={removeUser}/>
                     </PrivateRoute>}/>
             <Route path="/addNewsArticle" element={
                     <PrivateRoute>
-                            <AddNewsArticle loggedUser={loggedUser} token={token} />
+                            <AddNewsArticle loggedUser={loggedUser} token={token}
+                                            removeUser={removeUser}/>
                     </PrivateRoute>}/>
             <Route path="/rankOrders" element={
                 <PrivateRoute>
-                    <RankOrders loggedUser={loggedUser} token={token} />
+                    <RankOrders loggedUser={loggedUser} token={token}
+                                removeUser={removeUser}/>
                 </PrivateRoute>}/>
             <Route path="/cart/:id" element={
                 <PrivateRoute>
-                    <Cart loggedUser={loggedUser} token={token} />
+                    <Cart loggedUser={loggedUser} token={token}
+                          removeUser={removeUser}/>
                 </PrivateRoute>}/>
             <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>

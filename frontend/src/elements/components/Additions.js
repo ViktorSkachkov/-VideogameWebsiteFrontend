@@ -3,8 +3,9 @@ import '../css/Additions.css';
 import AdditionsDisplay from "../display/AdditionsDisplay";
 import {AdditionsAPI} from "../API_access/AdditionsAPI";
 import {GamesAPI} from "../API_access/GamesAPI";
+import jwtDecode from "jwt-decode";
 
-const Additions = () => {
+const Additions = (props) => {
     const [additions, setAdditions] = useState([]);
     const [roles, setRoles] = useState([]);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
@@ -15,7 +16,24 @@ const Additions = () => {
         getRoles();
         getAdditions();
         getVideogames();
+        checkIfTokenHasExpired();
     }, []);
+
+    const checkIfTokenHasExpired = () => {
+        if(token != null) {
+            const decode = jwtDecode(token);
+            const exp = decode.exp;
+            console.log("Expiration " + exp);
+            if (exp) {
+                const currentTime = new Date().getTime() / 1000;
+                console.log("Current  " + currentTime);
+                if (currentTime > exp) {
+                    props.removeUser();
+                    window.location.reload();
+                }
+            }
+        }
+    }
 
     const getRoles = () => {
         let token_deserialized = JSON.parse(localStorage.getItem("token"));

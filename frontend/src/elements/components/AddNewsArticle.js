@@ -1,10 +1,11 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import AddNewsArticleDisplay from "../display/AddNewsArticleDisplay";
 import {NewsAPI} from "../API_access/NewsAPI";
 import "../css/AddNewsArticle.css"
 import {useNavigate} from "react-router-dom";
+import jwtDecode from "jwt-decode";
 
-const AddNewsArticle = (loggedUser) => {
+const AddNewsArticle = (props) => {
     const [gameId, setGameId] = useState(0);
     const [image, setImage] = useState("image");
     const [title, setTitle] = useState();
@@ -12,6 +13,26 @@ const AddNewsArticle = (loggedUser) => {
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     let navigate = useNavigate();
+
+    useEffect(() => {
+        checkIfTokenHasExpired();
+    }, []);
+
+    const checkIfTokenHasExpired = () => {
+        if(token != null) {
+            const decode = jwtDecode(token);
+            const exp = decode.exp;
+            console.log("Expiration " + exp);
+            if (exp) {
+                const currentTime = new Date().getTime() / 1000;
+                console.log("Current  " + currentTime);
+                if (currentTime > exp) {
+                    props.removeUser();
+                    window.location.reload();
+                }
+            }
+        }
+    }
 
     const onChangeText = event => {
         setText(event.target.value);

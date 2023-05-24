@@ -1,15 +1,20 @@
 import {Link, useNavigate} from "react-router-dom";
 import '../css/Navigation.css';
 import {useState, useEffect} from "react";
+import {CheckAPI} from "../API_access/CheckAPI";
+import jwtDecode from "jwt-decode";
 
 const Navigation = (props) => {
     const [roles, setRoles] = useState([]);
     const [id, setId] = useState(0);
+    const [check, setCheck] = useState(0);
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     let navigate = useNavigate();
 
     useEffect(() => {
         getRoles();
+        //checkIfTokenHasExpired();
     }, [props.loggedUser]);
 
     const getRoles = () => {
@@ -18,7 +23,17 @@ const Navigation = (props) => {
             setRoles(token_deserialized.userRoles.map(element => element.role));
             setId(token_deserialized.id);
         }
-        console.log(token_deserialized);
+    }
+
+    /*const checkIfTokenHasExpired = () => {
+        if(!props.checkTokenExpiration()) {
+            logOut();
+        }
+    }*/
+
+    function logOut() {
+        props.removeUser();
+        window.location.reload();
     }
 
     return (
@@ -56,7 +71,7 @@ const Navigation = (props) => {
                     <Link to="/chat">Chat</Link>
                     <Link to={`/profile/${id}`}>Profile</Link>
                     <Link to={`/cart/${id}`}>Cart</Link>
-                    <Link to="/" onClick={props.removeUser}>LogOut</Link>
+                    <Link to="/" onClick={logOut}>LogOut</Link>
                 </div>}
                 </>}
         </nav>

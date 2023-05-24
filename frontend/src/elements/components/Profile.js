@@ -3,6 +3,7 @@ import '../css/Profile.css';
 import {useNavigate, useParams} from "react-router-dom";
 import ProfileDisplay from "../display/ProfileDisplay";
 import {UsersAPI} from "../API_access/UsersAPI";
+import jwtDecode from "jwt-decode";
 
 
 const Profile = (props) => {
@@ -23,7 +24,24 @@ const Profile = (props) => {
     useEffect(() => {
         getUser();
         getRoles();
+        checkIfTokenHasExpired();
     }, []);
+
+    const checkIfTokenHasExpired = () => {
+        if(token != null) {
+            const decode = jwtDecode(token);
+            const exp = decode.exp;
+            console.log("Expiration " + exp);
+            if (exp) {
+                const currentTime = new Date().getTime() / 1000;
+                console.log("Current  " + currentTime);
+                if (currentTime > exp) {
+                    props.removeUser();
+                    window.location.reload();
+                }
+            }
+        }
+    }
 
     const getRoles = () => {
         console.log("props " + props.token);

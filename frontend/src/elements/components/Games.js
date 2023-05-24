@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import '../css/Games.css';
 import GamesDisplay from "../display/GamesDisplay";
 import {GamesAPI} from "../API_access/GamesAPI";
+import jwtDecode from "jwt-decode";
 
 const Games = (props) => {
     const [videogames, setVideogames] = useState([]);
@@ -11,7 +12,24 @@ const Games = (props) => {
     useEffect(() => {
         getRoles();
         getVideogames();
+        checkIfTokenHasExpired();
     }, []);
+
+    const checkIfTokenHasExpired = () => {
+        if(token != null) {
+            const decode = jwtDecode(token);
+            const exp = decode.exp;
+            console.log("Expiration " + exp);
+            if (exp) {
+                const currentTime = new Date().getTime() / 1000;
+                console.log("Current  " + currentTime);
+                if (currentTime > exp) {
+                    props.removeUser();
+                    window.location.reload();
+                }
+            }
+        }
+    }
 
     const getRoles = () => {
         console.log("props " + props.token);

@@ -2,10 +2,10 @@ import {useEffect, useState} from "react";
 import '../css/Home.css';
 import {GamesAPI} from "../API_access/GamesAPI";
 import HomeDisplay from "../display/HomeDisplay";
+import jwtDecode from "jwt-decode";
 
 const Home = (props) => {
     const [featuredVideogames, setFeaturedVideogames] = useState([]);
-    const [upcomingVideogames, setUpcomingVideogames] = useState([]);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
     const [roles, setRoles] = useState([]);
 
@@ -16,7 +16,24 @@ const Home = (props) => {
         }
         getRoles();
         getVideogames();
-    }, []);
+        checkIfTokenHasExpired();
+    }, [/*props.loggedUser*/]);
+
+    const checkIfTokenHasExpired = () => {
+        if(token != null) {
+            const decode = jwtDecode(token);
+            const exp = decode.exp;
+            console.log("Expiration " + exp);
+            if (exp) {
+                const currentTime = new Date().getTime() / 1000;
+                console.log("Current  " + currentTime);
+                if (currentTime > exp) {
+                    props.removeUser();
+                    window.location.reload();
+                }
+            }
+        }
+    }
 
     const getRoles = () => {
         let token_deserialized = JSON.parse(localStorage.getItem("token"));
@@ -34,19 +51,10 @@ const Home = (props) => {
             .catch(function (error) {
                 console.log(error);
             })
-
-        GamesAPI.getUpcoming(token).then(
-            function (response) {
-                setUpcomingVideogames(response.data);
-            }
-        )
-            .catch(function (error) {
-                console.log(error);
-            })
     }
 
     return (
-        <HomeDisplay roles={roles} featuredVideogames={featuredVideogames} upcomingVideogames={upcomingVideogames}/>
+        <HomeDisplay roles={roles} featuredVideogames={featuredVideogames}/>
     )
 }
 export default Home;

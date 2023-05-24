@@ -4,8 +4,9 @@ import {useNavigate, useParams} from "react-router-dom";
 import Cookies from "universal-cookie";
 import UpdateAdditionDisplay from "../display/UpdateAdditionDisplay";
 import {AdditionsAPI} from "../API_access/AdditionsAPI";
+import jwtDecode from "jwt-decode";
 
-const UpdateAddition = (loggedUser) => {
+const UpdateAddition = (props) => {
     const [gameId, setGameId] = useState();
     const [image, setImage] = useState();
     const [name, setName] = useState();
@@ -20,7 +21,24 @@ const UpdateAddition = (loggedUser) => {
 
     useEffect(() => {
         getAddition();
+        checkIfTokenHasExpired();
     }, []);
+
+    const checkIfTokenHasExpired = () => {
+        if(token != null) {
+            const decode = jwtDecode(token);
+            const exp = decode.exp;
+            console.log("Expiration " + exp);
+            if (exp) {
+                const currentTime = new Date().getTime() / 1000;
+                console.log("Current  " + currentTime);
+                if (currentTime > exp) {
+                    props.removeUser();
+                    window.location.reload();
+                }
+            }
+        }
+    }
 
     const getAddition = () => {
         AdditionsAPI.getById(id, token).then(

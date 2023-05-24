@@ -4,6 +4,7 @@ import {NewsAPI} from "../API_access/NewsAPI";
 import {useNavigate} from "react-router-dom";
 import NewsDisplay from "../display/NewsDisplay";
 import {GamesAPI} from "../API_access/GamesAPI";
+import jwtDecode from "jwt-decode";
 
 const News = (props) => {
     const [newsArticles, setNewsArticles] = useState([]);
@@ -16,8 +17,25 @@ const News = (props) => {
     useEffect(() => {
         getRoles();
         getNews();
-        getVideogames()
+        getVideogames();
+        checkIfTokenHasExpired();
     }, []);
+
+    const checkIfTokenHasExpired = () => {
+        if(token != null) {
+            const decode = jwtDecode(token);
+            const exp = decode.exp;
+            console.log("Expiration " + exp);
+            if (exp) {
+                const currentTime = new Date().getTime() / 1000;
+                console.log("Current  " + currentTime);
+                if (currentTime > exp) {
+                    props.removeUser();
+                    window.location.reload();
+                }
+            }
+        }
+    }
 
     const getRoles = () => {
         let token_deserialized = JSON.parse(localStorage.getItem("token"));

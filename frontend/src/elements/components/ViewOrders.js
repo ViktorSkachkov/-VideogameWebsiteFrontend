@@ -5,9 +5,10 @@ import GameOrderCard from "./GameOrderCard";
 import AdditionOrderCard from "./AdditionOrderCard";
 import '../css/ViewOrders.css';
 import {AdditionOrdersAPI} from "../API_access/AdditionOrdersAPI";
+import jwtDecode from "jwt-decode";
 
 
-const ViewOrders = (loggedUser) => {
+const ViewOrders = (props) => {
     const [gameOrders, setGameOrders] = useState([]);
     const [additionOrders, setAdditionOrders] = useState([]);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
@@ -17,7 +18,24 @@ const ViewOrders = (loggedUser) => {
 
     useEffect(() => {
         getOrders();
+        checkIfTokenHasExpired();
     }, []);
+
+    const checkIfTokenHasExpired = () => {
+        if(token != null) {
+            const decode = jwtDecode(token);
+            const exp = decode.exp;
+            console.log("Expiration " + exp);
+            if (exp) {
+                const currentTime = new Date().getTime() / 1000;
+                console.log("Current  " + currentTime);
+                if (currentTime > exp) {
+                    props.removeUser();
+                    window.location.reload();
+                }
+            }
+        }
+    }
 
     const getOrders = () => {
         GameOrdersAPI.getByUser(id, token).then(
