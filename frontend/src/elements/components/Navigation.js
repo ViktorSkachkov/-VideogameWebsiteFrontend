@@ -7,14 +7,11 @@ import jwtDecode from "jwt-decode";
 const Navigation = (props) => {
     const [roles, setRoles] = useState([]);
     const [id, setId] = useState(0);
-    const [check, setCheck] = useState(0);
-    const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     let navigate = useNavigate();
 
     useEffect(() => {
         getRoles();
-        //checkIfTokenHasExpired();
     }, [props.loggedUser]);
 
     const getRoles = () => {
@@ -25,15 +22,8 @@ const Navigation = (props) => {
         }
     }
 
-    /*const checkIfTokenHasExpired = () => {
-        if(!props.checkTokenExpiration()) {
-            logOut();
-        }
-    }*/
-
     function logOut() {
         props.removeUser();
-        window.location.reload();
     }
 
     return (

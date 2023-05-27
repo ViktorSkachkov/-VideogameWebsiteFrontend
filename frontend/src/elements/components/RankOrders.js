@@ -108,10 +108,10 @@ const RankOrders = (props) => {
                             {gameOrder.name}
                         </td>
                         <td>
-                            {gameOrder.numberOfTimesBought}
+                            {gameOrder.units}
                         </td>
                         <td>
-                            {gameOrder.numberOfTimesBought * gameOrder.price}
+                            {gameOrder.totalIncome}
                         </td>
                     </tr>
                 ))}
@@ -138,10 +138,10 @@ const RankOrders = (props) => {
                             {additionOrder.name}
                         </td>
                         <td>
-                            {additionOrder.numberOfTimesBought}
+                            {additionOrder.units}
                         </td>
                         <td>
-                            {additionOrder.numberOfTimesBought * additionOrder.price}
+                            {additionOrder.totalIncome}
                         </td>
                     </tr>
                 ))}

@@ -101,23 +101,32 @@ const Cart = (props) => {
             <center>
             <div className="formBackground"><br/>
                 <h1 className="titleCart">CART</h1><br/>
-                <div className="listOfCartItems">
-                {gameOrders.map((gameOrder) => (
-                    <CartItemGame gameOrder={gameOrder}/>
-                ))}
-                {additionOrders.map((additionOrder) => (
-                    <CartItemAddition additionOrder={additionOrder} />
-                ))}
-                </div>
-                        <div className="displayFinalPrice">
-                            <b>Final price: {finalPriceGames + finalPriceAdditions}$</b>
-                        </div>
-                <br/>
-                <button className="cartButton" onClick={() => {
-                    confirmOrder();
-                }}>Confirm Order</button>
+
+                {additionOrders.length == 0 && gameOrders == 0 ? <>
+                    <h2><i>There are currently no items in the cart to display</i></h2>
+                </> : <>
+                    <div className="listOfCartItems">
+                        {gameOrders.map((gameOrder) => (
+                            <CartItemGame gameOrder={gameOrder}/>
+                        ))}
+                        {additionOrders.map((additionOrder) => (
+                            <CartItemAddition additionOrder={additionOrder} />
+                        ))}
+                    </div>
+                    <div className="displayFinalPrice">
+                        <b>Final price: {finalPriceGames + finalPriceAdditions}$</b>
+                    </div>
+                    <br/>
+                    <button className="cartButton" onClick={() => {
+                        confirmOrder();
+                    }}>Confirm Order</button>
+                </>}
             </div>
-                <br/><br/><br/><br/>
+                {additionOrders.length == 0 && gameOrders == 0 ? <>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                </> : <>
+                    <br/><br/><br/><br/>
+                </>}
             </center>
         </div>
     )

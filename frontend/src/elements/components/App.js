@@ -73,25 +73,8 @@ function App() {
         setExpirationDate(null);
         localStorage.removeItem("token");
         localStorage.removeItem("accessToken");
+        window.location.reload();
     };
-
-    /*const checkTokenExpiration = () => {
-        const accessToken = JSON.parse(localStorage.getItem("accessToken"));
-        const decode = jwtDecode(accessToken);
-        const exp = decode.exp;
-
-        console.log("Expiration " + exp);
-        if (exp) {
-            const currentTime = new Date().getTime() / 1000;
-            console.log("Current  " + currentTime);
-            if (currentTime > exp) {
-                removeUser();
-            }
-            else {
-
-            }
-        }
-    };*/
 
 
 return (

@@ -136,3 +136,35 @@ S
 #src/elements/API_access/GamesAPI.js,5\2\526652f86a5362e2829ae8e6cb4db0012488750d
 S
 #src/elements/display/HomeDisplay.js,7\f\7f190d08f8050929d625874aaf03d3f62e768ca1
+T
+$src/elements/display/LoginDisplay.js,8\9\89ac1c8336b0c52209387c460a8cc8a899e5f9c0
+[
++src/elements/components/CartItemAddition.js,4\d\4d9711d08ddffad84d89f94c4041d0742ac38494
+S
+#src/elements/API_access/CheckAPI.js,9\f\9f1fd1ed4f8e885bc09440970bead874d559d5bb
+T
+$src/elements/components/Additions.js,f\5\f5ead094f895a15149ec77cb89d964756a5ee09f
+V
+&src/elements/components/AddAddition.js,c\0\c0b9a826f57d4a32b4c6f62c2d09fffc86fe1779
+W
+'src/elements/components/AddVideogame.js,9\5\9582c580e72acb2a0fc512fc42b9b001aac930d5
+Y
+)src/elements/components/AddNewsArticle.js,9\3\93b77dfcf915aba7abab6064f1e0ef9cc24c8dba
+P
+ src/elements/components/Games.js,1\8\1872eb6efb753a43cf33e1ae646b53a0380f0e44
+O
+src/elements/components/Home.js,2\e\2e5eceb605d07e375c248dea43516ef19400bc5a
+O
+src/elements/components/News.js,4\9\4944dd02f47106f590781a784590034514b7dbbc
+W
+'src/elements/components/PrivateRoute.js,1\a\1aa4c3e690a03f846e0b1ff72ca52a4966084dd5
+S
+#src/elements/components/ChatRoom.js,1\7\177d101ffa7e2aed511e9105b347180b967d4425
+R
+"src/elements/components/Profile.js,6\6\6671b80147b05c36c414a6884fabfba00885c187
+Y
+)src/elements/components/UpdateAddition.js,d\6\d645b9b0bd3e7b639b5088c23c3dc1c1867c1835
+\
+,src/elements/components/UpdateNewsArticle.js,8\a\8acbc1b3275b7f4841bc14713ba67df586bdd873
+S
+#src/elements/components/Register.js,9\e\9ebd58979540dd2272cdcb052e9628ce03123834
