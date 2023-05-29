@@ -3,5 +3,11 @@ services:
  web:
   build: ./frontend
   container_name: web_frontend
+  networks:
+  - videogameshopmysql
   ports: 
   - 3000:3000
+
+networks:
+ videogameshopmysql:
+
