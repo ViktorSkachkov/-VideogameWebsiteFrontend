@@ -14,7 +14,7 @@ const ViewGameDisplay = (props) => {
                         <p>{props.game.description}</p>
                         <label htmlFor="units" className="formLabelUnits">Number</label>
                         <input type="number" name="units" value={props.units} onChange={props.onChangeUnits} className="gameNumber"/>
-                        <button className="buyGameButton" onClick={() => props.buyGame(props.game.id) }>Buy</button><br/><br/><br/><br/>
+                        <button className="buyGameButton" onClick={() => props.buyGame(props.game.id) }>Add To Cart</button><br/><br/><br/><br/>
 
                         <label htmlFor="review" className="review"><b>Write Review</b></label><br/>
                         <textarea className="reviewGameTextArea" onChange={props.onChangeReview} name="review" type="text"/><br/><br/>

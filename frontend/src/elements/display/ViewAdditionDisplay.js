@@ -15,7 +15,7 @@ const ViewAdditionDisplay = (props) => {
                         <p>{props.addition.description}</p>
                         <label htmlFor="units" className="formLabelUnits">Number</label>
                         <input type="number" name="units" value={props.units} onChange={props.onChangeUnits} className="additionNumber"/>
-                        <button className="buyAdditionButton" onClick={() => props.buyAddition(props.addition.id) }>Buy</button><br/><br/><br/><br/>
+                        <button className="buyAdditionButton" onClick={() => props.buyAddition(props.addition.id) }>Add To Cart</button><br/><br/><br/><br/>
 
                         <label htmlFor="review" className="review"><b>Write Review</b></label><br/>
                         <textarea className="reviewTextArea" onChange={props.onChangeReview} name="review" type="text"/><br/><br/>

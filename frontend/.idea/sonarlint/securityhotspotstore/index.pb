@@ -120,12 +120,8 @@ X
 (src/elements/display/AdditionsDisplay.js,3\f\3f37397a1cf5f117a6a71bcfd91164406f3bccec
 T
 $src/elements/display/GamesDisplay.js,2\2\222870164c6af78e48e5b9a5d8bd490f8037e4ef
-[
-+src/elements/display/ViewAdditionDisplay.js,c\8\c8f885d84ffb7f0fd13a1ff5ffdd221b0a668238
 U
 %src/elements/components/ReviewCard.js,6\8\684b5b3e486e26c926a87d2ff601b3edbb664958
-W
-'src/elements/display/ViewGameDisplay.js,7\f\7fe73da9c638cbf868723dd34e18596a5161ba1b
 W
 'src/elements/components/AdditionCard.js,b\e\be70d9d7dba563750c2ca08919703f7759c929a5
 S
@@ -168,24 +164,3 @@ Y
 ,src/elements/components/UpdateNewsArticle.js,8\a\8acbc1b3275b7f4841bc14713ba67df586bdd873
 S
 #src/elements/components/Register.js,9\e\9ebd58979540dd2272cdcb052e9628ce03123834
-W
-'src/elements/components/ViewAddition.js,0\f\0fc16d79c748ace43c48eba00460c612b2875cf9
-O
-src/elements/components/Cart.js,1\b\1bae5ad037b5d0dd8aa10e90fe47b19673877494
-N
-src/elements/components/App.js,2\f\2f8d52a9a274c5f318c24a36bafaffb8cdaf6059
-U
-%src/elements/components/RankOrders.js,8\f\8fe2d37b7afeb4287e4484aec148bebc40cb4a5e
-U
-%src/elements/components/ViewOrders.js,f\9\f98cedab235dee7ee9eb113c12848802e6710999
-:
-
-Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
-U
-%src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
-P
- src/elements/components/LogIn.js,a\1\a10072ecaadad89ad5f36e1d4e0cdc2dc9315ad7
-S
-#src/elements/components/ViewGame.js,1\a\1a6786fead9d2c8c9a3182bc4a4abcf810c3eac3
-Z
-*src/elements/components/ViewNewsArticle.js,9\d\9d161185f8850a912c8e04bca59c1dbb894cfc78
