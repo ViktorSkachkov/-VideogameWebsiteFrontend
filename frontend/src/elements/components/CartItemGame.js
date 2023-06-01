@@ -39,6 +39,7 @@ const CartItemGame = (props) => {
     }
 
     function decreaseNumber(id) {
+        if(props.gameOrder.units > 1) {
         GameOrdersAPI.decreaseGameOrderUnits(props.gameOrder.id, token).then(
             function (response) {
                 window.location.reload();
@@ -47,6 +48,10 @@ const CartItemGame = (props) => {
             .catch(function (error) {
                 console.log(error);
             })
+        }
+        else {
+            alert('You cannot order 0 units!');
+        }
     }
 
     function deleteCartItem(id) {

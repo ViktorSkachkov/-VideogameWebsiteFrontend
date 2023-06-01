@@ -100,8 +100,6 @@ Z
 ,src/elements/components/AdditionCardAdmin.js,e\1\e1aa457480589dd6234f8bb48ae1c4c583502365
 X
 (src/elements/components/GameOrderCard.js,c\a\ca193eb02b65f7fb8cb2ed2a0a0668b9c980af36
-W
-'src/elements/components/CartItemGame.js,d\5\d5117c9e91961c224d468d30945f15cc9dcaf981
 U
 %src/elements/API_access/ReviewsAPI.js,2\c\2c0412ede6220eeba7d81263acd6c5ce77722a35
 X
@@ -122,8 +120,6 @@ O
 src/elements/components/News.js,4\9\4944dd02f47106f590781a784590034514b7dbbc
 T
 $src/elements/display/LoginDisplay.js,8\9\89ac1c8336b0c52209387c460a8cc8a899e5f9c0
-[
-+src/elements/components/CartItemAddition.js,4\d\4d9711d08ddffad84d89f94c4041d0742ac38494
 S
 #src/elements/API_access/CheckAPI.js,9\f\9f1fd1ed4f8e885bc09440970bead874d559d5bb
 T

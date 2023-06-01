@@ -37,14 +37,19 @@ const CartItemAddition = (props) => {
     }
 
     function decreaseNumber(id) {
-        AdditionOrdersAPI.decreaseAdditionOrderUnits(props.additionOrder.id, token).then(
-            function (response) {
-                window.location.reload();
-            }
-        )
-            .catch(function (error) {
-                console.log(error);
-            })
+        if(props.additionOrder.units > 1) {
+            AdditionOrdersAPI.decreaseAdditionOrderUnits(props.additionOrder.id, token).then(
+                function (response) {
+                    window.location.reload();
+                }
+            )
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
+        else {
+            alert('You cannot order 0 units!');
+        }
     }
 
     function deleteCartItem(id) {
