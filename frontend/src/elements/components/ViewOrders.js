@@ -60,20 +60,32 @@ const ViewOrders = (props) => {
     return (
         <div>
             <center>
-            <h1 className="orderH1Title">Your Game Orders</h1>
-                <div className="listOfOrders">
-            {gameOrders.map(gameOrder => (
-                    <GameOrderCard gameOrder={gameOrder}/>
-                )
-            )}
-                </div>
-            <h1 className="orderH1Title">Your Addition Orders</h1>
-                <div className="listOfOrders">
-            {additionOrders.map(additionOrder => (
+                {gameOrders.length > 0 && additionOrders.length > 0 ?
+                    <div>
+                    <h1 className="orderH1Title">Your Game Orders</h1>
+                    <div className="listOfOrders">
+                        {gameOrders.map(gameOrder => (
+                                <GameOrderCard gameOrder={gameOrder}/>
+                            )
+                        )}
+                    </div>
+                    <h1 className="orderH1Title">Your Addition Orders</h1>
+                    <div className="listOfOrders">
+                {additionOrders.map(additionOrder => (
                     <AdditionOrderCard additionOrder={additionOrder}/>
-                )
-            )}
-                </div>
+                    )
+                    )}
+                    </div>
+                        </div> :
+                    <div>
+                        <div className="formBackground">
+                        <h1 className="orderH1TitleB">You currently have no orders</h1>
+                            <img src="/cart2.jpg" height="200px" width="200px" alt=""/>
+                        </div>
+                            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                    </div>
+                }
             </center>
         </div>
     )

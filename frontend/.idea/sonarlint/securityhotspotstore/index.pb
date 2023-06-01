@@ -16,8 +16,6 @@ K
 src/elements/css/Footer.css,1\b\1b6e038b4700f2073d2bacfa8764f77617e63956
 H
 src/elements/css/App.css,9\0\902c01337fdcb3064507bc54d2cbe5af669b8c80
-O
-src/elements/css/Navigation.css,4\0\4096c0418c60e4050f06c22f89be888db85df520
 S
 #src/elements/css/AddNewsArticle.css,8\3\830c41602552fb884b9da07aa7efead887b32bac
 ]
@@ -32,8 +30,6 @@ R
 "src/elements/css/VideogameCard.css,8\4\842784e1963bb1e7987d06fd64a5c8a631bd40ce
 T
 $src/elements/css/ViewGameDisplay.css,c\b\cbc8d0de3b61f1cd0c54f9ff1a5d915c67d94954
-M
-src/elements/css/ViewGame.css,f\0\f0c2e1cf259762d9f543c6959538b5b7794c6a4d
 J
 src/elements/css/Games.css,2\d\2da381676fdb4af358bbe80f9afe74901a178376
 X
@@ -46,14 +42,10 @@ T
 $src/elements/css/UpdateVideogame.css,1\8\1853935fb64eb06de3763d3cde40939279666e82
 S
 #src/elements/css/UpdateAddition.css,f\c\fc08755c97c63477035ded8e5826de0958886e0e
-^
-.src/elements/display/ViewNewsArticleDisplay.js,f\2\f2bfd8691af86ea505c716f3058a2ed574993467
 I
 src/elements/css/Home.css,e\d\ed53f49c168d3785551efddc292393744270eae9
 M
 src/elements/css/Register.css,4\b\4b0d88377813c64df589767a99f82cf05016deab
-O
-src/elements/css/ReviewCard.css,3\5\35e68202d34953def0ef8778a3dbbfc3f8dd2e0d
 V
 &src/elements/display/ProfileDisplay.js,f\d\fd4c805ace301337f24eca9f1a737567e9723de0
 R
@@ -62,8 +54,6 @@ V
 &src/elements/css/AdditionOrderCard.css,7\9\797acc6de1a7292ef4b09bb2870f44caf70c29dd
 V
 &src/elements/css/AdditionCardAdmin.css,3\5\358065d47c5cc43fe530b90ca15c242bf0862f73
-O
-src/elements/css/ViewOrders.css,4\1\41d3a46c81d022cecf8b1d5d73d2bc820c197e68
 L
 src/elements/css/Profile.css,9\7\97e5120d65260935d2888a48ea425575985f4586
 Q
@@ -104,8 +94,6 @@ I
 src/elements/css/Cart.css,2\1\21011f1b07cafcf7f901e4776d1426d930567b20
 Z
 *src/elements/display/AddAdditionDisplay.js,e\a\ea3793848f09e9791ed31053ae2d7162812d8d1c
-_
-/src/elements/components/NewsArticleCardAdmin.js,3\6\361d6ebf713955f9ac4892921e34c8db62f5a8e7
 ]
 -src/elements/components/VideogameCardAdmin.js,0\b\0ba417082febdefe389508714f9c4c18d649f0ed
 \
@@ -130,8 +118,6 @@ X
 (src/elements/API_access/GameOrdersAPI.js,0\7\07eeb17e104195f99ac325024c9d13f3f5352695
 S
 #src/elements/API_access/GamesAPI.js,5\2\526652f86a5362e2829ae8e6cb4db0012488750d
-S
-#src/elements/display/HomeDisplay.js,7\f\7f190d08f8050929d625874aaf03d3f62e768ca1
 O
 src/elements/components/News.js,4\9\4944dd02f47106f590781a784590034514b7dbbc
 T
@@ -158,9 +144,15 @@ S
 #src/elements/components/ChatRoom.js,1\7\177d101ffa7e2aed511e9105b347180b967d4425
 R
 "src/elements/components/Profile.js,6\6\6671b80147b05c36c414a6884fabfba00885c187
-Y
-)src/elements/components/UpdateAddition.js,d\6\d645b9b0bd3e7b639b5088c23c3dc1c1867c1835
 \
 ,src/elements/components/UpdateNewsArticle.js,8\a\8acbc1b3275b7f4841bc14713ba67df586bdd873
+W
+'src/elements/components/ViewAddition.js,0\f\0fc16d79c748ace43c48eba00460c612b2875cf9
+Z
+*src/elements/components/ViewNewsArticle.js,9\d\9d161185f8850a912c8e04bca59c1dbb894cfc78
+[
++src/elements/display/ViewAdditionDisplay.js,c\8\c8f885d84ffb7f0fd13a1ff5ffdd221b0a668238
+U
+%src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
 S
-#src/elements/components/Register.js,9\e\9ebd58979540dd2272cdcb052e9628ce03123834
+#src/elements/components/ViewGame.js,1\a\1a6786fead9d2c8c9a3182bc4a4abcf810c3eac3

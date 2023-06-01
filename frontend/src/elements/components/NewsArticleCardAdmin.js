@@ -35,7 +35,6 @@ const NewsArticleCardAdmin = (newsArticle) => {
     function deleteNewsArticle(id) {
         NewsAPI.delete(id, token).then(
             function (response) {
-                //alert('News article successfully deleted!');
                 window.location.reload();
             }
         )
