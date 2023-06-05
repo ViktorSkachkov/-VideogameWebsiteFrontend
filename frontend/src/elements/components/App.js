@@ -84,7 +84,7 @@ return (
             httpEquiv="Content-Security-Policy"
             content="default-src 'self';
             img-src 'self' blob: data:;
-            connect-src http://localhost:8080/;"
+            connect-src http://localhost:8090/;"
         />
     </head>
     <body className="applicationBackground">

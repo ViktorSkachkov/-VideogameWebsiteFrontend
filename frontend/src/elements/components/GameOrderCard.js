@@ -33,7 +33,7 @@ const GameOrderCard = (props) => {
             <h1 className="orderTitle">{game.name}</h1>
             <p className="orderDescription">{game.description}</p>
             <p className="orderUnits">Units Ordered: {props.gameOrder.units}</p>
-            <p className="orderTotalPrice">Total Price: {game.price * props.gameOrder.units}</p>
+            <p className="orderTotalPrice">Total Price: {game.price * props.gameOrder.units}€</p>
             <p className="orderDate">Date: {props.gameOrder.dateFormatted}</p>
             </center>
         </div>

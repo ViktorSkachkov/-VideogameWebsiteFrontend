@@ -84,7 +84,7 @@ const CartItemGame = (props) => {
                         increaseNumber(props.gameOrder.id)
                     }}>{increase}</button>
                 </div>
-                <div className="cartPrice"><b>{game.price * props.gameOrder.units}</b></div>
+                <div className="cartPrice"><b>{game.price * props.gameOrder.units}€</b></div>
                 <div className="deleteCartText" onClick={() => {
                     deleteCartItem(props.gameOrder.id)
                     }}>Delete

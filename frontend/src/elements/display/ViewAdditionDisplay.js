@@ -10,7 +10,7 @@ const ViewAdditionDisplay = (props) => {
                     <center className="formBackground"><br/>
                         <img src={props.addition.image} width="400px" height="400px" alt="Currently the image can't load"/>
                         <h1>{props.addition.name}</h1>
-                        <b><p>Price: {props.addition.price}</p></b>
+                        <b><p>Price: {props.addition.price}€</p></b>
                         <b><p>For {props.game.name}</p></b>
                         <p>{props.addition.description}</p>
                         <label htmlFor="units" className="formLabelUnits">Number</label>

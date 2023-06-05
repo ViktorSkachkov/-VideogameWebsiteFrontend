@@ -48,7 +48,7 @@ const AdditionOrderCard = (props) => {
                             <h1 className="orderTitle">{addition.name}</h1>
                             <p className="orderDescription">{addition.description}</p>
                             <p className="orderUnits">Units Ordered: {props.additionOrder.units}</p>
-                            <p className="orderTotalPrice">Total Price: {addition.price * props.additionOrder.units}</p>
+                            <p className="orderTotalPrice">Total Price: {addition.price * props.additionOrder.units}€</p>
                             <p className="orderDate">Date: {props.additionOrder.dateFormatted}</p>
                             <p className="forGame">For Game: {game.name}</p>
                         </center>

@@ -80,7 +80,7 @@ const CartItemAddition = (props) => {
                             increaseNumber(props.additionOrder.id)
                         }}>{increase}</button>
                     </div>
-                    <div className="cartPrice"><b>{addition.price * props.additionOrder.units}</b></div>
+                    <div className="cartPrice"><b>{addition.price * props.additionOrder.units}€</b></div>
                     <div className="deleteCartText" onClick={() => {
                         deleteCartItem(props.additionOrder.id)
                     }}>Delete

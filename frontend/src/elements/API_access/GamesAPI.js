@@ -2,7 +2,7 @@ import axios from "axios";
 import {useState} from "react";
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8080/videogames'
+    baseURL: 'http://localhost:8090/videogames'
 });
 
 let accessToken = localStorage.getItem("accessToken");

@@ -114,7 +114,7 @@ const Cart = (props) => {
                         ))}
                     </div>
                     <div className="displayFinalPrice">
-                        <b>Final price: {finalPriceGames + finalPriceAdditions}$</b>
+                        <b>Final price: {finalPriceGames + finalPriceAdditions}€</b>
                     </div>
                     <br/>
                     <button className="cartButton" onClick={() => {

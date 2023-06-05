@@ -9,7 +9,7 @@ const VideogameCard = (videogame) => {
             });
         }}>
             <div>
-                <img src={videogame.videogame.image} height="400px" width="450px" alt=""/>
+                <img src={videogame.videogame.image} height="300px" width="450px" alt=""/>
             </div>
             <div className="">
                 <center>
@@ -17,7 +17,7 @@ const VideogameCard = (videogame) => {
                 </center>
             </div>
             <div className="lowerPart">
-                <b><p className="price">Price: {videogame.videogame.price}</p></b>
+                <b><p className="price">Price: {videogame.videogame.price}€</p></b>
                 {videogame.videogame.description.length > 125 ?
                 <p className="videogameDescription">{videogame.videogame.description.substr(0, 125)}...</p> :
                     <p>{videogame.videogame.description}</p>}

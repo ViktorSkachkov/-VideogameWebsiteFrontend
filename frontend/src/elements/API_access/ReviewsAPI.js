@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8080/reviews'
+    baseURL: 'http://localhost:8090/reviews'
 });
 
 //const accessToken = JSON.parse(localStorage.getItem("accessToken"));

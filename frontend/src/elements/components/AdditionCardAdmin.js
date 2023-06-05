@@ -12,7 +12,7 @@ const AdditionCardAdmin = (addition) => {
     function deleteAddition(id) {
         AdditionsAPI.delete(id, token).then(
             function (response) {
-                //alert('Addition successfully deleted!');
+
                 window.location.reload();
             }
         )
@@ -45,7 +45,7 @@ const AdditionCardAdmin = (addition) => {
             </div>
             <div>
                 <h1>{addition.addition.name}</h1>
-                <b><p>Price: {addition.addition.price}</p></b>
+                <b><p>Price: {addition.addition.price}€</p></b>
                     <b><p>For {game.name}</p></b>
                 {addition.addition.description.length > 125 ?
                     <p className="text">{addition.addition.description.substr(0, 125)}...</p> :

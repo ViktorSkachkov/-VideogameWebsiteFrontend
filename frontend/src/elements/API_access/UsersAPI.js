@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8080/users'
+    baseURL: 'http://localhost:8090/users'
 });
 
 //const accessToken = JSON.parse(localStorage.getItem("accessToken"));
@@ -29,16 +29,6 @@ export const UsersAPI = {
             },
         });
     },
-    /*create: function(user, token) {
-        return axiosInstance.request({
-            method: "POST",
-            url: ``,
-            data: user,
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
-        });
-    },*/
     create: function(user, token) {
         return axiosInstance.request({
             method: "POST",
