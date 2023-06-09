@@ -1,9 +1,12 @@
 import {useEffect, useState} from "react";
 import {GamesAPI} from "../API_access/GamesAPI";
+import {useNavigate} from "react-router-dom";
 
 const AddAdditionDisplay = (props) => {
     const [videogames, setVideogames] = useState([]);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+    const [returnSign, setReturnSign] = useState("<");
+    let navigate = useNavigate();
 
     useEffect(() => {
         getVideogames();
@@ -28,7 +31,11 @@ const AddAdditionDisplay = (props) => {
     }
 
     return (
-        <>
+        <div className="addAdditionBody">
+            <button className="buyGameButton" onClick={() => {
+                navigate(`/additions`, {
+                });
+            }}>{returnSign}</button>
             <center>
                 <form className="formBackground" onSubmit={props.handleSubmit}>
                     <br/><br/>
@@ -51,7 +58,7 @@ const AddAdditionDisplay = (props) => {
                     <button type="submit" className="normalButton">Submit</button>
                 </form><br/><br/><br/><br/>
             </center>
-        </>
+        </div>
     )
 }
 export default AddAdditionDisplay;

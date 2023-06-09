@@ -1,18 +1,20 @@
 import {Link, useNavigate} from "react-router-dom";
 import '../css/Navigation.css';
 import {useState, useEffect} from "react";
-import {CheckAPI} from "../API_access/CheckAPI";
-import jwtDecode from "jwt-decode";
+import {GameOrdersAPI} from "../API_access/GameOrdersAPI";
+import {AdditionOrdersAPI} from "../API_access/AdditionOrdersAPI";
 
 const Navigation = (props) => {
     const [roles, setRoles] = useState([]);
     const [id, setId] = useState(0);
+    const [check, setCheck] = useState(false);
 
     let navigate = useNavigate();
 
     useEffect(() => {
         getRoles();
     }, [props.loggedUser]);
+
 
     const getRoles = () => {
         const token_deserialized = JSON.parse(localStorage.getItem("token"));
@@ -21,6 +23,7 @@ const Navigation = (props) => {
             setId(token_deserialized.id);
         }
     }
+
 
     function logOut() {
         props.removeUser();
@@ -58,10 +61,10 @@ const Navigation = (props) => {
                 <Link to={`/profile/${id}`}>Profile</Link>
                 <Link to="/" onClick={props.removeUser}>LogOut</Link>
             </div> : <div>
-                    <Link to="/chat">Chat</Link>
-                    <Link to={`/profile/${id}`}>Profile</Link>
-                    <Link to={`/cart/${id}`}>Cart</Link>
-                    <Link to="/" onClick={logOut}>LogOut</Link>
+                        <Link to="/chat">Chat</Link>
+                        <Link to={`/cart/${id}`}>Cart</Link>
+                        <Link to={`/profile/${id}`}>Profile</Link>
+                        <Link to="/" onClick={logOut}>LogOut</Link>
                 </div>}
                 </>}
         </nav>

@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {GameOrdersAPI} from "../API_access/GameOrdersAPI";
 import GameOrderCard from "./GameOrderCard";
@@ -12,6 +12,9 @@ const ViewOrders = (props) => {
     const [gameOrders, setGameOrders] = useState([]);
     const [additionOrders, setAdditionOrders] = useState([]);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
+
+    const [returnSign, setReturnSign] = useState("<");
+    let navigate = useNavigate();
 
     let params = useParams();
     const id = params.id;
@@ -58,7 +61,11 @@ const ViewOrders = (props) => {
     };
 
     return (
-        <div>
+        <div className="viewOrdersBody">
+            <button className="buyGameButton" onClick={() => {
+                navigate(`/profile/${id}`, {
+                });
+            }}>{returnSign}</button>
             <center>
                 {gameOrders.length > 0 && additionOrders.length > 0 ?
                     <div>

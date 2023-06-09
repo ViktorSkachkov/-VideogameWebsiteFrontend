@@ -1,9 +1,8 @@
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {useNavigate, useParams} from "react-router-dom";
-import Cookies from "universal-cookie";
 import UpdateAdditionDisplay from "../display/UpdateAdditionDisplay";
 import {AdditionsAPI} from "../API_access/AdditionsAPI";
+import "../css/UpdateAddition.css";
 import jwtDecode from "jwt-decode";
 
 const UpdateAddition = (props) => {

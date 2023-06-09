@@ -1,7 +1,5 @@
 import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
-import axios from "axios";
-import Cookies from "universal-cookie";
 import UpdateNewsArticleDisplay from "../display/UpdateNewsArticleDisplay";
 import {NewsAPI} from "../API_access/NewsAPI";
 import "../css/UpdateNewsArticle.css"

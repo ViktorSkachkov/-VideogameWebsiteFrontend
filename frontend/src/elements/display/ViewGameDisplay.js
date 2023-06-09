@@ -1,12 +1,20 @@
 import '../css/ViewGameDisplay.css';
 import ReviewCard from "../components/ReviewCard";
+import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 const ViewGameDisplay = (props) => {
+    const [returnSign, setReturnSign] = useState("<");
+    let navigate = useNavigate();
 
     return (
         <>
             {props.game != null ?
                 <div className="viewGameBody">
+                    <button className="buyGameButton" onClick={() => {
+                        navigate(`/games`, {
+                        });
+                    }}>{returnSign}</button>
                     <center className="formBackground"><br/>
                         <img src={props.game.image} width="400px" height="400px" alt="Currently the image can't load"/>
                         <h1>{props.game.name}</h1>

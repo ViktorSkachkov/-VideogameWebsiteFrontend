@@ -91,5 +91,5 @@ export const AdditionOrdersAPI = {
                 "Authorization": `Bearer ${token}`,
             },
         });
-    },
+    }
 }

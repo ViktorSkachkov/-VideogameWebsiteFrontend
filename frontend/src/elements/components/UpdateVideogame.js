@@ -1,9 +1,8 @@
 import {useState, useEffect} from "react";
-import axios from "axios";
 import {useNavigate, useParams} from "react-router-dom";
-import Cookies from "universal-cookie";
 import UpdateVideogameDisplay from "../display/UpdateVideogameDisplay";
 import {GamesAPI} from "../API_access/GamesAPI";
+import "../css/UpdateVideogame.css";
 import jwtDecode from "jwt-decode";
 
 const UpdateVideogame = (props) => {

@@ -2,10 +2,10 @@ import SockJS from 'sockjs-client';
 import {over} from 'stompjs';
 import '../css/ChatRoom.css';
 import {useEffect, useState} from "react";
-import {UsersAPI} from "../API_access/UsersAPI";
-import {useParams} from "react-router-dom";
+//import {UsersAPI} from "../API_access/UsersAPI";
+//import {useParams} from "react-router-dom";
 import jwtDecode from "jwt-decode";
-const ENDPOINT = "http://localhost:8080/ws";
+//const ENDPOINT = "http://localhost:8090/ws";
 
 var stompClient = null;
 
@@ -42,7 +42,7 @@ const ChatRoom = (props) => {
     }
 
     const connect =()=>{
-        let Sock = new SockJS('http://localhost:8080/ws');
+        let Sock = new SockJS('http://localhost:8090/ws');
         stompClient = over(Sock);
         stompClient.connect({},onConnected, onError);
     }

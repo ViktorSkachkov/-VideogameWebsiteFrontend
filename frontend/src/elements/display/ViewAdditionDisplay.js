@@ -1,12 +1,20 @@
 import '../css/ViewAdditionDisplay.css';
 import ReviewCard from "../components/ReviewCard";
+import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 const ViewAdditionDisplay = (props) => {
+    const [returnSign, setReturnSign] = useState("<");
+    let navigate = useNavigate();
 
     return (
         <>
             {props.addition != null ?
                 <div className="viewAdditionBody">
+                    <button className="buyGameButton" onClick={() => {
+                        navigate(`/additions`, {
+                        });
+                    }}>{returnSign}</button>
                     <center className="formBackground"><br/>
                         <img src={props.addition.image} width="400px" height="400px" alt="Currently the image can't load"/>
                         <h1>{props.addition.name}</h1>

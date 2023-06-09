@@ -40,8 +40,6 @@ const Cart = (props) => {
     }
 
     const getOrders = () => {
-        let gameOrders2 = [];
-        let additionOrders2 = [];
         GameOrdersAPI.getGameCartItems(id, token).then(
             function (response) {
                 setGameOrders(response.data);

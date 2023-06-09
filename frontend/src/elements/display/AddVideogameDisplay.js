@@ -1,5 +1,9 @@
+import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 const AddVideogameDisplay = (props) => {
+    const [returnSign, setReturnSign] = useState("<");
+    let navigate = useNavigate();
 
     const handleChangeFeatured = (e) => {
         e.preventDefault();
@@ -8,7 +12,11 @@ const AddVideogameDisplay = (props) => {
     }
 
     return (
-        <>
+        <div className="addGameBody">
+            <button className="buyGameButton" onClick={() => {
+                navigate(`/games`, {
+                });
+            }}>{returnSign}</button>
             <center>
                 <form className="formBackground" onSubmit={props.handleSubmit}>
                     <br/><br/>
@@ -30,7 +38,7 @@ const AddVideogameDisplay = (props) => {
                     <button type="submit" className="normalButton">Submit</button>
                 </form><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             </center>
-        </>
+        </div>
     )
 }
 export default AddVideogameDisplay;

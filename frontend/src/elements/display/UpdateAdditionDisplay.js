@@ -1,7 +1,16 @@
+import {useState} from "react";
+import {useNavigate} from "react-router-dom";
+
 const UpdateAdditionDisplay = (props) => {
+    const [returnSign, setReturnSign] = useState("<");
+    let navigate = useNavigate();
 
     return (
-        <>
+        <div className="updateAdditionBody">
+            <button className="buyGameButton" onClick={() => {
+                navigate(`/additions`, {
+                });
+            }}>{returnSign}</button>
             <center className="formBackground"><br/>
                 <img src={props.image} width="400px" height="400px" alt=""/>
                 <form onSubmit={props.handleSubmit}>
@@ -17,7 +26,7 @@ const UpdateAdditionDisplay = (props) => {
                     <button type="submit" className="normalButton">Submit</button>
                 </form>
             </center><br/><br/><br/><br/>
-        </>
+        </div>
     )
 }
 export default UpdateAdditionDisplay;
