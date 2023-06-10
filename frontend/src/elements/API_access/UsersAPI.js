@@ -58,4 +58,16 @@ export const UsersAPI = {
             },
         });
     },
+    validateUsername: function(username) {
+        return axiosInstance.request({
+            method: "GET",
+            url: `/validateUsername/${username}`,
+        });
+    },
+    validatePassword: function(password) {
+        return axiosInstance.request({
+            method: "GET",
+            url: `/validatePassword/${password}`,
+        });
+    },
 }

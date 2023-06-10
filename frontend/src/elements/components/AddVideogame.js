@@ -54,22 +54,33 @@ const AddVideogame = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
     if(description.length > 125) {
-        let data = {
-            "name": name,
-            "price": price,
-            "description": description,
-            "featured": featured,
-            "image": image,
-        }
-        GamesAPI.create(data, token).then(
+
+        GamesAPI.validate(name, token).then(
             function (response) {
-                navigate(`/games`);
-                alert('Videogame successfully added!');
+                if(response.data == true) {
+                    alert("Game title already exists!");
+                    return false;
+                }
+                else {
+                    let data = {
+                        "name": name,
+                        "price": price,
+                        "description": description,
+                        "featured": featured,
+                        "image": image,
+                    }
+                    GamesAPI.create(data, token).then(
+                        function (response) {
+                            navigate(`/games`);
+                            alert('Videogame successfully added!');
+                        }
+                    )
+                        .catch(function (error) {
+                            console.log(error);
+                        })
+                }
             }
         )
-            .catch(function (error) {
-                console.log(error);
-            })
     }
     else {
         alert('The description is too short!');

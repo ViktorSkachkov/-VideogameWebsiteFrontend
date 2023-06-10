@@ -94,4 +94,13 @@ export const GamesAPI = {
             },
         });
     },
+    validate: function(name, token) {
+        return axiosInstance.request({
+            method: "GET",
+            url: `/validate/${name}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
 }

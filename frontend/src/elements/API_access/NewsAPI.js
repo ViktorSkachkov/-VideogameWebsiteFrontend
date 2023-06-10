@@ -67,4 +67,13 @@ export const NewsAPI = {
             },
         });
     },
+    validate: function(title, token) {
+        return axiosInstance.request({
+            method: "GET",
+            url: `/validate/${title}`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+    },
 }

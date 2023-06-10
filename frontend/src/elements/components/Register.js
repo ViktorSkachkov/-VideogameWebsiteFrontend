@@ -32,23 +32,44 @@ const Register = (updateUser) => {
     const handleSubmit = (e) => {
         e.preventDefault();
     if(pwd == repeatPwd) {
-        let sendData = {
-            "username": username,
-            "pwd": pwd,
-            "email": email,
-            "bankAccount": bankAccount,
-            "userRoles": [{"role": "CUSTOMER"}]
-        };
 
-        UsersAPI.create(sendData).then(
-                function (response) {
+        UsersAPI.validateUsername(username).then(
+            function (response) {
+                if(response.data == true) {
+                    alert("Username already exists!");
+                    return false;
+                }
+                else {
+                    UsersAPI.validatePassword(pwd).then(
+                        function (response) {
+                            if(response.data == true) {
+                                alert("Password already exists!");
+                                return false;
+                            }
+                            else {
+                                let sendData = {
+                                    "username": username,
+                                    "pwd": pwd,
+                                    "email": email,
+                                    "bankAccount": bankAccount,
+                                    "userRoles": [{"role": "CUSTOMER"}]
+                                };
 
-                navigate("/logIn");
+                                UsersAPI.create(sendData).then(
+                                    function (response) {
+
+                                        navigate("/logIn");
+                                    }
+                                )
+                                    .catch(function (error) {
+                                        alert("Incorrect data");
+                                    })
+                            }
+                        }
+                    )
+                }
             }
         )
-        .catch(function (error) {
-            alert("Incorrect data");
-        })
     }
     else {
         alert("The repeated password is different from the password that was input!")

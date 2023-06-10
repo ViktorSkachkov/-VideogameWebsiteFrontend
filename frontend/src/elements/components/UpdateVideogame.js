@@ -74,23 +74,33 @@ const UpdateVideogame = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        let data = {
-            "id": id,
-            "image": image,
-            "description": description,
-            "price": price,
-            "name": name,
-            "featured": featured,
-        }
-        GamesAPI.update(data, token).then(
+        GamesAPI.validate(name, token).then(
             function (response) {
-                navigate(`/games`);
-                alert('Videogame successfully updated!');
+                if(response.data == true) {
+                    alert("Game title already exists!");
+                    return false;
+                }
+                else {
+                    let data = {
+                        "id": id,
+                        "image": image,
+                        "description": description,
+                        "price": price,
+                        "name": name,
+                        "featured": featured,
+                    }
+                    GamesAPI.update(data, token).then(
+                        function (response) {
+                            navigate(`/games`);
+                            alert('Videogame successfully updated!');
+                        }
+                    )
+                        .catch(function (error) {
+                            console.log(error);
+                        })
+                }
             }
         )
-            .catch(function (error) {
-                console.log(error);
-            })
     }
 
     return (

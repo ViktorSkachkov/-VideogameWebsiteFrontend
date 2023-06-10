@@ -55,22 +55,33 @@ const AddAddition = (props) => {
         e.preventDefault();
 
         if(description.length > 125) {
-        let data = {
-            "gameId": gameId,
-            "image": image,
-            "description": description,
-            "price": price,
-            "name": name,
-        }
-        AdditionsAPI.create(data, token).then(
-            function (response) {
-                navigate(`/additions`);
-                alert('Addition successfully added!');
-            }
-        )
-            .catch(function (error) {
-                console.log(error);
-            })
+
+            AdditionsAPI.validate(name, token).then(
+                function (response) {
+                    if(response.data == true) {
+                        alert("Addition name already exists!");
+                        return false;
+                    }
+                    else {
+                        let data = {
+                            "gameId": gameId,
+                            "image": image,
+                            "description": description,
+                            "price": price,
+                            "name": name,
+                        }
+                        AdditionsAPI.create(data, token).then(
+                            function (response) {
+                                navigate(`/additions`);
+                                alert('Addition successfully added!');
+                            }
+                        )
+                            .catch(function (error) {
+                                console.log(error);
+                            })
+                    }
+                }
+            )
         }
         else {
             alert('The description is too short!');

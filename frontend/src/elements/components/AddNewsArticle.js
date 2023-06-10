@@ -50,22 +50,33 @@ const AddNewsArticle = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(text.length > 125) {
-        let data = {
-            "id": 1,
-            "gameId": gameId,
-            "image": image,
-            "text": text,
-            "title": title,
-        }
-        NewsAPI.create(data, token).then(
-            function (response) {
-                navigate(`/news`);
-                alert('News article successfully added!');
-            }
-        )
-            .catch(function (error) {
-                console.log(error);
-            })
+
+            NewsAPI.validate(title, token).then(
+                function (response) {
+                    if(response.data == true) {
+                        alert("News title already exists!");
+                        return false;
+                    }
+                    else {
+                        let data = {
+                            "id": 1,
+                            "gameId": gameId,
+                            "image": image,
+                            "text": text,
+                            "title": title,
+                        }
+                        NewsAPI.create(data, token).then(
+                            function (response) {
+                                navigate(`/news`);
+                                alert('News article successfully added!');
+                            }
+                        )
+                            .catch(function (error) {
+                                console.log(error);
+                            })
+                    }
+                }
+            )
         }
         else {
             alert('The text is too short!');

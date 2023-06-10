@@ -58,29 +58,49 @@ const Profile = (props) => {
                 alert('The password and the repeated password are different!');
             }
 
-            let data = {
-                "id": id,
-                "username": username,
-                "pwd": pwd,
-                "email": email,
-                "bankAccount": bankAccount,
-                "userRoles": user.userRoles,
-            }
-
-
-
-        UsersAPI.update(data, token).then(
+        UsersAPI.validateUsername(username).then(
             function (response) {
-                setUser(response.data);
-                //cookies.set("accessToken", response.data.accessToken, { path: '/' });
-                props.removeUser();
-                localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
-                props.updateUser();
+                if(response.data == true) {
+                    alert("Username already exists!");
+                    return false;
+                }
+                else {
+                    UsersAPI.validatePassword(pwd).then(
+                        function (response) {
+                            if(response.data == true) {
+                                alert("Password already exists!");
+                                return false;
+                            }
+                            else {
+                                let data = {
+                                    "id": id,
+                                    "username": username,
+                                    "pwd": pwd,
+                                    "email": email,
+                                    "bankAccount": bankAccount,
+                                    "userRoles": user.userRoles,
+                                }
+
+
+
+                                UsersAPI.update(data, token).then(
+                                    function (response) {
+                                        setUser(response.data);
+                                        //cookies.set("accessToken", response.data.accessToken, { path: '/' });
+                                        props.removeUser();
+                                        localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
+                                        props.updateUser();
+                                    }
+                                )
+                                    .catch(function (error) {
+                                        console.log(error);
+                                    })
+                            }
+                        }
+                    )
+                }
             }
         )
-            .catch(function (error) {
-                console.log(error);
-            })
     };
 
     function deleteProfile(userId, token) {

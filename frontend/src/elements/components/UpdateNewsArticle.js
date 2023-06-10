@@ -69,22 +69,32 @@ const UpdateNewsArticle = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        let data = {
-            "id": id,
-            "gameId": gameId,
-            "image": image,
-            "text": text,
-            "title": title,
-        };
-        NewsAPI.update(data, token).then(
+        NewsAPI.validate(title, token).then(
             function (response) {
-                navigate(`/news`);
-                alert('News article successfully updated!');
+                if(response.data == true) {
+                    alert("News title already exists!");
+                    return false;
+                }
+                else {
+                    let data = {
+                        "id": id,
+                        "gameId": gameId,
+                        "image": image,
+                        "text": text,
+                        "title": title,
+                    };
+                    NewsAPI.update(data, token).then(
+                        function (response) {
+                            navigate(`/news`);
+                            alert('News article successfully updated!');
+                        }
+                    )
+                        .catch(function (error) {
+                            console.log(error);
+                        })
+                }
             }
         )
-            .catch(function (error) {
-                console.log(error);
-            })
     }
 
     return (

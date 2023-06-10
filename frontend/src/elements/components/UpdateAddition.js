@@ -73,23 +73,33 @@ const UpdateAddition = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        let data = {
-            "id": id,
-            "gameId": gameId,
-            "image": image,
-            "description": description,
-            "price": price,
-            "name": name,
-        }
-        AdditionsAPI.update(data, token).then(
+        AdditionsAPI.validate(name, token).then(
             function (response) {
-                navigate(`/additions`);
-                alert('Addition successfully updated!');
+                if(response.data == true) {
+                    alert("Addition name already exists!");
+                    return false;
+                }
+                else {
+                    let data = {
+                        "id": id,
+                        "gameId": gameId,
+                        "image": image,
+                        "description": description,
+                        "price": price,
+                        "name": name,
+                    }
+                    AdditionsAPI.update(data, token).then(
+                        function (response) {
+                            navigate(`/additions`);
+                            alert('Addition successfully updated!');
+                        }
+                    )
+                        .catch(function (error) {
+                            console.log(error);
+                        })
+                }
             }
         )
-            .catch(function (error) {
-                console.log(error);
-            })
     }
 
     return (
