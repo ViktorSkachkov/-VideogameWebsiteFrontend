@@ -35,14 +35,14 @@ const Register = (updateUser) => {
 
         UsersAPI.validateUsername(username).then(
             function (response) {
-                if(response.data == true) {
+                if(response.data.confirm == true) {
                     alert("Username already exists!");
                     return false;
                 }
                 else {
                     UsersAPI.validatePassword(pwd).then(
                         function (response) {
-                            if(response.data == true) {
+                            if(response.data.confirm == true) {
                                 alert("Password already exists!");
                                 return false;
                             }

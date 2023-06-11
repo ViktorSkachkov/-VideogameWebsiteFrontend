@@ -34,8 +34,6 @@ L
 src/elements/css/Profile.css,9\7\97e5120d65260935d2888a48ea425575985f4586
 J
 src/elements/css/Login.css,7\8\7821bfcc0d4b44f3157521434a20cfc0c773402c
-W
-'src/elements/display/RegisterDisplay.js,2\3\23bae8c2ec060868189e652ca3fc63cf1c809087
 O
 src/elements/css/RankOrders.css,d\a\dad2684619250c102c02224149761283e4bcb92a
 Q
@@ -72,14 +70,10 @@ S
 #src/elements/display/HomeDisplay.js,7\f\7f190d08f8050929d625874aaf03d3f62e768ca1
 Z
 *src/elements/components/NewsArticleCard.js,d\9\d9734b8fb7c1493928d9b267b6da43681ddacec4
-\
-,src/elements/components/AdditionCardAdmin.js,e\1\e1aa457480589dd6234f8bb48ae1c4c583502365
 U
 %src/elements/components/RankOrders.js,8\f\8fe2d37b7afeb4287e4484aec148bebc40cb4a5e
 [
 +src/elements/components/CartItemAddition.js,4\d\4d9711d08ddffad84d89f94c4041d0742ac38494
-W
-'src/elements/components/AdditionCard.js,b\e\be70d9d7dba563750c2ca08919703f7759c929a5
 \
 ,src/elements/components/AdditionOrderCard.js,8\2\8294535847f3e47e1429174f2f0452386bb30118
 X
@@ -146,7 +140,21 @@ S
 #src/elements/css/UpdateAddition.css,f\c\fc08755c97c63477035ded8e5826de0958886e0e
 V
 &src/elements/css/UpdateNewsArticle.css,7\d\7dff446fc3bc3cf05928cc0a687953604947a612
-U
-%src/elements/components/ViewOrders.js,f\9\f98cedab235dee7ee9eb113c12848802e6710999
 O
 src/elements/components/Cart.js,1\b\1bae5ad037b5d0dd8aa10e90fe47b19673877494
+U
+%src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
+N
+src/elements/components/App.js,2\f\2f8d52a9a274c5f318c24a36bafaffb8cdaf6059
+T
+$src/elements/display/LoginDisplay.js,8\9\89ac1c8336b0c52209387c460a8cc8a899e5f9c0
+X
+(src/elements/API_access/GameOrdersAPI.js,0\7\07eeb17e104195f99ac325024c9d13f3f5352695
+\
+,src/elements/API_access/AdditionOrdersAPI.js,d\2\d2d9d77ed8383c62db8d80d32dcf15b81ba5dada
+O
+src/elements/css/Navigation.css,4\0\4096c0418c60e4050f06c22f89be888db85df520
+S
+#src/elements/API_access/GamesAPI.js,5\2\526652f86a5362e2829ae8e6cb4db0012488750d
+W
+'src/elements/API_access/AdditionsAPI.js,4\1\41c241d25171dc149c0d42955022bdde1f293b60

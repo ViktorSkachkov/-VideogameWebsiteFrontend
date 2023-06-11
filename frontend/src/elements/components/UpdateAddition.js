@@ -75,7 +75,7 @@ const UpdateAddition = (props) => {
 
         AdditionsAPI.validate(name, token).then(
             function (response) {
-                if(response.data == true) {
+                if(response.data.confirm == true) {
                     alert("Addition name already exists!");
                     return false;
                 }

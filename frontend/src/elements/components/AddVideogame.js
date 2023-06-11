@@ -57,7 +57,7 @@ const AddVideogame = (props) => {
 
         GamesAPI.validate(name, token).then(
             function (response) {
-                if(response.data == true) {
+                if(response.data.confirm == true) {
                     alert("Game title already exists!");
                     return false;
                 }

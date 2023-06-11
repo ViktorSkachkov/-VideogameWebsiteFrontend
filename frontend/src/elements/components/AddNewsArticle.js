@@ -53,7 +53,7 @@ const AddNewsArticle = (props) => {
 
             NewsAPI.validate(title, token).then(
                 function (response) {
-                    if(response.data == true) {
+                    if(response.data.confirm == true) {
                         alert("News title already exists!");
                         return false;
                     }
