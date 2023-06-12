@@ -1,0 +1,6 @@
+
+ajavascript:S1481"9Remove the declaration of the unused 'setToken' variable.(û‰ÚĞüÿÿÿÿ8ñ¶¶†Š1
+^javascript:S1854"6Remove this useless assignment to variable "setToken".(û‰ÚĞüÿÿÿÿ8ñ¶¶†Š1
+Yjavascript:S1125?"6Refactor the code to avoid using this boolean literal.(Ó½‚ø8¦­Õ«Š1
+Yjavascript:S1125F"6Refactor the code to avoid using this boolean literal.(Ó½‚ø8Ùä¬Š1
+Fjavascript:S125Y"Remove this commented out code.(·Å§ıÿÿÿÿ8˜Ëå¬Š1

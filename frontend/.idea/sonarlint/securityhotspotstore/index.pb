@@ -20,8 +20,6 @@ R
 "src/elements/css/VideogameCard.css,8\4\842784e1963bb1e7987d06fd64a5c8a631bd40ce
 J
 src/elements/css/Games.css,2\d\2da381676fdb4af358bbe80f9afe74901a178376
-I
-src/elements/css/Home.css,e\d\ed53f49c168d3785551efddc292393744270eae9
 M
 src/elements/css/Register.css,4\b\4b0d88377813c64df589767a99f82cf05016deab
 R
@@ -48,38 +46,18 @@ M
 src/elements/css/CartItem.css,d\7\d72ef8507b195654d00c8187a4ade1eaf41154f6
 I
 src/elements/css/Cart.css,2\1\21011f1b07cafcf7f901e4776d1426d930567b20
-X
-(src/elements/display/AdditionsDisplay.js,3\f\3f37397a1cf5f117a6a71bcfd91164406f3bccec
-T
-$src/elements/display/GamesDisplay.js,2\2\222870164c6af78e48e5b9a5d8bd490f8037e4ef
-S
-#src/elements/display/NewsDisplay.js,1\3\133a660911cd2df5fc28c58e1c870ea4d62e10a0
-T
-$src/elements/components/Additions.js,f\5\f5ead094f895a15149ec77cb89d964756a5ee09f
-P
- src/elements/components/Games.js,1\8\1872eb6efb753a43cf33e1ae646b53a0380f0e44
-O
-src/elements/components/Home.js,2\e\2e5eceb605d07e375c248dea43516ef19400bc5a
 W
 'src/elements/components/PrivateRoute.js,1\a\1aa4c3e690a03f846e0b1ff72ca52a4966084dd5
 W
 'src/elements/components/ViewAddition.js,0\f\0fc16d79c748ace43c48eba00460c612b2875cf9
 _
 /src/elements/components/NewsArticleCardAdmin.js,3\6\361d6ebf713955f9ac4892921e34c8db62f5a8e7
-S
-#src/elements/display/HomeDisplay.js,7\f\7f190d08f8050929d625874aaf03d3f62e768ca1
 Z
 *src/elements/components/NewsArticleCard.js,d\9\d9734b8fb7c1493928d9b267b6da43681ddacec4
-U
-%src/elements/components/RankOrders.js,8\f\8fe2d37b7afeb4287e4484aec148bebc40cb4a5e
 [
 +src/elements/components/CartItemAddition.js,4\d\4d9711d08ddffad84d89f94c4041d0742ac38494
 \
 ,src/elements/components/AdditionOrderCard.js,8\2\8294535847f3e47e1429174f2f0452386bb30118
-X
-(src/elements/components/VideogameCard.js,e\3\e308b4fdc8ffa1911faa0d83c88eddd41dc14127
-W
-'src/elements/components/CartItemGame.js,d\5\d5117c9e91961c224d468d30945f15cc9dcaf981
 X
 (src/elements/components/GameOrderCard.js,c\a\ca193eb02b65f7fb8cb2ed2a0a0668b9c980af36
 S
@@ -90,10 +68,6 @@ S
 #src/elements/API_access/LoginAPI.js,9\2\928902487339eb735f695db931db973f53b1328d
 S
 #src/elements/components/ChatRoom.js,1\7\177d101ffa7e2aed511e9105b347180b967d4425
-S
-#src/elements/components/ViewGame.js,1\a\1a6786fead9d2c8c9a3182bc4a4abcf810c3eac3
-]
--src/elements/components/VideogameCardAdmin.js,0\b\0ba417082febdefe389508714f9c4c18d649f0ed
 U
 %src/elements/components/ReviewCard.js,6\8\684b5b3e486e26c926a87d2ff601b3edbb664958
 Z
@@ -112,10 +86,6 @@ M
 src/elements/css/ViewGame.css,f\0\f0c2e1cf259762d9f543c6959538b5b7794c6a4d
 ^
 .src/elements/display/ViewNewsArticleDisplay.js,f\2\f2bfd8691af86ea505c716f3058a2ed574993467
-[
-+src/elements/display/AddVideogameDisplay.js,4\1\4113f8eb2f6673d4d3e9a636daa85076a3752bf6
-]
--src/elements/display/AddNewsArticleDisplay.js,5\9\5918504b4b31d43e57b70214fa4791f6e9a346a9
 P
  src/elements/css/AddAddition.css,e\0\e060b793eabe26311ea659fd72cdd2676b037d76
 S
@@ -126,12 +96,6 @@ T
 $src/elements/css/UpdateVideogame.css,1\8\1853935fb64eb06de3763d3cde40939279666e82
 O
 src/elements/css/ViewOrders.css,4\1\41d3a46c81d022cecf8b1d5d73d2bc820c197e68
-^
-.src/elements/display/UpdateVideogameDisplay.js,b\3\b3488b4e14801863df692b1344fa6a14dce410f2
-W
-'src/elements/display/ViewGameDisplay.js,7\f\7fe73da9c638cbf868723dd34e18596a5161ba1b
-Z
-*src/elements/display/AddAdditionDisplay.js,e\a\ea3793848f09e9791ed31053ae2d7162812d8d1c
 `
 0src/elements/display/UpdateNewsArticleDisplay.js,3\b\3bbd6b405dd85d0bf2963a3ee288fddf9aa27ac1
 ]
@@ -140,21 +104,57 @@ S
 #src/elements/css/UpdateAddition.css,f\c\fc08755c97c63477035ded8e5826de0958886e0e
 V
 &src/elements/css/UpdateNewsArticle.css,7\d\7dff446fc3bc3cf05928cc0a687953604947a612
-O
-src/elements/components/Cart.js,1\b\1bae5ad037b5d0dd8aa10e90fe47b19673877494
-U
-%src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
-N
-src/elements/components/App.js,2\f\2f8d52a9a274c5f318c24a36bafaffb8cdaf6059
 T
 $src/elements/display/LoginDisplay.js,8\9\89ac1c8336b0c52209387c460a8cc8a899e5f9c0
 X
 (src/elements/API_access/GameOrdersAPI.js,0\7\07eeb17e104195f99ac325024c9d13f3f5352695
 \
 ,src/elements/API_access/AdditionOrdersAPI.js,d\2\d2d9d77ed8383c62db8d80d32dcf15b81ba5dada
-O
-src/elements/css/Navigation.css,4\0\4096c0418c60e4050f06c22f89be888db85df520
 S
 #src/elements/API_access/GamesAPI.js,5\2\526652f86a5362e2829ae8e6cb4db0012488750d
 W
 'src/elements/API_access/AdditionsAPI.js,4\1\41c241d25171dc149c0d42955022bdde1f293b60
+S
+#src/elements/API_access/UsersAPI.js,4\8\483e200bda437a5aa4aea932ea0fc3c010f8687e
+R
+"src/elements/API_access/NewsAPI.js,7\2\72add5a500467e4f55187de6a630d9f422e660b5
+W
+'src/elements/display/RegisterDisplay.js,2\3\23bae8c2ec060868189e652ca3fc63cf1c809087
+S
+#src/elements/components/Register.js,9\e\9ebd58979540dd2272cdcb052e9628ce03123834
+P
+ src/elements/components/LogIn.js,a\1\a10072ecaadad89ad5f36e1d4e0cdc2dc9315ad7
+V
+&src/elements/components/AddAddition.js,c\0\c0b9a826f57d4a32b4c6f62c2d09fffc86fe1779
+W
+'src/elements/components/AdditionCard.js,b\e\be70d9d7dba563750c2ca08919703f7759c929a5
+Y
+)src/elements/components/AddNewsArticle.js,9\3\93b77dfcf915aba7abab6064f1e0ef9cc24c8dba
+O
+src/elements/components/Home.js,2\e\2e5eceb605d07e375c248dea43516ef19400bc5a
+U
+%src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
+U
+%src/elements/components/ViewOrders.js,f\9\f98cedab235dee7ee9eb113c12848802e6710999
+S
+#src/elements/display/HomeDisplay.js,7\f\7f190d08f8050929d625874aaf03d3f62e768ca1
+E
+src/cypress.config.js,6\4\64fefc9732aa0d95b953a02fa6c5e1bc259ad9d3
+\
+,src/elements/components/UpdateNewsArticle.js,8\a\8acbc1b3275b7f4841bc14713ba67df586bdd873
+R
+"src/elements/components/Profile.js,6\6\6671b80147b05c36c414a6884fabfba00885c187
+I
+src/elements/css/Home.css,e\d\ed53f49c168d3785551efddc292393744270eae9
+Y
+)src/elements/components/UpdateAddition.js,d\6\d645b9b0bd3e7b639b5088c23c3dc1c1867c1835
+O
+src/elements/css/Navigation.css,4\0\4096c0418c60e4050f06c22f89be888db85df520
+W
+'src/elements/components/AddVideogame.js,9\5\9582c580e72acb2a0fc512fc42b9b001aac930d5
+A
+cypress.config.js,c\b\cb145b820b06c497f093abf819116482af263d56
+<
+package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
+A
+package-lock.json,f\a\fa288d1472d29beccb489a676f68739ad365fc47

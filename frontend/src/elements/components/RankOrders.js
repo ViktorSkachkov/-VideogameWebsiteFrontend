@@ -80,11 +80,11 @@ const RankOrders = (props) => {
     return (
         <center>
             <div className="formBackground"><br/>
-                <select value={period} onChange={handleChangePeriod}>
-                    <option value={0}>In Total</option>
-                    <option value={1}>One Month</option>
-                    <option value={6}>Six Months</option>
-                    <option value={12}>One Year</option>
+                <select className="rank" value={period} onChange={handleChangePeriod}>
+                    <option className="rankValue" value={0}>In Total</option>
+                    <option className="rankValue" value={1}>One Month</option>
+                    <option className="rankValue" value={6}>Six Months</option>
+                    <option className="rankValue" value={12}>One Year</option>
                 </select>
             <h1>Sorted By Income</h1>
                 <div className="displayStatistics">
