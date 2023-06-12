@@ -8,44 +8,8 @@
 :
 
 src/App.js,1\e\1e43fa63aecd2127be034b3fb9d4caa172275714
-K
-src/elements/css/Footer.css,1\b\1b6e038b4700f2073d2bacfa8764f77617e63956
-H
-src/elements/css/App.css,9\0\902c01337fdcb3064507bc54d2cbe5af669b8c80
-W
-'src/elements/css/VideogameCardAdmin.css,2\9\2959efdde3e768e72cb7acd6ccedc3c472c843ba
-Q
-!src/elements/css/AdditionCard.css,3\6\36bb39be53dc7c7b64d61e660771c48f294f73af
-R
-"src/elements/css/VideogameCard.css,8\4\842784e1963bb1e7987d06fd64a5c8a631bd40ce
-J
-src/elements/css/Games.css,2\d\2da381676fdb4af358bbe80f9afe74901a178376
-M
-src/elements/css/Register.css,4\b\4b0d88377813c64df589767a99f82cf05016deab
-R
-"src/elements/css/GameOrderCard.css,e\7\e79bc769adff6f400a1a08610c59db2f80f1b154
-V
-&src/elements/css/AdditionOrderCard.css,7\9\797acc6de1a7292ef4b09bb2870f44caf70c29dd
-V
-&src/elements/css/AdditionCardAdmin.css,3\5\358065d47c5cc43fe530b90ca15c242bf0862f73
-L
-src/elements/css/Profile.css,9\7\97e5120d65260935d2888a48ea425575985f4586
-J
-src/elements/css/Login.css,7\8\7821bfcc0d4b44f3157521434a20cfc0c773402c
-O
-src/elements/css/RankOrders.css,d\a\dad2684619250c102c02224149761283e4bcb92a
 Q
 !src/elements/components/Footer.js,8\1\81ed86725ce48bc97c6a714a834db5057c378bd6
-M
-src/elements/css/ChatRoom.css,6\9\69d5e76eaa2e5f3926c85834769b55a1c5d05b35
-I
-src/elements/css/News.css,0\0\00eea28a908157a54e5c6ec427151c9bb795bc74
-T
-$src/elements/css/NewsArticleCard.css,7\3\7351d144463be2fadb3e3cadcde32cf0efcaf4a2
-M
-src/elements/css/CartItem.css,d\7\d72ef8507b195654d00c8187a4ade1eaf41154f6
-I
-src/elements/css/Cart.css,2\1\21011f1b07cafcf7f901e4776d1426d930567b20
 W
 'src/elements/components/PrivateRoute.js,1\a\1aa4c3e690a03f846e0b1ff72ca52a4966084dd5
 W
@@ -76,34 +40,12 @@ V
 &src/elements/display/ProfileDisplay.js,f\d\fd4c805ace301337f24eca9f1a737567e9723de0
 [
 +src/elements/display/ViewAdditionDisplay.js,c\8\c8f885d84ffb7f0fd13a1ff5ffdd221b0a668238
-X
-(src/elements/css/ViewAdditionDisplay.css,3\c\3cc0115396536320d9e76edfb5335b227da09ca3
-Q
-!src/elements/css/ViewAddition.css,7\a\7a736fca76a6ee34c137ea9cb3474d3e56751917
-T
-$src/elements/css/ViewGameDisplay.css,c\b\cbc8d0de3b61f1cd0c54f9ff1a5d915c67d94954
-M
-src/elements/css/ViewGame.css,f\0\f0c2e1cf259762d9f543c6959538b5b7794c6a4d
 ^
 .src/elements/display/ViewNewsArticleDisplay.js,f\2\f2bfd8691af86ea505c716f3058a2ed574993467
-P
- src/elements/css/AddAddition.css,e\0\e060b793eabe26311ea659fd72cdd2676b037d76
-S
-#src/elements/css/AddNewsArticle.css,8\3\830c41602552fb884b9da07aa7efead887b32bac
-Q
-!src/elements/css/AddVideogame.css,6\7\6798bf9d6f50f96f23fa9cf9934153974adffa16
-T
-$src/elements/css/UpdateVideogame.css,1\8\1853935fb64eb06de3763d3cde40939279666e82
-O
-src/elements/css/ViewOrders.css,4\1\41d3a46c81d022cecf8b1d5d73d2bc820c197e68
 `
 0src/elements/display/UpdateNewsArticleDisplay.js,3\b\3bbd6b405dd85d0bf2963a3ee288fddf9aa27ac1
 ]
 -src/elements/display/UpdateAdditionDisplay.js,b\e\be53a87ccb328494c049dc3d767f5f82fe40236b
-S
-#src/elements/css/UpdateAddition.css,f\c\fc08755c97c63477035ded8e5826de0958886e0e
-V
-&src/elements/css/UpdateNewsArticle.css,7\d\7dff446fc3bc3cf05928cc0a687953604947a612
 T
 $src/elements/display/LoginDisplay.js,8\9\89ac1c8336b0c52209387c460a8cc8a899e5f9c0
 X
@@ -130,8 +72,6 @@ W
 'src/elements/components/AdditionCard.js,b\e\be70d9d7dba563750c2ca08919703f7759c929a5
 Y
 )src/elements/components/AddNewsArticle.js,9\3\93b77dfcf915aba7abab6064f1e0ef9cc24c8dba
-O
-src/elements/components/Home.js,2\e\2e5eceb605d07e375c248dea43516ef19400bc5a
 U
 %src/elements/components/Navigation.js,3\f\3f19070380b7f550d63b91c9379297d1da1f4995
 U
@@ -144,12 +84,8 @@ E
 ,src/elements/components/UpdateNewsArticle.js,8\a\8acbc1b3275b7f4841bc14713ba67df586bdd873
 R
 "src/elements/components/Profile.js,6\6\6671b80147b05c36c414a6884fabfba00885c187
-I
-src/elements/css/Home.css,e\d\ed53f49c168d3785551efddc292393744270eae9
 Y
 )src/elements/components/UpdateAddition.js,d\6\d645b9b0bd3e7b639b5088c23c3dc1c1867c1835
-O
-src/elements/css/Navigation.css,4\0\4096c0418c60e4050f06c22f89be888db85df520
 W
 'src/elements/components/AddVideogame.js,9\5\9582c580e72acb2a0fc512fc42b9b001aac930d5
 A
