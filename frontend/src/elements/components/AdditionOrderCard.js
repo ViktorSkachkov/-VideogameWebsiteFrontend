@@ -6,13 +6,11 @@ import {GamesAPI} from "../API_access/GamesAPI";
 const AdditionOrderCard = (props) => {
     const [additionId, setAdditionId] = useState(props.additionOrder.addition);
     const [addition, setAddition] = useState(null);
-    //const [gameId, setGameId] = useState(0);
     const [game, setGame] = useState(null);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
     useEffect(() => {
         getAddition();
-        //getGame();
     }, []);
     const getAddition = () => {
         AdditionsAPI.getById(additionId, token).then(

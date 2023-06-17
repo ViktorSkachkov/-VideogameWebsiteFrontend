@@ -1,13 +1,11 @@
 import {Link, useNavigate} from "react-router-dom";
 import '../css/Navigation.css';
 import {useState, useEffect} from "react";
-import {GameOrdersAPI} from "../API_access/GameOrdersAPI";
-import {AdditionOrdersAPI} from "../API_access/AdditionOrdersAPI";
 
 const Navigation = (props) => {
     const [roles, setRoles] = useState([]);
     const [id, setId] = useState(0);
-    const [check, setCheck] = useState(false);
+    //const [check, setCheck] = useState(false);
 
     let navigate = useNavigate();
 

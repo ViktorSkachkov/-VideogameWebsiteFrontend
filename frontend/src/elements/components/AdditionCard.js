@@ -36,7 +36,9 @@ const AdditionCard = (addition) => {
             </div>
             <div className="">
                 <center>
-                    <h1>{addition.addition.name}</h1>
+                    {addition.addition.name.length > 28 ?
+                        <h1>{addition.addition.name.substr(0, 28)}...</h1> :
+                        <h1>{addition.addition.name}</h1>}
                 </center>
             </div>
             <div className="lowerPart">

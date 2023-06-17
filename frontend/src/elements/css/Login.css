@@ -1,14 +1,10 @@
 .formLoginLabelUsername {
     padding-right: 100px;
-    /*color: beige;*/
 }
 .formLoginLabelPassword {
     padding-right: 105px;
-    /*color: beige;*/
 }
-/*.loginText {
-    color: beige;
-}*/
+
 .normalButton {
     background-color: #fe0000;
     margin-left: 10px;

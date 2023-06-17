@@ -4,7 +4,6 @@ const axiosInstance = axios.create({
     baseURL: 'http://localhost:8090/users'
 });
 
-//const accessToken = JSON.parse(localStorage.getItem("accessToken"));
 let accessToken = localStorage.getItem("accessToken");
 if(accessToken != "undefined") {
     accessToken = JSON.parse(localStorage.getItem("accessToken"));

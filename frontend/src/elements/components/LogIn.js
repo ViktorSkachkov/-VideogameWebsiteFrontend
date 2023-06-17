@@ -30,9 +30,8 @@ const LogIn = (updateUser) => {
                 localStorage.removeItem("accessToken");
 
                 localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
-                updateUser.updateUser(/*response.data.accessToken*/);
+                updateUser.updateUser();
                 navigate("/");
-                //window.location.reload();
             }
         )
             .catch(function (error) {

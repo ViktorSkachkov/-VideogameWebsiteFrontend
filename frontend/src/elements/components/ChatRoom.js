@@ -2,10 +2,7 @@ import SockJS from 'sockjs-client';
 import {over} from 'stompjs';
 import '../css/ChatRoom.css';
 import {useEffect, useState} from "react";
-//import {UsersAPI} from "../API_access/UsersAPI";
-//import {useParams} from "react-router-dom";
 import jwtDecode from "jwt-decode";
-//const ENDPOINT = "http://localhost:8090/ws";
 
 var stompClient = null;
 

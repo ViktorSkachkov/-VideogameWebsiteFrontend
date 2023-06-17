@@ -5,7 +5,6 @@ import {useParams} from "react-router-dom";
 import CartItemGame from "./CartItemGame";
 import CartItemAddition from "./CartItemAddition";
 import '../css/Cart.css';
-import {forEach} from "react-bootstrap/ElementChildren";
 import jwtDecode from "jwt-decode";
 
 const Cart = (props) => {

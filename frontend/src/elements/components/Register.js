@@ -1,7 +1,6 @@
 import {useState} from "react";
 import '../css/Register.css';
 import RegisterDisplay from "../display/RegisterDisplay";
-import {LoginAPI} from "../API_access/LoginAPI";
 import {UsersAPI} from "../API_access/UsersAPI";
 import {useNavigate} from "react-router-dom";
 

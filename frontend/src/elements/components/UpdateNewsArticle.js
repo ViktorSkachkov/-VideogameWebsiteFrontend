@@ -9,6 +9,7 @@ const UpdateNewsArticle = (props) => {
     const [gameId, setGameId] = useState();
     const [image, setImage] = useState();
     const [title, setTitle] = useState();
+    const [initialTitle, setInitialTitle] = useState();
     const [text, setText] = useState();
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
 
@@ -43,6 +44,8 @@ const UpdateNewsArticle = (props) => {
             function (response) {
                 let {text, title, image, gameId} = response.data;
                 setTitle(title);
+                setInitialTitle(title);
+                setInitialTitle(title);
                 setImage(image);
                 setText(text);
                 setGameId(gameId);
@@ -69,32 +72,51 @@ const UpdateNewsArticle = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        NewsAPI.validate(title, token).then(
-            function (response) {
-                if(response.data.confirm == true) {
-                    alert("News title already exists!");
-                    return false;
+        if(initialTitle != title) {
+            NewsAPI.validate(title, token).then(
+                function (response) {
+                    if (response.data.confirm == true) {
+                        alert("News title already exists!");
+                        return false;
+                    } else {
+                        let data = {
+                            "id": id,
+                            "gameId": gameId,
+                            "image": image,
+                            "text": text,
+                            "title": title,
+                        };
+                        NewsAPI.update(data, token).then(
+                            function (response) {
+                                navigate(`/news`);
+                                alert('News article successfully updated!');
+                            }
+                        )
+                            .catch(function (error) {
+                                console.log(error);
+                            })
+                    }
                 }
-                else {
-                    let data = {
-                        "id": id,
-                        "gameId": gameId,
-                        "image": image,
-                        "text": text,
-                        "title": title,
-                    };
-                    NewsAPI.update(data, token).then(
-                        function (response) {
-                            navigate(`/news`);
-                            alert('News article successfully updated!');
-                        }
-                    )
-                        .catch(function (error) {
-                            console.log(error);
-                        })
+            )
+        }
+        else {
+            let data = {
+                "id": id,
+                "gameId": gameId,
+                "image": image,
+                "text": text,
+                "title": title,
+            };
+            NewsAPI.update(data, token).then(
+                function (response) {
+                    navigate(`/news`);
+                    alert('News article successfully updated!');
                 }
-            }
-        )
+            )
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
     }
 
     return (

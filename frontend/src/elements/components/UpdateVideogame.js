@@ -8,6 +8,7 @@ import jwtDecode from "jwt-decode";
 const UpdateVideogame = (props) => {
     const [image, setImage] = useState();
     const [name, setName] = useState();
+    const [initialName, setInitialName] = useState();
     const [price, setPrice] = useState();
     const [description, setDescription] = useState();
     const [featured, setFeatured] = useState(false);
@@ -44,6 +45,7 @@ const UpdateVideogame = (props) => {
             function (response) {
                 let {description, price, name, image, featured} = response.data;
                 setName(name);
+                setInitialName(name);
                 setImage(image);
                 setPrice(price);
                 setDescription(description);
@@ -74,33 +76,55 @@ const UpdateVideogame = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        GamesAPI.validate(name, token).then(
-            function (response) {
-                if(response.data.confirm == true) {
-                    alert("Game title already exists!");
-                    return false;
-                }
-                else {
-                    let data = {
-                        "id": id,
-                        "image": image,
-                        "description": description,
-                        "price": price,
-                        "name": name,
-                        "featured": featured,
+        if(initialName != name) {
+            GamesAPI.validate(name, token).then(
+                function (response) {
+                    if(response.data.confirm == true) {
+                        alert("Game title already exists!");
+                        return false;
                     }
-                    GamesAPI.update(data, token).then(
-                        function (response) {
-                            navigate(`/games`);
-                            alert('Videogame successfully updated!');
+                    else {
+                        let data = {
+                            "id": id,
+                            "image": image,
+                            "description": description,
+                            "price": price,
+                            "name": name,
+                            "featured": featured,
                         }
-                    )
-                        .catch(function (error) {
-                            console.log(error);
-                        })
+                        GamesAPI.update(data, token).then(
+                            function (response) {
+                                navigate(`/games`);
+                                alert('Videogame successfully updated!');
+                            }
+                        )
+                            .catch(function (error) {
+                                console.log(error);
+                            })
+                    }
                 }
+            )
+        }
+        else {
+            let data = {
+                "id": id,
+                "image": image,
+                "description": description,
+                "price": price,
+                "name": name,
+                "featured": featured,
             }
-        )
+            GamesAPI.update(data, token).then(
+                function (response) {
+                    navigate(`/games`);
+                    alert('Videogame successfully updated!');
+                }
+            )
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
+
     }
 
     return (

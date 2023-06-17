@@ -8,7 +8,7 @@ const ProfileDisplay = (props) => {
             {props.user != null ? <>
                 <center className="formBackground"><br/>
                     <h1>
-                        Your Profile! Welcome {props.username}
+                        Your Profile! Welcome {props.initialUsername}
                     </h1>
                     <h3>Fill in your personal information</h3>
                     <p>Due to security measures you will not be able to see your password.</p><br/>
@@ -29,9 +29,8 @@ const ProfileDisplay = (props) => {
                         <label htmlFor="bankAccount" className="formLabelBankAccount">Bank Account</label><br/>
                         <input type="bankAccount" value={props.bankAccount} onChange={props.onBankAccount} className="Label"/><br/><br/>
 
-                        <button type="submit" className="profileButton">Update Account</button>      {props.roles.some(r => r == "CUSTOMER") ?
-                        <button className="profileButton" onClick={() => props.deleteProfile(props.id)}>Delete Account</button> :
-                        <></>}  <button className="profileButton" onClick={() => navigate(`/orders/${props.id}`)}>View Orders</button>
+                        <button type="submit" className="profileButton">Update Account</button> {props.roles.some(r => r == "CUSTOMER") ? <button className="profileButton" onClick={() => navigate(`/orders/${props.id}`)}>View Orders</button> :
+                        <></>}
                     </form>
                 </center><br/><br/><br/><br/>
             </> : <p>Loading...</p>}

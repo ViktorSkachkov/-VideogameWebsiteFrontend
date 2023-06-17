@@ -1,7 +1,6 @@
 import {useState, useEffect} from "react";
 import '../css/News.css';
 import {NewsAPI} from "../API_access/NewsAPI";
-import {useNavigate} from "react-router-dom";
 import NewsDisplay from "../display/NewsDisplay";
 import {GamesAPI} from "../API_access/GamesAPI";
 import jwtDecode from "jwt-decode";
@@ -12,7 +11,6 @@ const News = (props) => {
     const [roles, setRoles] = useState([]);
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
     const [videogames, setVideogames] = useState([]);
-    const [counter, setCounter] = useState(0);
 
     useEffect(() => {
         getRoles();

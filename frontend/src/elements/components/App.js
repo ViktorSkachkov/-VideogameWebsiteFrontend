@@ -37,23 +37,21 @@ function App() {
     const updateUser = (/*accessToken*/) => {
         const accessToken = JSON.parse(localStorage.getItem("accessToken"));
         setToken(accessToken);
-        console.log("token " + accessToken);
+
         var decode = jwtDecode(accessToken);
-        console.log("decode " + decode);
+
         setExpirationDate(decode.exp);
         const userID = decode.userId;
         setID(decode.userId);
-        console.log("userID " + userID);
+
 
         UsersAPI.getById(userID, accessToken).then(
             function (response) {
                 const token = JSON.parse(localStorage.getItem("accessToken"));
-                console.log("token2 " + userID);
-                //var decode = jwtDecode(accessToken);
-                console.log("decode2 " + userID);
+
                 setLoggedUser(response.data);
                 let token_serialized = JSON.stringify(response.data);
-                console.log("token_serialized " + token_serialized);
+
                 localStorage.setItem("token", token_serialized);
                 window.location.reload();
             }

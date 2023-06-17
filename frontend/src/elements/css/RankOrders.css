@@ -4,7 +4,6 @@ table, th, td {
 }
 .displayStatistics {
     display: flex;
-    /*align-items: center;*/
     justify-content: center;
 }
 .displayStatisticsGames {

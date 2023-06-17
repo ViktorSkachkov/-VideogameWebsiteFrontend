@@ -9,6 +9,7 @@ const UpdateAddition = (props) => {
     const [gameId, setGameId] = useState();
     const [image, setImage] = useState();
     const [name, setName] = useState();
+    const [initialName, setInitialName] = useState();
     const [price, setPrice] = useState();
     const [description, setDescription] = useState();
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("accessToken")));
@@ -44,6 +45,7 @@ const UpdateAddition = (props) => {
             function (response) {
                 let {description, price, name, image, gameId} = response.data;
                 setName(name);
+                setInitialName(name);
                 setImage(image);
                 setPrice(price);
                 setDescription(description);
@@ -73,6 +75,7 @@ const UpdateAddition = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if(initialName != name) {
         AdditionsAPI.validate(name, token).then(
             function (response) {
                 if(response.data.confirm == true) {
@@ -100,6 +103,26 @@ const UpdateAddition = (props) => {
                 }
             }
         )
+    }
+    else {
+            let data = {
+                "id": id,
+                "gameId": gameId,
+                "image": image,
+                "description": description,
+                "price": price,
+                "name": name,
+            }
+            AdditionsAPI.update(data, token).then(
+                function (response) {
+                    navigate(`/additions`);
+                    alert('Addition successfully updated!');
+                }
+            )
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
     }
 
     return (

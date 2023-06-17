@@ -9,6 +9,7 @@ import jwtDecode from "jwt-decode";
 const Profile = (props) => {
     const [user, setUser] = useState(null);
     const [username, setUsername] = useState("");
+    const [initialUsername, setInitialUsername] = useState("");
     const [pwd, setPwd] = useState("");
     const [repeatPwd, setRepeatPwd] = useState("");
     const [email, setEmail] = useState("");
@@ -18,8 +19,6 @@ const Profile = (props) => {
 
     let params = useParams();
     const id = params.id;
-
-    let navigate = useNavigate();
 
     useEffect(() => {
         getUser();
@@ -57,58 +56,34 @@ const Profile = (props) => {
             if(pwd != repeatPwd) {
                 alert('The password and the repeated password are different!');
             }
+        let data = {
+            "id": id,
+            "username": username,
+            "pwd": pwd,
+            "email": email,
+            "bankAccount": bankAccount,
+            "userRoles": user.userRoles,
+        }
 
-        UsersAPI.validateUsername(username).then(
+
+
+        UsersAPI.update(data, token).then(
             function (response) {
-                if(response.data.confirm == true) {
-                    alert("Username already exists!");
-                    return false;
-                }
-                else {
-                    UsersAPI.validatePassword(pwd).then(
-                        function (response) {
-                            if(response.data.confirm == true) {
-                                alert("Password already exists!");
-                                return false;
-                            }
-                            else {
-                                let data = {
-                                    "id": id,
-                                    "username": username,
-                                    "pwd": pwd,
-                                    "email": email,
-                                    "bankAccount": bankAccount,
-                                    "userRoles": user.userRoles,
-                                }
-
-
-
-                                UsersAPI.update(data, token).then(
-                                    function (response) {
-                                        setUser(response.data);
-                                        //cookies.set("accessToken", response.data.accessToken, { path: '/' });
-                                        props.removeUser();
-                                        localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
-                                        props.updateUser();
-                                    }
-                                )
-                                    .catch(function (error) {
-                                        console.log(error);
-                                    })
-                            }
-                        }
-                    )
-                }
+                setUser(response.data);
+                localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
+                props.updateUser();
             }
         )
+            .catch(function (error) {
+                console.log(error);
+            })
+
     };
 
     function deleteProfile(userId, token) {
-        UsersAPI.delete(userId).then(
+        UsersAPI.delete(userId, token).then(
             function (response) {
-                localStorage.removeItem("token");
-                navigate("/");
-                window.location.reload();
+                props.removeUser();
             }
         )
             .catch(function (error) {
@@ -120,8 +95,9 @@ const Profile = (props) => {
         UsersAPI.getById(id, token).then(
             function (response) {
                 let {username, email, bankAccount} = response.data;
-                setRepeatPwd(pwd);
+                setInitialUsername(username)
                 setUsername(username);
+                setInitialUsername(username);
                 setEmail(email);
                 setBankAccount(bankAccount);
                 setUser(response.data);
@@ -152,7 +128,7 @@ const Profile = (props) => {
         <ProfileDisplay updateProfile={updateProfile} deleteProfile={deleteProfile}
                         onChangeUsername={onChangeUsername} onChangePwd={onChangePwd} onChangeRepeatPwd={onChangeRepeatPwd} onChangeEmail={onChangeEmail} onBankAccount={onBankAccount}
                         id={id} user={user} username={username} pwd={pwd} repeatPwd={repeatPwd} email={email} bankAccount={bankAccount}
-        roles={roles}/>
+        roles={roles} initialUsername={initialUsername}/>
     )
 }
 export default Profile;
