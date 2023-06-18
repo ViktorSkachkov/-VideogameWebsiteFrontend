@@ -27,10 +27,10 @@ const UpdateNewsArticle = (props) => {
         if(token != null) {
             const decode = jwtDecode(token);
             const exp = decode.exp;
-            console.log("Expiration " + exp);
+
             if (exp) {
                 const currentTime = new Date().getTime() / 1000;
-                console.log("Current  " + currentTime);
+
                 if (currentTime > exp) {
                     props.removeUser();
                     window.location.reload();

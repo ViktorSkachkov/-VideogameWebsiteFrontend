@@ -9,6 +9,7 @@ const NewsDisplay = (props) => {
         <div>
             <center>
                 <h1 className="titleNews">NEWS</h1>
+                <h4 className="titleShop">Filter on topic:</h4>
                 <select className="filter" value={props.gameId} onChange={props.handleChangeVideogame}>
                     <option value={-1}>All</option>
                     <option value={0}>General</option>

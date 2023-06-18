@@ -19,7 +19,6 @@ const CartItemGame = (props) => {
         GamesAPI.getById(gameId, token).then(
             function (response) {
                 setGame(response.data);
-                //increaseFinalPrice(response.data);
             }
         )
             .catch(function (error) {

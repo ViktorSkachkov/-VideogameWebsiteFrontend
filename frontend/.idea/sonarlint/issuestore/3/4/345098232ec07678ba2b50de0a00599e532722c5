@@ -1,0 +1,5 @@
+
+Zjavascript:S1481"9Remove the declaration of the unused 'setToken' variable.(û‰ÚÐüÿÿÿÿ
+Wjavascript:S1854"6Remove this useless assignment to variable "setToken".(û‰ÚÐüÿÿÿÿ
+Jjavascript:S3504C")Unexpected var, use let or const instead.(Â¼œÔýÿÿÿÿ
+Yjavascript:S1125R"6Refactor the code to avoid using this boolean literal.(Ó½‚ø8ó§×ËŒ1

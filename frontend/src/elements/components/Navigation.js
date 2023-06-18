@@ -5,7 +5,6 @@ import {useState, useEffect} from "react";
 const Navigation = (props) => {
     const [roles, setRoles] = useState([]);
     const [id, setId] = useState(0);
-    //const [check, setCheck] = useState(false);
 
     let navigate = useNavigate();
 

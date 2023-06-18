@@ -9,6 +9,7 @@ const AdditionsDisplay = (props) => {
         <>
             <center>
                 <h1 className="titleShop">ADDITIONS</h1>
+                <h4 className="titleShop">Filter on videogame:</h4>
                 <select className="filter" value={props.gameId} onChange={props.handleChangeVideogame}>
                     <option value={-1}>All</option>
                     {props.videogames.map((videogame) => (
